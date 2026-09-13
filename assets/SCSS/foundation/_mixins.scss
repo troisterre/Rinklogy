@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+// タブレット（768px）以上の画面で適用
+@mixin tab {
+  @media screen and (min-width: $breakpoint-tab) {
+    @content;
+  }
+}
+
+// PC（960px）以上の画面で適用
+@mixin pc {
+  @media screen and (min-width: $breakpoint-pc) {
+    @content;
+  }
+}

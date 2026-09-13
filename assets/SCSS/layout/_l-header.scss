@@ -1,0 +1,57 @@
+@use "../foundation/mixins" as *;
+
+// ==========================================================================
+// ヘッダー共通レイアウト
+// ==========================================================================
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-height-sp;
+    padding: 0 20px;
+
+    @include pc {
+      height: $header-height-pc;
+      padding: 0 40px;
+    }
+  }
+
+  &__logo {
+    margin: 0;
+    line-height: 1;
+
+    img {
+      width: 120px;
+      height: auto;
+      display: block;
+
+      @include pc {
+        width: 150px;
+      }
+    }
+  }
+
+  // PC用ナビ（スマホ・タブレットでは非表示）
+  &__nav {
+    display: none;
+
+    @include pc {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  &__cta {
+    margin-left: 20px;
+  }
+}

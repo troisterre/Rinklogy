@@ -1,0 +1,23 @@
+/* ==============================================
+   Foundation: Variables (変数)
+   ============================================== */
+
+// カラーパレット
+$base_background: #f8fafc;
+$border: #c6dbde;
+$Contact-gra: linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%);
+$cta-button-gra: linear-gradient(87deg, #10748d 29.62%, #5eacbf 91.51%);
+$gra_01: linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%);
+$gra-radial: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 56.25%, rgba(230, 243, 245, 0.6) 100%), #fff;
+$logo1: #113058;
+$logo2: #07808e;
+$text-black: #020d1b;
+$white: #ffffff;
+
+// フォントファミリー
+$font-sans: "Noto Sans JP", sans-serif; // 全体の基本フォント（クリーンで読みやすい）
+$font-en: "Roboto", sans-serif; // 英語タイトル・数字用
+
+//変数定義
+$breakpoint-tab: 768px;
+$breakpoint-pc: 960px;
