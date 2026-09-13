@@ -1,0 +1,31 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.c-gnav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; // スマホ（ドロワー内）は縦並び
+  gap: 24px;
+
+  @include pc {
+    flex-direction: row; // PCは横並び
+    gap: 32px;
+  }
+
+  &__item {
+    a {
+      text-decoration: none;
+      color: $color-text;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+      display: block;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
