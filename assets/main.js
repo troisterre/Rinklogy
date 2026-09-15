@@ -1,11 +1,9 @@
-// 全ての処理を DOMContentLoaded の中にまとめることで、変数の衝突（エラー）を防ぎます
 document.addEventListener("DOMContentLoaded", () => {
   // =========================================================
   // 1. ヘッダーのスクロール処理
   // =========================================================
   const headerElement = document.querySelector(".l-header");
 
-  // ヘッダーが存在する場合のみ処理を実行
   if (headerElement) {
     window.addEventListener("scroll", function () {
       const scrollY = window.scrollY;
@@ -28,25 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawerLinks = drawer ? drawer.querySelectorAll("a") : [];
 
   if (hamburger && drawer && overlay) {
-    // メニューの開閉処理
     const toggleMenu = () => {
-      console.log("ハンバーガーがクリックされました！");
       const isExpanded = hamburger.getAttribute("aria-expanded") === "true";
 
-      // WAI-ARIA属性の更新（アクセシビリティ対応）
       hamburger.setAttribute("aria-expanded", !isExpanded);
       drawer.setAttribute("aria-hidden", isExpanded);
 
-      // クラスの切り替え（アニメーション発火）
       hamburger.classList.toggle("is-active");
       drawer.classList.toggle("is-active");
       overlay.classList.toggle("is-active");
 
-      // 背景のスクロールロックを切り替え
       document.body.classList.toggle("is-locked");
     };
 
-    // メニューを閉じる専用処理
     const closeMenu = () => {
       hamburger.setAttribute("aria-expanded", "false");
       drawer.setAttribute("aria-hidden", "true");
@@ -58,13 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("is-locked");
     };
 
-    // ハンバーガーボタンのクリックイベント
     hamburger.addEventListener("click", toggleMenu);
-
-    // オーバーレイ（背景暗幕）クリックで閉じる
     overlay.addEventListener("click", closeMenu);
 
-    // ドロワー内のリンク（ページ内アンカー等）をクリックしたら閉じる
     drawerLinks.forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
@@ -76,9 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".js-hero-slide");
   const slideCount = slides.length;
 
-  // スライドが2枚以上ある場合のみ実行
   if (slideCount > 1) {
-    let currentSlideIndex = 0; // 他の処理と変数名が被らないように変更
+    let currentSlideIndex = 0;
 
     const showNextSlide = () => {
       slides[currentSlideIndex].classList.remove("is-active");
@@ -211,5 +198,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateCards();
     startAutoPlay();
+  }
+
+  // =========================================================
+  // 5. ご相談スライダー（横スクロール制御）
+  // =========================================================
+  {
+    // ★ 変数の重複を防ぐためにブロックで囲んでいます
+    const consultSliderList = document.querySelector(".js-slider-list");
+
+    if (consultSliderList) {
+      const prevBtnSp = document.querySelector(".js-consult-prev-sp");
+      const nextBtnSp = document.querySelector(".js-consult-next-sp");
+      const prevBtnPc = document.querySelector(".js-consult-prev");
+      const nextBtnPc = document.querySelector(".js-consult-next");
+      const dots = document.querySelectorAll(".js-consult-dot");
+      const items = consultSliderList.querySelectorAll(".js-slider-item");
+
+      const scrollSlider = (direction) => {
+        const item = items[0];
+        if (!item) return;
+
+        const itemWidth = item.offsetWidth;
+        const gap =
+          parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
+        const scrollAmount = itemWidth + gap;
+
+        consultSliderList.scrollBy({
+          left: direction === "next" ? scrollAmount : -scrollAmount,
+          behavior: "smooth",
+        });
+      };
+
+      const updateDots = () => {
+        if (dots.length === 0 || items.length === 0) return;
+
+        const scrollLeft = consultSliderList.scrollLeft;
+        const itemWidth = items[0].offsetWidth;
+        const gap =
+          parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
+
+        const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add("is-active");
+          } else {
+            dot.classList.remove("is-active");
+          }
+        });
+      };
+
+      if (prevBtnSp)
+        prevBtnSp.addEventListener("click", () => scrollSlider("prev"));
+      if (nextBtnSp)
+        nextBtnSp.addEventListener("click", () => scrollSlider("next"));
+      if (prevBtnPc)
+        prevBtnPc.addEventListener("click", () => scrollSlider("prev"));
+      if (nextBtnPc)
+        nextBtnPc.addEventListener("click", () => scrollSlider("next"));
+
+      consultSliderList.addEventListener("scroll", () => {
+        clearTimeout(consultSliderList.scrollTimeout);
+        consultSliderList.scrollTimeout = setTimeout(updateDots, 100);
+      });
+    }
   }
 });

@@ -2,15 +2,20 @@
 @use "../../foundation/variables" as *;
 .p-lead {
   display: flex;
-  // width: 359px; // 固定値だとスマホサイズが変わった時に崩れるため100%に上書きします
   width: 100%;
-  padding: 12px 10px 10px 10px; // 下部の線との間隔のため、bottomに10px追加
+  padding: 12px 10px 10px 10px;
   background-color: #fff;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
   align-self: stretch;
-  position: relative; // 透かし文字と下線の基準位置にする
+  position: relative;
+
+  // ★ 修正：タブレット以上でも枠自体は消さず、白背景と余白だけをリセット
+  @include tab {
+    background-color: transparent;
+    padding: 0;
+  }
 
   // 「私たちの役割」ラベル
   &__label {
@@ -20,11 +25,16 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.6; // 160%
+    line-height: 1.6;
     letter-spacing: 0.24px;
-    background-color: $logo1; // 画像からの推測（濃紺）
-    padding: 4px 10px; // 余白（画像からの推測値）
-    border-radius: 4px; // 角丸（画像からの推測値）
+    background-color: $logo1;
+    padding: 4px 10px;
+    border-radius: 4px;
+
+    // ★ 修正：タブレット以上でラベルを非表示
+    @include tab {
+      display: none;
+    }
   }
 
   // 本文
@@ -35,10 +45,16 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    line-height: 1.7; // 170%
+    line-height: 1.7;
     letter-spacing: 0.28px;
     position: relative;
-    z-index: 2; // 透かし文字より上に表示
+    z-index: 2;
+
+    // タブレット以上のテキストの大きさ調整が必要な場合はここに追記
+    @include tab {
+      font-size: 15px; // デザインに合わせて微調整してください
+      line-height: 1.8;
+    }
   }
 
   // 右下の透かし文字「OUR ROLE」
@@ -46,13 +62,18 @@
     position: absolute;
     right: 10px;
     bottom: 5px;
-    color: rgba(7, 128, 142, 0.2); // $logo2を薄くしたような色（微調整してください）
+    color: rgba(7, 128, 142, 0.2);
     font-family: $font-en;
-    font-size: 24px; // 画像からの推測値
+    font-size: 24px;
     font-weight: 900;
     letter-spacing: 0.05em;
     z-index: 1;
     pointer-events: none;
+
+    // ★ 修正：タブレット以上で透かし文字を非表示
+    @include tab {
+      display: none;
+    }
   }
 
   // 下部のグラデーション線
@@ -60,8 +81,13 @@
     content: "";
     display: block;
     width: 100%;
-    height: 2px; // 線の太さ
-    background: $gra_01; // 変数で定義されているグラデーションを使用
+    height: 2px;
+    background: $gra_01;
     margin-top: 8px;
+
+    // ★ 修正：タブレット以上で下線を非表示
+    @include tab {
+      display: none;
+    }
   }
 }

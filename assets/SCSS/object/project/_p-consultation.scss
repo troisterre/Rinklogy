@@ -1,0 +1,259 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.p-consultation {
+  display: flex;
+  width: 100%;
+  padding: 64px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+  background: var(--base_background, #f8fafc);
+  @include tab {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px;
+    @include tab {
+      padding: 0 40px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 16px;
+    .c-slider-btn {
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); // 軽い影をつける
+
+      // 矢印の色を紺色（テキストカラー）に変更
+      &::before {
+        border-color: #0f172a;
+      }
+    }
+  }
+
+  // ★重複していた __slider を統合しました
+  &__slider {
+    width: 100%;
+    overflow: visible; // SPでスライドの端を見せるため
+
+    @include tab {
+      overflow: hidden;
+    }
+  }
+
+  // ★外に出てしまっていた __list を中に入れました
+  &__list {
+    display: flex;
+    gap: 16px; // SPのカード間の余白
+    overflow-x: auto; // 横スクロールを許可
+    scroll-snap-type: x mandatory; // ピタッと止まるスナップ機能
+    scroll-behavior: smooth; // なめらかにスクロールさせる
+    padding: 0 0 24px;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tab {
+      gap: 24px;
+      padding: 0 20% 24px;
+    }
+  }
+
+  // ★外に出てしまっていた __item を中に入れました
+  &__item {
+    // ★ポイント②：左右32pxの余白を除いた中央スペースに100%でピッタリ収める
+    flex: 0 0 100%;
+    max-width: 340px; // 画面が広いスマホでカードが間延びしないための最大幅
+    scroll-snap-align: center; // 常に中央でピタッと止まる
+
+    @include tab {
+      flex: 0 0 60%;
+      max-width: none; // スマホ用の制限を解除
+      scroll-snap-align: center; // タブレットでも中央でピタッと止める
+    }
+
+    @include pc {
+      // PC用の表示（例: 4枚並びなど、Figmaに合わせて調整してください）
+      flex: 0 0 calc(100% / 4 - 18px);
+      scroll-snap-align: start;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+  }
+}
+
+// ==========================================
+// コンサルカード (Component)
+// ==========================================
+.c-consult-card {
+  overflow: hidden;
+  display: flex;
+  width: 100%; // ★ 300px固定から100%に変更（レスポンシブ対応）
+  height: 100%; // ★ スライダー内でカードの高さを均一にするため追加
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 12px;
+  border: 1px solid var(--border, #c6dbde);
+  background: #fff;
+  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
+
+  &__img {
+    position: relative;
+    width: 100%;
+    height: 160px; // Figmaの指定値
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: $logo2;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    letter-spacing: 0.05em;
+    z-index: 2; // 画像より上に表示
+    margin: 16px;
+    color: #fff;
+  }
+
+  &__body {
+    display: flex;
+    flex-grow: 1;
+    height: 204px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  &__title {
+    font-weight: 700;
+    color: $text-black;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 22.4px */
+    margin-bottom: 12px;
+  }
+
+  &__desc {
+    color: #666;
+    margin-bottom: 31px;
+    flex-grow: 1;
+    color: var(--text-black, #020d1b);
+    font-size: 13px;
+    line-height: 160%; /* 20.8px */
+  }
+
+  &__footer {
+    width: 100%;
+    border-top: 1px solid #c6dbde;
+    padding-top: 12px;
+  }
+
+  &__footer-title {
+    display: block;
+    font-size: 11px;
+    color: $logo2;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--logo2, #07808e);
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 6px;
+    align-self: stretch;
+  }
+
+  &__tag {
+    font-size: 11px;
+    color: $logo2;
+    border: 1px solid var(--border, #c6dbde);
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: flex-start;
+    color: var(--logo2, #07808e);
+    font-weight: 500;
+  }
+}
+// ==========================================
+// スライダー操作ボタン (Component)
+// ==========================================
+.c-slider-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px; // ★Figmaのサイズに合わせて調整してください（例: 40px, 48pxなど）
+  height: 44px;
+  background-color: $logo2; // メインの緑色
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  padding: 0;
+
+  // ホバー（タップ）した時に少し薄くする
+  &:hover {
+    opacity: 0.8;
+  }
+
+  // 白い矢印（CSSのボーダーで描画）
+  &::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+  }
+
+  // 「前へ」ボタン（左向き）
+  &--prev::before {
+    transform: rotate(-135deg);
+    margin-left: 4px; // 矢印が視覚的にド真ん中に見えるための微調整
+  }
+
+  // 「次へ」ボタン（右向き）
+  &--next::before {
+    transform: rotate(45deg);
+    margin-right: 4px; // 矢印が視覚的にド真ん中に見えるための微調整
+  }
+}

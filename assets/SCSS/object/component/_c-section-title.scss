@@ -1,0 +1,105 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+.c-section-title {
+  color: var(--text-black, #020d1b);
+  font-family: "Noto Sans JP";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 32.5px */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 12px;
+  position: relative;
+  padding-bottom: 16px;
+  @include tab {
+    font-size: 42px;
+    text-align: center;
+  }
+  @include pc {
+    font-size: 42px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; // 左から50%の位置に起点を置く
+    transform: translateX(-50%); // 自身の幅の半分だけ左に戻して「ド真ん中」にする
+    width: 64px;
+    height: 2px;
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+
+    @include tab {
+      background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    }
+  }
+  &__sub {
+    color: var(--logo2, #07808e);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-align: center;
+    @include tab {
+      font-size: 2.4rem;
+    }
+    @include pc {
+      font-size: 24px;
+      font-style: normal;
+      letter-spacing: 3px;
+    }
+  }
+
+  &__catch {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 48px */
+    letter-spacing: 1.28px;
+
+    &span {
+      color: var(--logo2, #07808e);
+      font-family: "Noto Sans JP";
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      letter-spacing: 1.28px;
+    }
+  }
+  &__text {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%; /* 27.2px */
+  }
+  &__text--strong {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 170%; /* 34px */
+    &span {
+      color: var(--logo2, #07808e);
+    }
+  }
+}
+.c-section-title--left {
+  text-align: center;
+
+  @include tab {
+    text-align: left;
+    &::after {
+      left: 0;
+      transform: none; // 中央寄せを解除
+    }
+  }
+}

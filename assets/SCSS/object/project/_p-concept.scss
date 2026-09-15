@@ -1,0 +1,162 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+.p-concept {
+  position: relative;
+  padding: 80px 20px;
+  overflow: hidden;
+  display: flex;
+  padding: 60px 8px;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+
+  @include tab {
+    display: flex;
+    padding: 100px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+  }
+  @include pc {
+    width: 100%;
+    align-items: center;
+    gap: 5.6rem;
+  }
+
+  // ==========================================
+  // 背景のうずまきグラデーション画像
+  // ==========================================
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%); // ど真ん中に配置
+    width: 464px;
+    height: 396px;
+    aspect-ratio: 116/99;
+    // ★Figmaから書き出したうずまきの背景画像パスを指定してください
+    background: url("/assets/images/company-bg-image.png") center/contain no-repeat;
+    z-index: -1; // テキストの後ろに配置
+    pointer-events: none;
+    @include tab {
+      width: 651px;
+      height: 556px;
+      aspect-ratio: 185/158;
+      top: 50%;
+    }
+  }
+
+  // ==========================================
+  // レイアウト・コンテンツ
+  // ==========================================
+  &__inner {
+    max-width: 1120px; // PC表示時の最大幅
+    margin: 0 auto;
+  }
+
+  &__content {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    // タブレット以上で横並び（2カラム）にする
+    @include tab {
+      display: flex;
+      padding-left: 40px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      align-self: stretch;
+    }
+    @include pc {
+      margin-top: 56px;
+      padding-left: 90px;
+      gap: 120px;
+    }
+  }
+
+  // キャッチコピー
+  &__catch {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%; /* 48px */
+    letter-spacing: 1.28px;
+
+    @include tab {
+      width: 48.9%;
+      font-size: 36px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 170%; /* 61.2px */
+      letter-spacing: 1.44px;
+      text-align: start;
+    }
+    @include pc {
+      font-size: 40px;
+      letter-spacing: 1.6px;
+    }
+    span {
+      color: $logo2; // 青緑色（対話 の部分）
+    }
+  }
+
+  // テキストエリア
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 6px 8px 0 8px;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+    @include tab {
+      width: 51%;
+    }
+    @include pc {
+      padding-top: 6px;
+      gap: 28px;
+    }
+  }
+
+  // 標準テキスト
+  &__text {
+    font-size: 20px;
+    line-height: 2;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: $text-black;
+
+    @include tab {
+      font-size: 16px;
+    }
+
+    // 太字強調テキスト
+    &--strong {
+      color: #1f2125;
+      font-weight: 700;
+      font-size: 20px;
+      text-align: center;
+      letter-spacing: 0;
+      @include tab {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 170%; /* 34px */
+        letter-spacing: 0.4px;
+        text-align: start;
+      }
+
+      span {
+        color: $logo2; // 青緑色（向き合い、考え 等の部分）
+      }
+    }
+  }
+}

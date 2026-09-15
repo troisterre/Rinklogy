@@ -44,8 +44,8 @@
       display: block;
 
       @include tab {
-        width: 120px; // タブレット時のロゴサイズ（適宜調整してください）
-        height: auto;
+        width: 99px; // タブレット時のロゴサイズ（適宜調整してください）
+        height: 90px;
       }
       @include pc {
         width: 150px;

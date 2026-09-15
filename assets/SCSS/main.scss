@@ -17,6 +17,7 @@
 @use "object/component/c-label";
 @use "object/component/c-gnav";
 @use "object/component/c-hamburger";
+@use "object/component/c-section-title";
 
 // 4. Object - Project
 @use "object/project/p-hero";
@@ -24,6 +25,8 @@
 @use "object/project/p-service";
 @use "object/project/p-contact";
 @use "object/project/p-lead";
+@use "object/project/p-concept";
+@use "object/project/p-consultation";
 
 // 5. Object - Utility
 @use "object/utility/u-margin";

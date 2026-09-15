@@ -1,0 +1,10 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.u-hidden-sp {
+  display: none; // デフォルト（スマホ）では改行を無効化
+
+  @include tab {
+    display: inline; // タブレット以上で改行を有効化
+  }
+}
