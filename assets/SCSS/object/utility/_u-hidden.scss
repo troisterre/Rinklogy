@@ -8,3 +8,10 @@
     display: inline; // タブレット以上で改行を有効化
   }
 }
+.u-hidden-tab-pc {
+  display: inline; // デフォルト（スマホ）では改行を無効化
+
+  @include tab {
+    display: none; // タブレット以上で改行を有効化
+  }
+}

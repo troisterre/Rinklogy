@@ -218,8 +218,8 @@
         <div class="l-inner p-consultation__inner">
           <!-- ヘッダー（タイトルとPC用ボタンの並び） -->
           <div class="p-consultation__header">
-            <h2 class="c-section-title c-section-title--left">
-              <span class="c-section-title__sub">CONSULTATION</span>
+            <h2 class="c-section-title--left">
+              <span class="c-section-title-sub--left">CONSULTATION</span>
               こんなご相談に対応しています
             </h2>
 
@@ -410,6 +410,122 @@
 
             <button
               class="c-slider-btn c-slider-btn--next c-slider-btn--sp js-consult-next-sp"
+            ></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section p-support-case">
+        <div class="l-inner p-support-case__inner">
+          <!-- ヘッダー（タイトル） -->
+          <div class="p-support-case__header">
+            <h2 class="c-section-title--left">
+              <span class="c-section-title-sub--left">SUPPORT CASE</span>
+              支援事例
+            </h2>
+          </div>
+
+          <!-- スライダー / PC時はグリッド -->
+          <div class="p-support-case__slider js-support-slider">
+            <div class="p-support-case__list js-support-slider-list">
+              <!-- カード1 -->
+              <div class="p-support-case__item js-support-slider-item">
+                <a href="#" class="c-case-card">
+                  <div class="c-case-card__bg">
+                    <img
+                      src="./assets/images/case-card_03.png"
+                      alt="業務が属人化している"
+                    />
+                  </div>
+
+                  <!-- 左上のバッジ -->
+                  <div class="c-case-card__badge">
+                    <span class="c-case-card__badge-num">CASE 01</span>
+                    <span class="c-case-card__badge-cat">製造業</span>
+                  </div>
+
+                  <!-- 下部のコンテンツ -->
+                  <div class="c-case-card__body">
+                    <span class="c-case-card__label">課題</span>
+                    <h3 class="c-case-card__title">業務が属人化している</h3>
+
+                    <!-- 下向き矢印（CSSで描画するため空Div） -->
+                    <div class="c-case-card__arrow"></div>
+
+                    <span class="c-case-card__label">支援内容</span>
+                    <p class="c-case-card__title c-case-card__title--small">
+                      システム開発・導入支援
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- カード2 -->
+              <div class="p-support-case__item js-support-slider-item">
+                <a href="#" class="c-case-card">
+                  <div class="c-case-card__bg">
+                    <img
+                      src="./assets/images/support-2.jpg"
+                      alt="IT担当者がいない"
+                    />
+                  </div>
+                  <div class="c-case-card__badge">
+                    <span class="c-case-card__badge-num">CASE 02</span>
+                    <span class="c-case-card__badge-cat">小売業</span>
+                  </div>
+                  <div class="c-case-card__body">
+                    <span class="c-case-card__label">課題</span>
+                    <h3 class="c-case-card__title">IT担当者がいない</h3>
+                    <div class="c-case-card__arrow"></div>
+                    <span class="c-case-card__label">支援内容</span>
+                    <p class="c-case-card__title c-case-card__title--small">
+                      IT導入・活用支援
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- カード3 -->
+              <div class="p-support-case__item js-support-slider-item">
+                <a href="#" class="c-case-card">
+                  <div class="c-case-card__bg">
+                    <img
+                      src="./assets/images/support-3.jpg"
+                      alt="何から改善すれば良いか分からない"
+                    />
+                  </div>
+                  <div class="c-case-card__badge">
+                    <span class="c-case-card__badge-num">CASE 03</span>
+                    <span class="c-case-card__badge-cat">サービス業</span>
+                  </div>
+                  <div class="c-case-card__body">
+                    <span class="c-case-card__label">課題</span>
+                    <h3 class="c-case-card__title">
+                      何から改善すれば<br />良いか分からない
+                    </h3>
+                    <div class="c-case-card__arrow"></div>
+                    <span class="c-case-card__label">支援内容</span>
+                    <p class="c-case-card__title c-case-card__title--small">
+                      プロジェクト推進支援
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- コントロール（スマホ・タブレットのみ表示） -->
+          <div class="p-support-case__controls">
+            <button
+              class="c-slider-btn c-slider-btn--prev c-slider-btn--sp js-support-prev"
+            ></button>
+            <div class="p-support-case__pagination js-support-pagination">
+              <span class="c-dot js-support-dot is-active"></span>
+              <span class="c-dot js-support-dot"></span>
+              <span class="c-dot js-support-dot"></span>
+            </div>
+            <button
+              class="c-slider-btn c-slider-btn--next c-slider-btn--sp js-support-next"
             ></button>
           </div>
         </div>

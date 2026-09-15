@@ -2,24 +2,25 @@
 @use "../../foundation/variables" as *;
 
 .p-consultation {
-  display: flex;
-  width: 100%;
-  padding: 64px 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 36px;
   background: var(--base_background, #f8fafc);
-  @include tab {
-    padding: 100px 0;
-  }
-
   &__inner {
-    max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 16px;
+    padding: 64px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
     @include tab {
-      padding: 0 40px;
+      padding: 100px 40px;
+    }
+    @include pc {
+      max-width: 1160px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 32px;
+      align-self: stretch;
+      width: 100%;
     }
   }
 
@@ -28,11 +29,23 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 40px;
+    @include tab {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
   }
 
   &__nav {
     display: flex;
     gap: 16px;
+    @include tab {
+      align-self: flex-end;
+      gap: 12px;
+    }
     .c-slider-btn {
       background-color: #fff;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); // 軽い影をつける
@@ -54,44 +67,53 @@
     }
   }
 
-  // ★外に出てしまっていた __list を中に入れました
+  // ★ 修正した __list
   &__list {
     display: flex;
-    gap: 16px; // SPのカード間の余白
-    overflow-x: auto; // 横スクロールを許可
-    scroll-snap-type: x mandatory; // ピタッと止まるスナップ機能
-    scroll-behavior: smooth; // なめらかにスクロールさせる
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
     padding: 0 0 24px;
+
     &::-webkit-scrollbar {
       display: none;
     }
 
     @include tab {
       gap: 24px;
-      padding: 0 20% 24px;
-    }
-  }
-
-  // ★外に出てしまっていた __item を中に入れました
-  &__item {
-    // ★ポイント②：左右32pxの余白を除いた中央スペースに100%でピッタリ収める
-    flex: 0 0 100%;
-    max-width: 340px; // 画面が広いスマホでカードが間延びしないための最大幅
-    scroll-snap-align: center; // 常に中央でピタッと止まる
-
-    @include tab {
-      flex: 0 0 60%;
-      max-width: none; // スマホ用の制限を解除
-      scroll-snap-align: center; // タブレットでも中央でピタッと止める
+      padding: 0 10% 24px;
+      // ※ここに混ざっていた background や box-shadow はカード側に指定済みのため削除しました
     }
 
     @include pc {
-      // PC用の表示（例: 4枚並びなど、Figmaに合わせて調整してください）
-      flex: 0 0 calc(100% / 4 - 18px);
-      scroll-snap-align: start;
+      padding-bottom: 12px;
+      align-items: flex-start;
+      gap: 32px;
+      align-self: stretch;
     }
   }
 
+  &__item {
+    flex: 0 0 100%;
+    max-width: 340px;
+    scroll-snap-align: center;
+
+    @include tab {
+      flex: 0 0 60%;
+      max-width: none;
+      scroll-snap-align: center;
+    }
+
+    @include pc {
+      flex: 0 0 calc((100% - 64px) / 3);
+      max-width: none;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
   &__controls {
     display: flex;
     justify-content: center;
@@ -152,6 +174,9 @@
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
+    @include tab {
+      height: auto;
+    }
   }
 
   &__title {
