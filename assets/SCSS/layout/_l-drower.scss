@@ -1,0 +1,68 @@
+@use "../foundation/mixins" as *;
+@use "../foundation/variables" as *;
+@use "../foundation/base" as *;
+
+// ==========================================================================
+// ドロワーメニュー・オーバーレイ
+// ==========================================================================
+.l-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: $white;
+  z-index: 105;
+  padding: 100px 30px 40px; // $header-height-sp より少し多めに余白を取る
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+
+  @include pc {
+    display: none;
+  }
+
+  // メニュー展開時
+  &.is-active {
+    transform: translateX(0);
+  }
+
+  &__cta {
+    margin-top: 40px;
+
+    .c-btn {
+      width: 100%;
+    }
+  }
+}
+
+.l-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(2, 13, 27, 0.6); // $text-blackのRGB値をベースに半透明化
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+
+  @include pc {
+    display: none;
+  }
+
+  // メニュー展開時
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// ドロワー展開時に背景のスクロールを防ぐ
+body.is-locked {
+  overflow: hidden;
+}

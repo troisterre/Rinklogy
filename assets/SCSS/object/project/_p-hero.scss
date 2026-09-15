@@ -1,0 +1,128 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.p-hero {
+  // セクション全体
+  display: flex;
+  padding: 108px 8px 60px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  background:
+    linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 50.58%), $base_background;
+
+  &__inner {
+    display: flex;
+    padding: 0.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+  }
+  &__desc {
+    margin: 0;
+    color: $text-black;
+    font-family: $font-sans;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.52px;
+  }
+
+  // ヒーローコピー（テキスト部分）
+  &__copy {
+    margin: 0;
+    align-self: stretch;
+    color: $text-black; // 黒文字
+    font-family: $font-sans;
+    font-weight: 900;
+
+    // ▼ スマホ (ベース)
+    font-size: 32px;
+    line-height: 1.34; // 134%
+    letter-spacing: 0.64px;
+
+    span {
+      color: $logo2; // 緑文字
+      font-weight: 900;
+      font-size: 42px;
+      line-height: 1.34;
+      letter-spacing: 0.84px;
+    }
+
+    // ▼ タブレット (@include tab)
+    @include tab {
+      font-size: 42px; // 黒文字
+      line-height: 1.25; // 125%
+      letter-spacing: 5.04px;
+
+      span {
+        font-size: 42px; // 緑文字
+        line-height: 1.25;
+        letter-spacing: 0.84px;
+      }
+    }
+
+    // ▼ PC (@include pc)
+    @include pc {
+      font-size: 62px; // 黒文字
+      line-height: normal;
+      letter-spacing: 7.44px;
+
+      span {
+        font-size: 62px; // 緑文字
+        line-height: normal;
+        letter-spacing: 6.2px;
+      }
+    }
+  }
+
+  // スライダーコンテナ（画像・テキスト枠）
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 185px; // Figma指定の高さ
+    align-self: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    @include tab {
+      height: 300px;
+    }
+
+    @include pc {
+      height: 400px;
+    }
+
+    // ★画像（img）とテキスト（.p-lead）の共通スライド設定
+    .js-hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 1.2s ease-in-out,
+        visibility 1.2s ease-in-out;
+      z-index: 1;
+
+      // 画像（1枚目・3枚目）の場合のスタイル
+      &[src] {
+        object-fit: contain; // 図解画像（3枚目）が切れないよう全表示（写真の場合は cover でも可）
+        background-color: #fff; // 背景を白で塗る
+      }
+
+      // 表示状態（アクティブ時）
+      &.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+      }
+    }
+  }
+}

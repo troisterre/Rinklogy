@@ -1,30 +1,60 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
 
+// ==========================================================================
+// コンポーネント（ナビゲーション）
+// ==========================================================================
 .c-gnav {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; // スマホ（ドロワー内）は縦並び
+  flex-direction: column; // スマホ（ドロワー内）
   gap: 24px;
 
-  @include pc {
-    flex-direction: row; // PCは横並び
-    gap: 32px;
+  // タブレット以上（ヘッダー内）
+  @include tab {
+    flex-direction: row;
+    align-items: center;
+    gap: 0; // margin/paddingで間隔を調整するためgapは0
   }
 
   &__item {
+    @include tab {
+      position: relative;
+      padding: 0 20px; // テキストと線の間の余白
+
+      // 区切り線（右側）
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 14px; // 線の高さ
+        background-color: $logo2; // 青緑色の線（#07808e）
+      }
+    }
+
+    @include pc {
+      padding: 0 30px; // PCでは少し余白を広げる
+    }
+
     a {
       text-decoration: none;
-      color: $color-text;
+      color: $text-black;
       font-weight: bold;
       font-size: 16px;
       transition: color 0.3s;
       display: block;
 
+      @include tab {
+        font-size: 14px; // タブレットでの文字サイズ
+      }
+
       &:hover {
-        color: $color-primary;
+        color: $logo2;
       }
     }
   }

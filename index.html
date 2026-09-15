@@ -61,7 +61,7 @@
 
     <!-- CSS / JS の読み込み -->
     <link rel="stylesheet" href="/assets/css/main.css" />
-    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/main.js" defer></script>
   </head>
   <body>
     <!-- MEO対策用: LocalBusinessのスキーマを宣言 -->
@@ -75,7 +75,7 @@
         <h1 class="l-header__logo">
           <a href="/" itemprop="url">
             <img
-              src="./assets/images/common/logo.svg"
+              src="./assets/images/logo.svg"
               alt="株式会社Rinklogy"
               width="150"
               height="45"
@@ -85,7 +85,7 @@
           </a>
         </h1>
 
-        <!-- PC用グローバルナビゲーション（※タブレット・スマホではCSSで非表示にする想定） -->
+        <!-- PC用グローバルナビゲーション） -->
         <nav class="l-header__nav" aria-label="PC用グローバルナビゲーション">
           <ul class="c-gnav">
             <li class="c-gnav__item"><a href="#company">会社案内</a></li>
@@ -132,14 +132,53 @@
     </header>
 
     <main class="l-main">
-      <section class="p-fv">
-        <h1 class="p-fv__copy">
-          課題整理から<br /><span>解決</span>まで、<br />隣で支える<br /><span
-            >ITパートナー</span
-          >。
-        </h1>
-        <div class="p-fv__image">FV Image</div>
-        <a href="#" class="c-btn">無料で相談してみる ＞</a>
+      <section class="p-hero">
+        <div class="p-hero__inner">
+          <!-- /.p-hero__inner -->
+          <p class="p-hero__desc">業務改善・IT導入を一気通貫で支援</p>
+          <h1 class="p-hero__copy">
+            <span>課題整理</span>から<br /><span>解決</span
+            >まで、<br />隣で支える<br /><span>ITパートナー</span>。
+          </h1>
+        </div>
+        <!-- ★スライダーの枠（ここから） -->
+        <div class="p-hero__image js-hero-slider">
+          <!-- 1枚目のスライド（画像） -->
+          <img
+            class="js-hero-slide is-active"
+            src="./assets/images/hero_img_1.png"
+            alt="打ち合わせの様子"
+            width="600"
+            height="400"
+            decoding="async"
+          />
+
+          <!-- 2枚目のスライド（テキストコンテンツ）枠の中に入れます -->
+          <div class="p-lead js-hero-slide">
+            <span class="p-lead__label">私たちの役割</span>
+
+            <p class="p-lead__text">
+              何から始めるべきかの整理から現場での定着まで。<br />
+              ノウハウ不足に悩む貴社チームに寄り添い、確実な<br />
+              業務改善を強力に推進します。
+            </p>
+
+            <!-- 背景の透かし文字装飾 -->
+            <div class="p-lead__deco" aria-hidden="true">OUR ROLE</div>
+          </div>
+
+          <img
+            class="js-hero-slide"
+            src="./assets/images/hero_img_3.png"
+            alt="全体の流れ"
+            width="600"
+            height="400"
+            decoding="async"
+          />
+        </div>
+        <!-- スライダーの枠（ここまで） -->
+
+        <a href="#" class="c-btn">無料で相談してみる</a>
       </section>
 
       <section class="l-section">
@@ -152,7 +191,7 @@
         </p>
         <div class="u-text-center">
           <a href="#" style="color: #007d99; text-decoration: underline"
-            >READ MORE ＞</a
+            >READ MORE ></a
           >
         </div>
       </section>
@@ -279,7 +318,7 @@
         <p style="font-size: 0.8rem; margin-bottom: 24px">
           課題がまとまっていなくても大丈夫です。
         </p>
-        <a href="#" class="c-btn">無料で相談してみる ＞</a>
+        <a href="#" class="c-btn">無料で相談してみる ></a>
       </section>
     </main>
 

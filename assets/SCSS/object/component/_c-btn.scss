@@ -1,0 +1,49 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.c-btn {
+  // --- レイアウト・形状 ---
+  display: flex;
+  width: 100%; // スマホ対応のために100%を指定
+  max-width: 306px; // Figmaの固定幅を最大幅として設定
+  margin: 0 auto;
+  padding: 20px 40px;
+  align-items: center;
+  justify-content: center; // 中央揃え
+  gap: 30px; // 文字と矢印の間隔
+  border-radius: 40px;
+
+  // --- 装飾（背景・影） ---
+  background: linear-gradient(87deg, #10748d 29.62%, #5eacbf 91.51%);
+  box-shadow: -2px 8px 16px 0 rgba(5, 85, 94, 0.3);
+
+  // --- テキスト設定 ---
+  color: #fff;
+  font-family: "Noto Sans JP";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.05em;
+
+  // --- アニメーション ---
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+
+  // ホバー時のアクション（少し浮いて光るような演出）
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+
+  // --- 矢印画像 (::after) ---
+  &::after {
+    content: "";
+    display: block;
+    width: 24px; // 矢印画像の幅（実際の画像に合わせて調整してください）
+    height: 16px; // 矢印画像の高さ（実際の画像に合わせて調整してください）
+    background-image: url("/assets/images/arrow-right.svg");
+    background-repeat: no-repeat;
+  }
+}
