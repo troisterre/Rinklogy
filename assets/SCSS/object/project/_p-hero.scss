@@ -99,34 +99,29 @@
       "btn   photo";
     align-items: start;
 
-    padding: 170px 20px 60px 20px;
+    // ★ 修正：前回の複雑な計算式（calc）を削除し、固定の余白に戻します
+    padding: 170px 40px 60px 40px;
+
     gap: 20px;
     background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
     background-color: #f8fafc;
-
     position: relative;
     z-index: 0;
-
-    // ★ ここを変更：書き出した「図形＋写真」の合成画像を背景として右下に配置
     &::before {
       content: "";
       position: absolute;
       right: 0;
       bottom: 0;
-      width: 517px; // ※Figmaの画像サイズに合わせて適宜変更してください
+      width: 517px;
       height: 540px;
-
-      // ★ 画像のパスを実際の保存場所に合わせてください
       background-image: url("/assets/images/background_image_tab.png");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom right;
-
-      z-index: 1; // 一番奥に配置
+      z-index: 1;
       pointer-events: none;
     }
 
-    // 中身の要素が背景オブジェクトに隠れないように手前に出す
     &__inner,
     &__copy,
     > .c-btn {
@@ -160,6 +155,7 @@
         transition: none !important;
       }
 
+      // ★修正1：1枚目のスライド（写真）だけを非表示にする
       img.js-hero-slide:nth-of-type(1) {
         display: none !important;
       }
@@ -182,15 +178,34 @@
           position: relative;
           z-index: 3;
         }
-      }
 
-      // 2枚目（HTML上の右上の図解）
-      img.js-hero-slide:nth-of-type(2) {
-        grid-area: diagram;
-        width: 100%;
-        object-fit: contain;
-        position: relative !important;
-        z-index: 3 !important;
+        img.js-hero-slide:nth-of-type(2) {
+          grid-area: diagram;
+          width: 100%;
+          object-fit: contain;
+          position: relative !important;
+          z-index: 3 !important;
+          display: block !important; // 確実に表示させる
+        }
+      }
+      .p-lead {
+        grid-area: lead;
+        display: block !important;
+        margin-top: 16px;
+
+        &__deco,
+        &__label {
+          display: none !important;
+        }
+
+        &__text {
+          display: block;
+          font-size: 14px;
+          line-height: 1.8;
+          color: $text-black;
+          position: relative;
+          z-index: 3;
+        }
       }
     }
 
@@ -202,8 +217,9 @@
   }
 
   @include pc {
-    background-image: url("/assets/images/background_image_pc.png");
+    // ★修正2：.p-hero本体ではなく、::beforeの中にPC用画像を指定して上書きする
     &::before {
+      background-image: url("/assets/images/background_image_pc.png");
       width: 901px;
       height: 736px;
     }
@@ -219,4 +235,4 @@
       }
     }
   }
-} // ← .p-hero の閉じカッコ
+}

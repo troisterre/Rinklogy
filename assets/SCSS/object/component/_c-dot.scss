@@ -1,0 +1,16 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+.c-dot {
+  display: block !important; // 確実にブロック要素にして幅・高さを効かせる
+  width: 8px;
+  height: 8px;
+  border-radius: 50% !important; // 確実に丸くする
+  background-color: #c6dbde; // ★非アクティブ時の色（薄いグレー水色）
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  // ★アクティブ（現在表示中）の時の色
+  &.is-active {
+    background-color: #07808e !important; // 濃い緑色
+  }
+}

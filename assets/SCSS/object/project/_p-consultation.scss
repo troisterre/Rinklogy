@@ -116,10 +116,21 @@
   }
   &__controls {
     display: flex;
-    justify-content: center;
+    width: 240px;
+    justify-content: space-between;
     align-items: center;
-    gap: 24px;
-    margin-top: 32px;
+    margin: 32px auto 0;
+
+    // ★ ユーティリティクラスを使わず、ここで直接タブレット・PC時に非表示にする
+    @include tab {
+      display: none;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    gap: 16px; // ドット同士の隙間
   }
 }
 
@@ -281,4 +292,8 @@
     transform: rotate(45deg);
     margin-right: 4px; // 矢印が視覚的にド真ん中に見えるための微調整
   }
+}
+.js-consult-dot {
+  display: flex;
+  gap: 16px;
 }

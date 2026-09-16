@@ -203,65 +203,114 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================
   // 5. ご相談スライダー（横スクロール制御）
   // =========================================================
-  {
-    // ★ 変数の重複を防ぐためにブロックで囲んでいます
-    const consultSliderList = document.querySelector(".js-slider-list");
+  const consultSliderList = document.querySelector(".js-slider-list");
 
-    if (consultSliderList) {
-      const prevBtnSp = document.querySelector(".js-consult-prev-sp");
-      const nextBtnSp = document.querySelector(".js-consult-next-sp");
-      const prevBtnPc = document.querySelector(".js-consult-prev");
-      const nextBtnPc = document.querySelector(".js-consult-next");
-      const dots = document.querySelectorAll(".js-consult-dot");
-      const items = consultSliderList.querySelectorAll(".js-slider-item");
+  if (consultSliderList) {
+    const prevBtnSp = document.querySelector(".js-consult-prev-sp");
+    const nextBtnSp = document.querySelector(".js-consult-next-sp");
+    const prevBtnPc = document.querySelector(".js-consult-prev");
+    const nextBtnPc = document.querySelector(".js-consult-next");
+    const dots = document.querySelectorAll(".js-consult-dot");
+    const items = consultSliderList.querySelectorAll(".js-slider-item");
 
-      const scrollSlider = (direction) => {
-        const item = items[0];
-        if (!item) return;
+    const scrollSlider = (direction) => {
+      const item = items[0];
+      if (!item) return;
 
-        const itemWidth = item.offsetWidth;
-        const gap =
-          parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
-        const scrollAmount = itemWidth + gap;
+      const itemWidth = item.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
+      const scrollAmount = itemWidth + gap;
 
-        consultSliderList.scrollBy({
-          left: direction === "next" ? scrollAmount : -scrollAmount,
-          behavior: "smooth",
-        });
-      };
-
-      const updateDots = () => {
-        if (dots.length === 0 || items.length === 0) return;
-
-        const scrollLeft = consultSliderList.scrollLeft;
-        const itemWidth = items[0].offsetWidth;
-        const gap =
-          parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
-
-        const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
-
-        dots.forEach((dot, index) => {
-          if (index === currentIndex) {
-            dot.classList.add("is-active");
-          } else {
-            dot.classList.remove("is-active");
-          }
-        });
-      };
-
-      if (prevBtnSp)
-        prevBtnSp.addEventListener("click", () => scrollSlider("prev"));
-      if (nextBtnSp)
-        nextBtnSp.addEventListener("click", () => scrollSlider("next"));
-      if (prevBtnPc)
-        prevBtnPc.addEventListener("click", () => scrollSlider("prev"));
-      if (nextBtnPc)
-        nextBtnPc.addEventListener("click", () => scrollSlider("next"));
-
-      consultSliderList.addEventListener("scroll", () => {
-        clearTimeout(consultSliderList.scrollTimeout);
-        consultSliderList.scrollTimeout = setTimeout(updateDots, 100);
+      consultSliderList.scrollBy({
+        left: direction === "next" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
       });
-    }
+    };
+
+    const updateDots = () => {
+      if (dots.length === 0 || items.length === 0) return;
+
+      const scrollLeft = consultSliderList.scrollLeft;
+      const itemWidth = items[0].offsetWidth;
+      const gap = parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
+
+      const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add("is-active");
+        } else {
+          dot.classList.remove("is-active");
+        }
+      });
+    };
+
+    if (prevBtnSp)
+      prevBtnSp.addEventListener("click", () => scrollSlider("prev"));
+    if (nextBtnSp)
+      nextBtnSp.addEventListener("click", () => scrollSlider("next"));
+    if (prevBtnPc)
+      prevBtnPc.addEventListener("click", () => scrollSlider("prev"));
+    if (nextBtnPc)
+      nextBtnPc.addEventListener("click", () => scrollSlider("next"));
+
+    consultSliderList.addEventListener("scroll", () => {
+      clearTimeout(consultSliderList.scrollTimeout);
+      consultSliderList.scrollTimeout = setTimeout(updateDots, 100);
+    });
   }
 });
+// =========================================================
+// 6. 支援事例スライダー（横スクロール制御）
+// =========================================================
+{
+  // ★ 変数の重複を防ぐためにブロックで囲んでいます
+  const supportSliderList = document.querySelector(".js-support-slider-list");
+
+  if (supportSliderList) {
+    const prevBtn = document.querySelector(".js-support-prev");
+    const nextBtn = document.querySelector(".js-support-next");
+    const dots = document.querySelectorAll(".js-support-dot");
+    const items = supportSliderList.querySelectorAll(".js-support-slider-item");
+
+    const scrollSlider = (direction) => {
+      const item = items[0];
+      if (!item) return;
+
+      const itemWidth = item.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(supportSliderList).gap) || 0;
+      const scrollAmount = itemWidth + gap;
+
+      supportSliderList.scrollBy({
+        left: direction === "next" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    };
+
+    const updateDots = () => {
+      if (dots.length === 0 || items.length === 0) return;
+
+      const scrollLeft = supportSliderList.scrollLeft;
+      const itemWidth = items[0].offsetWidth;
+      const gap = parseInt(window.getComputedStyle(supportSliderList).gap) || 0;
+
+      const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add("is-active");
+        } else {
+          dot.classList.remove("is-active");
+        }
+      });
+    };
+
+    if (prevBtn) prevBtn.addEventListener("click", () => scrollSlider("prev"));
+    if (nextBtn) nextBtn.addEventListener("click", () => scrollSlider("next"));
+
+    supportSliderList.addEventListener("scroll", () => {
+      clearTimeout(supportSliderList.scrollTimeout);
+      supportSliderList.scrollTimeout = setTimeout(updateDots, 100);
+    });
+  }
+}

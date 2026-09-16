@@ -18,19 +18,16 @@
       gap: 56px;
     }
     @include pc {
-      max-width: 1200px;
-      margin: 0 auto;
+      // ★修正：.l-innerで制御しているため、ここにあった max-width と margin は削除
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
   }
 
-  &__header {
-    margin-bottom: 36px;
-    @include tab {
-      margin-bottom: 56px;
-    }
+  // ★追加：スライダーの外枠が確実に100%になるように指定
+  &__slider {
+    width: 100%;
   }
 
   &__list {
@@ -39,11 +36,10 @@
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     padding: 0 0 24px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 40px;
+    gap: 16px;
     align-self: stretch;
-    // スクロールバー非表示
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
@@ -51,11 +47,10 @@
 
     @include tab {
       gap: 24px;
-      // タブレット：最初が中央スタートになるよう余白調整
-      padding: 0 15% 24px;
+      // ★修正：中央スタートのための左右余白を削除し、左揃えにします
+      padding: 0 0 24px;
     }
     @include pc {
-      // PC：スライダーを解除して3列のグリッドにする
       padding: 0;
       gap: 32px;
       overflow-x: visible;
@@ -66,18 +61,22 @@
   &__item {
     flex: 0 0 100%;
     scroll-snap-align: center;
-    width: 340px;
-    height: 352px;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+
     @include tab {
-      flex: 0 0 65%;
+      // ★修正：全体(100%)から隙間(24px)を引いた幅を「2」で割ってピッタリ2枚表示にします
+      flex: 0 0 calc((100% - 24px) / 2);
       max-width: none;
+      scroll-snap-align: start; // 左端でピタッと止まるようにする
     }
     @include pc {
-      // PC：3列並び（100%から隙間を引いて3で割る）
       flex: 0 0 calc((100% - 64px) / 3);
+      max-width: none;
       scroll-snap-align: start;
     }
   }
@@ -85,12 +84,11 @@
   &__controls {
     display: flex;
     width: 240px;
-    justify-content: space-between;
+    justify-content: space-between; // ★これによって[左ボタン] [ドット群] [右ボタン]が等間隔に配置されます
     align-items: center;
     margin: 32px auto 0;
 
     @include pc {
-      // PCデザインではコントロールが無いので非表示
       display: none;
     }
   }

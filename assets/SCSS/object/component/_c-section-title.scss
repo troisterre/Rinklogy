@@ -112,9 +112,10 @@
     left: 0; // ★追加: スマホ時も線を左端からスタートさせる
     transform: none; // ★追加: 中央寄せの計算を解除
   }
-  .c-section-title__sub {
-    text-align: left;
-  }
+}
+.c-section-title-sub--left {
+  text-align: left;
+  @extend.c-section-title__sub;
 
   @include tab {
     font-size: 30px;

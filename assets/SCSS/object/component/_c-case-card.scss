@@ -5,18 +5,41 @@
 // ==========================================
 .c-case-card {
   position: relative;
-  display: block;
-  width: 100%;
-  height: 420px; // 画像からの推定値
-  border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  background-color: #0f172a;
+  display: flex;
+  width: 100%; // ★修正: PCで3列並びの計算（calc）を生かすため 100% を推奨
+  height: 352px;
+  flex-direction: column;
+  justify-content: flex-end; // ★修正: bodyが一番下に配置されるようにする
+  align-items: flex-start;
+  border-radius: 12px;
+
+  /* ドロップシャドウ */
+  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
 
   // ホバー時に少し画像を拡大するアニメーション
   &:hover &__bg img {
     transform: scale(1.05);
   }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, rgba(2, 13, 27, 0.9) 0%, rgba(2, 13, 27, 0) 100%);
+  }
+
   img {
     width: 100%;
     height: 100%;
@@ -24,76 +47,91 @@
     transition: transform 0.6s ease;
   }
 
-  // 2. 左上のバッジ（CASE 01 ＋ 業種）
   &__badge {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
-    display: flex;
-    background: #fff;
-    border-radius: 0 0 12px 0; // 右下だけ丸める
     overflow: hidden;
+    display: flex;
+    padding: 12px 16px;
+    align-items: center;
+    gap: 24px;
+    border-radius: 12px 0;
+    background: #fff;
   }
 
   &__badge-num {
-    background: #0f172a; // 濃紺
+    display: flex;
+    padding: 6px 10px;
+    align-items: flex-start;
+    border-radius: 6px;
+    background: var(--logo1, #113058);
     color: #fff;
-    font-size: 12px;
+    font-family: "Noto Sans JP";
+    font-size: 14px;
     font-weight: 700;
-    padding: 8px 12px;
   }
 
   &__badge-cat {
-    color: #0f172a;
-    font-size: 13px;
-    font-weight: 700;
     padding: 8px 16px;
+    color: var(--logo1, #113058);
+    font-family: "Noto Sans JP";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
   }
 
   // 3. 下部のテキストコンテンツ
   &__body {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 32px 24px;
+    position: relative;
     z-index: 2;
     display: flex;
+    padding: 0 24px 30px 24px;
     flex-direction: column;
     align-items: flex-start;
+    align-self: stretch;
   }
 
   &__label {
-    display: inline-block;
     background: rgba(15, 23, 42, 0.8);
     color: #fff;
-    font-size: 11px;
+    font-family: "Noto Sans JP";
+    font-size: 16px;
     font-weight: 700;
-    padding: 4px 8px;
+    display: flex;
+    padding: 6px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: var(--logo1, #113058);
     margin-bottom: 8px;
-    border-radius: 2px;
   }
-
   &__title {
     color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
-    margin: 0;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 125%; /* 27.5px */
 
     &--small {
-      font-size: 16px;
+      color: #fff;
+      font-family: "Noto Sans JP";
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 125%; /* 32.5px */
     }
   }
-
-  // 「▼」をCSSの三角形で作成
   &__arrow {
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #fff;
-    margin: 16px 0 16px 8px;
+    background-image: url(/assets/images/Vector.svg);
+    width: 11px;
+    display: block;
+    height: 20px;
+    margin: 20px 0;
+    background-repeat: no-repeat;
+    transform: rotate(137deg);
   }
 }
