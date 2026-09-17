@@ -1,0 +1,146 @@
+@use "../foundation/mixins" as *;
+@use "../foundation/variables" as *;
+
+.l-footer {
+  // デザインに合わせた深いネイビー
+
+  color: #fff;
+
+  background: var(--footer-bgc, #061c38);
+  display: flex;
+  padding: 40px 24px 32px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+  @include tab {
+    padding: 80px 40px 24px;
+  }
+  @include pc {
+    display: flex;
+    padding: 40px 120px;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  &__inner {
+    max-width: 900px;
+    margin: 0 auto;
+
+    // スマホ時は縦積み
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    @include tab {
+      // タブレット以上で左右分割
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  }
+
+  // =========================
+  // 左側：会社情報
+  // =========================
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    @include pc {
+      gap: 24px;
+    }
+  }
+
+  &__logo {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    @include tab {
+      font-size: 28px;
+    }
+    @include pc {
+      font-size: 20px;
+    }
+  }
+
+  &__desc {
+    color: var(--base_background, #f8fafc);
+    font-family: "Noto Sans JP";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%; /* 21.6px */
+  }
+
+  // =========================
+  // 右側：ナビゲーション
+  // =========================
+  &__nav {
+    @include tab {
+      min-width: 220px; // リンクが窮屈にならないよう最低幅を確保
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+    @include tab {
+      flex-direction: row;
+    }
+    @include pc {
+      gap: 60px;
+    }
+  }
+
+  &__item {
+    a {
+      display: inline-block;
+
+      transition: opacity 0.3s ease;
+
+      color: #fff;
+      font-family: "Noto Sans JP";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // =========================
+  // コピーライト
+  // =========================
+  &__copyright {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); // 上部のうっすらとした区切り線
+    text-align: center;
+
+    small {
+      color: var(--base_background, #f8fafc);
+      text-align: center;
+      font-family: "Noto Sans JP";
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @include pc {
+        font-size: 11px;
+      }
+    }
+  }
+}

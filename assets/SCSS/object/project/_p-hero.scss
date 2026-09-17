@@ -1,5 +1,6 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
+
 .p-hero {
   display: flex;
   padding: 108px 8px 60px 8px;
@@ -30,7 +31,6 @@
     letter-spacing: 0.52px;
   }
 
-  // ヒーローコピー（テキスト部分）
   &__copy {
     margin: 0;
     align-self: stretch;
@@ -50,17 +50,15 @@
     }
   }
 
-  // スライダーの枠（SP用）
   &__image {
     position: relative;
     width: 100%;
-    height: 185px; // Figma指定の高さ
+    height: 185px;
     align-self: stretch;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
-    // スライドの中身（画像・テキスト）
     .js-hero-slide {
       position: absolute;
       top: 0;
@@ -94,19 +92,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "title diagram"
+      "title photo"
       "lead  photo"
       "btn   photo";
-    align-items: start;
-
-    // ★ 修正：前回の複雑な計算式（calc）を削除し、固定の余白に戻します
+    align-items: center;
     padding: 170px 40px 60px 40px;
-
     gap: 20px;
     background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
     background-color: #f8fafc;
     position: relative;
     z-index: 0;
+
     &::before {
       content: "";
       position: absolute;
@@ -155,57 +151,40 @@
         transition: none !important;
       }
 
-      // ★修正1：1枚目のスライド（写真）だけを非表示にする
       img.js-hero-slide:nth-of-type(1) {
         display: none !important;
       }
 
-      .p-lead {
-        grid-area: lead;
+      img.js-hero-slide:nth-of-type(2) {
+        grid-area: photo;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        object-fit: contain;
+        position: relative !important;
+        z-index: 3 !important;
         display: block !important;
-        margin-top: 16px;
-
-        &__deco,
-        &__label {
-          display: none !important;
-        }
-
-        &__text {
-          display: block;
-          font-size: 14px;
-          line-height: 1.8;
-          color: $text-black;
-          position: relative;
-          z-index: 3;
-        }
-
-        img.js-hero-slide:nth-of-type(2) {
-          grid-area: diagram;
-          width: 100%;
-          object-fit: contain;
-          position: relative !important;
-          z-index: 3 !important;
-          display: block !important; // 確実に表示させる
-        }
+        margin: 0 auto;
       }
-      .p-lead {
-        grid-area: lead;
-        display: block !important;
-        margin-top: 16px;
+    }
 
-        &__deco,
-        &__label {
-          display: none !important;
-        }
+    .p-lead {
+      grid-area: lead;
+      display: block !important;
+      margin-top: 16px;
 
-        &__text {
-          display: block;
-          font-size: 14px;
-          line-height: 1.8;
-          color: $text-black;
-          position: relative;
-          z-index: 3;
-        }
+      &__deco,
+      &__label {
+        display: none !important;
+      }
+
+      &__text {
+        display: block;
+        font-size: 14px;
+        line-height: 1.8;
+        color: $text-black;
+        position: relative;
+        z-index: 3;
       }
     }
 
@@ -217,7 +196,13 @@
   }
 
   @include pc {
-    // ★修正2：.p-hero本体ではなく、::beforeの中にPC用画像を指定して上書きする
+    padding-left: max(40px, calc(50% - 580px));
+    padding-right: max(40px, calc(50% - 580px));
+
+    // 前回設定した制限を解除し、素直に左右均等(1fr 1fr)に戻します。
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+
     &::before {
       background-image: url("/assets/images/background_image_pc.png");
       width: 901px;

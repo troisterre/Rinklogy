@@ -1,0 +1,292 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.p-flow {
+  background-color: var(--base_background, #f8fafc);
+  display: flex;
+  padding: 64px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+
+  @include tab {
+    padding: 100px 20px;
+    gap: 56px;
+    align-self: stretch;
+  }
+  @include pc {
+    padding: 120px 0;
+  }
+
+  // ★ 追加：タブレット以上の白背景コンテナ
+  &__container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+
+    @include tab {
+      display: flex;
+      padding: 60px 28px;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      align-self: stretch;
+      border-radius: 20px;
+      background: #fff;
+    }
+    @include pc {
+      padding: 80px;
+      // ★修正：PC時の最大幅を1160pxに変更
+      max-width: 1160px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 12px;
+    width: 100%;
+
+    @include tab {
+      // アコーディオンからグリッド（フレックスラップ）に変更
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px 40px; // 上下24px, 左右40pxの隙間
+    }
+    @include pc {
+      flex-wrap: nowrap; // PC時は折り返さずに横1列！
+      gap: 20px; // 1列になるのでアイテム間の隙間を少し詰める
+    }
+  }
+
+  &__footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-black, #020d1b);
+    @include pc {
+      margin-top: 56px;
+      font-size: 16px;
+    }
+  }
+}
+
+.p-flow-item {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #c6dbde;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+
+  @include tab {
+    display: flex;
+    width: 200px;
+    height: auto;
+    padding: 18px 8px 0 8px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border, #c6dbde);
+    background: #fff;
+    box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
+    overflow: visible;
+
+    // タブレット時（折り返しあり）の矢印指定
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(4) {
+      &::after {
+        content: "";
+        position: absolute;
+        right: -26px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 0 8px 12px;
+        border-color: transparent transparent transparent #07808e;
+      }
+    }
+  }
+
+  @include pc {
+    width: auto;
+    flex: 1; // 5つのアイテムを均等な幅で配置する
+
+    // PC時（1列）の矢印指定
+    &::after {
+      display: none; // タブレットの指定を一旦リセット
+    }
+    &:not(:last-child) {
+      // 最後（5番目）以外のすべてに矢印を出す
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        right: -18px; // 隙間(20px)の真ん中に来るように微調整
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 0 8px 12px;
+        border-color: transparent transparent transparent #07808e;
+      }
+    }
+  }
+
+  // 4番目：ダークテーマの反転スタイル
+  &--dark {
+    @include tab {
+      background-color: #112946;
+      border-color: #112946;
+
+      .p-flow-item__num,
+      .p-flow-item__title,
+      .p-flow-item__text {
+        color: #fff;
+      }
+    }
+  }
+
+  // 見出し部分 (DTタグ)
+  &__dt {
+    display: flex;
+    align-items: center;
+    padding: 16px 40px 16px 20px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    font-weight: 700;
+    font-size: 16px;
+    color: #020d1b;
+    width: 100%;
+    user-select: none;
+
+    // スマホ用アコーディオンのプラスマイナス
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      right: 20px;
+      top: 50%;
+      width: 14px;
+      height: 2px;
+      background-color: #07808e;
+      transition: transform 0.3s ease;
+    }
+    &::before {
+      transform: rotate(0deg);
+    }
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    @include tab {
+      // グリッド時はクリック無効化・レイアウト縦積み
+      flex-direction: column;
+      padding: 0;
+      pointer-events: none;
+
+      // プラスマイナスを非表示
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  // アコーディオン開閉時のプラスマイナス操作（スマホのみ）
+  &.is-open {
+    .p-flow-item__dt {
+      &::before {
+        transform: translateY(-50%) rotate(180deg);
+      }
+      &::after {
+        transform: translateY(-50%) rotate(0deg);
+      }
+    }
+  }
+
+  // ナンバー部分
+  &__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    margin-right: 16px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(7, 128, 142, 0.7) 0%, #07808e 50%, #113058 100%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Roboto", sans-serif;
+
+    @include tab {
+      font-size: 28px;
+      color: var(--logo2, #07808e);
+      font-weight: 800;
+      line-height: 1;
+      background: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__title {
+    @include tab {
+      color: var(--logo1, #113058);
+      text-align: center;
+      font-family: "Noto Sans JP";
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  // 中身の外枠 (DDタグ)
+  &__dd {
+    display: none;
+    overflow: hidden;
+    margin: 0;
+
+    @include tab {
+      // JSのインラインスタイルを全て無効化し、常時表示する
+      display: block !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+  }
+
+  // 中身の内枠
+  &__content-inner {
+    padding: 0 20px 24px 76px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #020d1b;
+
+    @include tab {
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  // アイコン
+  &__icon {
+    display: none;
+    @include tab {
+      width: 32px;
+      height: 32px;
+      margin: 0 auto 12px;
+      flex-shrink: 0;
+      display: block;
+    }
+  }
+}

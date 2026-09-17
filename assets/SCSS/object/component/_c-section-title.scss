@@ -115,7 +115,7 @@
 }
 .c-section-title-sub--left {
   text-align: left;
-  @extend.c-section-title__sub;
+  @extend .c-section-title__sub;
 
   @include tab {
     font-size: 30px;

@@ -30,7 +30,7 @@
       property="og:image"
       content="https://example.com/assets/images/common/ogp.jpg"
     />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="button_large_image" />
 
     <!-- ファビコン・スマホ用アイコンWordPressでロゴを入れる -->
     <link rel="icon" href="/favicon.ico" />
@@ -545,17 +545,19 @@
         <div class="p-approach__inner">
           <!-- 左側の固定エリア -->
           <div class="p-approach__bg-circle">
-            <svg
-              viewBox="0 0 24 24"
-              style="width: 40px; height: 40px; fill: #fff; margin-bottom: 16px"
-            >
-              <path
-                d="M12,12A3,3 0 0,0 9,15A3,3 0 0,0 12,18A3,3 0 0,0 15,15A3,3 0 0,0 12,12M12,4A2,2 0 0,0 10,6A2,2 0 0,0 12,8A2,2 0 0,0 14,6A2,2 0 0,0 12,4M12,2A4,4 0 0,1 16,6A4,4 0 0,1 12,10A4,4 0 0,1 8,6A4,4 0 0,1 12,2M12,20C9.33,20 6.6,18.8 4.47,16.85C5.81,15.17 9,14 12,14C15,14 18.19,15.17 19.53,16.85C17.4,18.8 14.67,20 12,20Z"
-              />
-            </svg>
+            <img
+              class="p-approach__icon"
+              src="./assets/images/streamline.svg"
+              alt=""
+            />
+            <img
+              class="p-approach__img-pc"
+              src="./assets/images/approach-visual.png"
+              alt=""
+            />
             <h3>経営課題を整理し、<br />ともに前へ進む。</h3>
             <p>
-              システムを売るのではなく、お客様の課題に向き合い、整理から定着まで一貫して伴走します。
+              システムを売るのではなく、お客様の課題に向き合い、整理から定着まで<br />一貫して伴走します。
             </p>
           </div>
 
@@ -612,64 +614,266 @@
                 導入後の効果を測定し、さらなる業務改善に向けて伴走を続けます。
               </p>
             </div>
+
+            <div class="p-approach__dots">
+              <button class="c-dot js-scroll-dot" aria-label="1"></button>
+              <button class="c-dot js-scroll-dot" aria-label="2"></button>
+              <button class="c-dot js-scroll-dot" aria-label="3"></button>
+              <button class="c-dot js-scroll-dot" aria-label="4"></button>
+              <button class="c-dot js-scroll-dot" aria-label="5"></button>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- FLOW -->
-      <section class="l-section" style="background: #fff">
-        <h2 class="c-section-title">
-          <span class="c-section-title__sub">FLOW</span>
-          ご相談から解決まで
-        </h2>
-        <details class="p-flow-item">
-          <summary class="p-flow-item__summary">
-            <span class="p-flow-item__num">01</span> お問い合わせ
-          </summary>
-          <div class="p-flow-item__content">
-            まずは現状や課題を丁寧に伺い、本質的な課題を一緒に見つけます。
+      <section class="l-section p-flow">
+        <div class="p-flow__container">
+          <h2 class="c-section-title">
+            <span class="c-section-title__sub">FLOW</span>
+            ご相談から解決まで
+          </h2>
+
+          <!-- ★ 追加：タブレット・PC時の白背景となる大きな枠 -->
+          <div class="p-flow__container">
+            <div class="p-flow__list">
+              <!-- 01 -->
+              <dl class="p-flow-item">
+                <dt class="p-flow-item__dt">
+                  <span class="p-flow-item__num">1</span>
+                  <span class="p-flow-item__title">お問い合わせ</span>
+                </dt>
+                <dd class="p-flow-item__dd">
+                  <div class="p-flow-item__content-inner">
+                    <img
+                      src="./assets/images/flow-icon_1.svg"
+                      alt=""
+                      class="p-flow-item__icon"
+                    />
+                    <p class="p-flow-item__text">
+                      フォームからお気軽にご連絡ください
+                    </p>
+                  </div>
+                </dd>
+              </dl>
+
+              <!-- 02 -->
+              <dl class="p-flow-item">
+                <dt class="p-flow-item__dt">
+                  <span class="p-flow-item__num">2</span>
+                  <span class="p-flow-item__title">ヒアリング</span>
+                </dt>
+                <dd class="p-flow-item__dd">
+                  <div class="p-flow-item__content-inner">
+                    <img
+                      src="./assets/images/flow-icon_2.svg"
+                      alt=""
+                      class="p-flow-item__icon"
+                    />
+                    <p class="p-flow-item__text">
+                      現状の課題やご要望を丁寧にお伺いします
+                    </p>
+                  </div>
+                </dd>
+              </dl>
+
+              <!-- 03 -->
+              <dl class="p-flow-item">
+                <dt class="p-flow-item__dt">
+                  <span class="p-flow-item__num">3</span>
+                  <span class="p-flow-item__title">ご提案</span>
+                </dt>
+                <dd class="p-flow-item__dd">
+                  <div class="p-flow-item__content-inner">
+                    <img
+                      src="./assets/images/flow-icon_3.svg"
+                      alt=""
+                      class="p-flow-item__icon"
+                    />
+                    <p class="p-flow-item__text">
+                      課題やご要望に合わせた支援内容をご提案します
+                    </p>
+                  </div>
+                </dd>
+              </dl>
+
+              <!-- 04 (★ ダークテーマ用クラス p-flow-item--dark を追加) -->
+              <dl class="p-flow-item p-flow-item--dark">
+                <dt class="p-flow-item__dt">
+                  <span class="p-flow-item__num">4</span>
+                  <span class="p-flow-item__title">支援開始</span>
+                </dt>
+                <dd class="p-flow-item__dd">
+                  <div class="p-flow-item__content-inner">
+                    <img
+                      src="./assets/images/flow-icon_4.svg"
+                      alt=""
+                      class="p-flow-item__icon"
+                    />
+                    <p class="p-flow-item__text">
+                      ご提案内容に沿って必要な支援を開始します
+                    </p>
+                  </div>
+                </dd>
+              </dl>
+
+              <!-- 05 -->
+              <dl class="p-flow-item">
+                <dt class="p-flow-item__dt">
+                  <span class="p-flow-item__num">5</span>
+                  <span class="p-flow-item__title">運用支援</span>
+                </dt>
+                <dd class="p-flow-item__dd">
+                  <div class="p-flow-item__content-inner">
+                    <img
+                      src="./assets/images/flow-icon_5.svg"
+                      alt=""
+                      class="p-flow-item__icon"
+                    />
+                    <p class="p-flow-item__text">
+                      導入後も安心のサポート体制でお支えします
+                    </p>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+
+            <div class="p-flow__footer">
+              <p>
+                まずはお気軽にお問い合わせください。課題整理から運用定着まで一貫してサポートします。
+              </p>
+            </div>
           </div>
-        </details>
-        <details class="p-flow-item">
-          <summary class="p-flow-item__summary">
-            <span class="p-flow-item__num">02</span> ヒアリング
-          </summary>
-          <div class="p-flow-item__content">
-            詳細な状況をお聞きし、整理します。
-          </div>
-        </details>
-        <details class="p-flow-item">
-          <summary class="p-flow-item__summary">
-            <span class="p-flow-item__num">03</span> ご提案
-          </summary>
-          <div class="p-flow-item__content">
-            最適なITツールと運用方法をご提案します。
-          </div>
-        </details>
+        </div>
       </section>
 
-      <section class="p-cta">
-        <h2 class="p-cta__title">
-          Contact us<br /><span style="font-size: 1rem; font-weight: normal"
-            >まずは、お気軽にご相談ください。</span
-          >
-        </h2>
-        <p style="font-size: 0.8rem; margin-bottom: 24px">
-          課題がまとまっていなくても大丈夫です。
-        </p>
-        <a href="#" class="c-btn">無料で相談してみる ></a>
+      <section class="l-section p-company" id="company">
+        <div class="l-inner p-company__inner">
+          <h2 class="c-section-title--left">
+            <span class="c-section-title-sub--left">COMPANY</span>
+            会社案内
+          </h2>
+
+          <!-- 代表メッセージエリア -->
+          <div class="p-company__message">
+            <!-- 1. 画像 -->
+            <figure class="p-company__message-img">
+              <img
+                src="./assets/images/company_img.png"
+                alt="代表 山口 諒"
+                decoding="async"
+              />
+            </figure>
+
+            <!-- 2. 見出し（役職と名前） -->
+            <div class="p-company__message-header">
+              <span class="p-company__role">代表メッセージ</span>
+              <h3 class="p-company__name">山口 諒</h3>
+            </div>
+
+            <!-- 3. テキストとリンク -->
+            <div class="p-company__message-body">
+              <p class="p-company__text">
+                システムを導入すること自体がゴールではありません。経営課題を客観的に棚卸しし、本当にお客様に必要な仕組みは何か、どのようにすれば現場で無理なく使いこなせるのか、お客様の目線で真剣に伴走します。<br
+                  class="u-hidden-sp"
+                />
+                どんなに小さな疑問でも、まずはお気軽にご相談ください。
+              </p>
+              <div class="p-company__link-wrap">
+                <a href="/company/" class="p-company__link"
+                  >会社案内を見る <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- 会社概要テーブルエリア -->
+          <div class="p-company__outline">
+            <dl class="p-company__outline-list">
+              <div class="p-company__outline-row">
+                <dt>会社名</dt>
+                <dd>株式会社Rinklogy</dd>
+              </div>
+              <div class="p-company__outline-row">
+                <dt>代表者</dt>
+                <dd>山口 諒</dd>
+              </div>
+              <div class="p-company__outline-row">
+                <dt>所在地</dt>
+                <dd>岐阜県各務原市蘇原栄町1丁目20番地</dd>
+              </div>
+              <div class="p-company__outline-row">
+                <dt>事業内容</dt>
+                <dd>
+                  PM/PMO支援 / システム開発 / DX Consulting / 不動産賃貸・売買
+                </dd>
+              </div>
+
+              <div class="p-company__outline-row">
+                <dt>E-mail</dt>
+                <dd>yamaguchi.makoto@rinklogy.co.jp</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section p-cta" id="contact">
+        <div class="l-inner">
+          <div class="p-cta__inner">
+            <!-- 左側（タイトル） -->
+            <h2 class="p-cta__title">
+              <span class="p-cta__title-en">Contact us</span>
+              <span class="p-cta__title-ja"
+                >まずは、お話をお聞かせください。</span
+              >
+            </h2>
+
+            <!-- 右側（テキストとボタンを囲む箱を追加！） -->
+            <div class="p-cta__content">
+              <p class="p-cta__text">
+                業務改善やIT活用のことはもちろん、<br />
+                「何から始めれば良いか分からない」という<br />
+                段階でも、お気軽にご相談ください。
+              </p>
+              <a href="#" class="p-cta__btn">
+                無料で相談してみる
+                <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+            <!-- /右側おわり -->
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="l-footer">
-      <div style="margin-bottom: 20px">
-        <strong>株式会社 IT Partner</strong><br />
-        東京都千代田区...
-      </div>
-      <div class="u-text-center">© IT Partner Inc.</div>
-    </footer>
+      <div class="l-footer__inner">
+        <!-- 左側：会社情報 -->
+        <div class="l-footer__info">
+          <h2 class="l-footer__logo">株式会社 Rinklogy</h2>
+          <p class="l-footer__desc">
+            経営課題を整理し、ITで解決を支援するパートナー
+          </p>
+        </div>
 
-    <!-- assetsフォルダ内のJSを読み込む -->
-    <script src="assets/main.js"></script>
+        <!-- 右側：ナビゲーション -->
+        <nav class="l-footer__nav" aria-label="フッターナビゲーション">
+          <ul class="l-footer__list">
+            <li class="l-footer__item"><a href="#company">会社案内</a></li>
+            <li class="l-footer__item"><a href="#service">サービス</a></li>
+            <li class="l-footer__item">
+              <a href="#flow">ご相談から解決まで</a>
+            </li>
+            <li class="l-footer__item"><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- コピーライト -->
+      <div class="l-footer__copyright">
+        <small>© 2026 Rinklogy Inc. All Rights Reserved.</small>
+      </div>
+    </footer>
   </body>
 </html>

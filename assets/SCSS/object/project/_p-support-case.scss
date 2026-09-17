@@ -13,15 +13,16 @@
     align-items: flex-start;
     gap: 36px;
     align-self: stretch;
+    width: 100%; // ★追加: 念のため幅100%を確保
+
     @include tab {
       padding: 100px 20px;
       gap: 56px;
     }
     @include pc {
-      // ★修正：.l-innerで制御しているため、ここにあった max-width と margin は削除
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      // ★修正: max-width を設定して中央に寄せる
+      max-width: 1160px;
+      margin: 0 auto;
     }
   }
 

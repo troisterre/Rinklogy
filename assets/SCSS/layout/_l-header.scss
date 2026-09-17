@@ -16,19 +16,24 @@
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease;
+
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // height: $header-height-sp; // Figmaのpaddingで高さが決まる場合は不要になります
-    padding: 18px 16px 12px 16px; // Figmaの指定を反映
+    padding: 18px 16px 12px 16px;
+
     @include tab {
       padding: 20px 32px 10px 32px;
-      background-color: $base_background; // 以前定義されていた変数を使用
+      background-color: $base_background;
     }
     @include pc {
       height: $header-height-pc;
       padding: 0 40px;
+      // ★追加: 大画面時に両端に離れすぎないよう最大幅を決めて中央寄せ
+      max-width: 1340px;
+      margin: 0 auto;
+      width: 100%;
     }
   }
 
@@ -44,7 +49,7 @@
       display: block;
 
       @include tab {
-        width: 99px; // タブレット時のロゴサイズ（適宜調整してください）
+        width: 99px;
         height: 90px;
       }
       @include pc {
@@ -53,10 +58,10 @@
     }
   }
 
-  // PC用ナビ（スマホ・タブレットでは非表示）
   &__nav {
     display: none;
 
+    // ★修正: タブレットでメニューが消えないように pc から tab に戻しました
     @include tab {
       display: flex;
       align-items: center;
@@ -66,16 +71,17 @@
   &__cta {
     margin-left: 20px;
   }
+
   &.is-scrolled {
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-// ヘッダー内のボタン（画像合わせで濃紺ベタ塗りに調整）
+// ヘッダー内のボタン
 .l-header__nav .c-btn--small {
   @include tab {
-    background: $logo1; // 濃紺（#113058）
+    background: $logo1;
     color: $white;
     padding: 12px 28px;
     font-size: 14px;

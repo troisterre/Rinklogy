@@ -17,9 +17,6 @@
   @include tab {
     display: none;
   }
-  @include pc {
-    display: none;
-  }
 
   &__line {
     position: absolute;

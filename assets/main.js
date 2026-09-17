@@ -56,8 +56,22 @@ document.addEventListener("DOMContentLoaded", () => {
     drawerLinks.forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
-  }
 
+    // =====================================
+    // ★追加: 画面サイズ変更時のリセット処理
+    // =====================================
+    const mediaQuery = window.matchMedia("(min-width: 768px)"); // タブレットのブレイクポイント
+
+    const handleResize = (e) => {
+      // 画面幅が768px以上になり、かつメニューが開いている場合のみ閉じる
+      if (e.matches && hamburger.classList.contains("is-active")) {
+        closeMenu();
+      }
+    };
+
+    // 画面幅が変わった時に判定を実行
+    mediaQuery.addEventListener("change", handleResize);
+  }
   // =========================================================
   // 3. ヒーロースライダー処理
   // =========================================================
@@ -77,20 +91,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================================================
-  // 4. 縦スクロールリスト処理
+  // 4. 縦スクロールリスト処理（ドット連動版）
   // =========================================================
   const list = document.querySelector(".js-scroll-list");
 
   if (list) {
     let isAnimating = false;
-    let startY = 0;
     const animDuration = 600;
-
     let autoPlayInterval;
     const autoPlayDelay = 3000;
 
+    let currentIndex = 0;
+
+    const cards = Array.from(list.querySelectorAll(".js-scroll-item"));
+    const dots = Array.from(document.querySelectorAll(".js-scroll-dot")); // 全体からドットを取得
+    const total = cards.length;
+
     function updateCards() {
-      const cards = Array.from(list.querySelectorAll(".js-scroll-item"));
+      if (total < 5) return;
 
       cards.forEach((card) => {
         card.classList.remove(
@@ -102,21 +120,36 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       });
 
-      if (cards.length >= 5) {
-        cards[0].classList.add("is-hidden-top");
-        cards[1].classList.add("is-prev");
-        cards[2].classList.add("is-active");
-        cards[3].classList.add("is-next");
-        cards[4].classList.add("is-hidden-bottom");
-      }
+      requestAnimationFrame(() => {
+        const activeIdx = currentIndex;
+        const prevIdx = (currentIndex - 1 + total) % total;
+        const nextIdx = (currentIndex + 1) % total;
+        const hiddenTopIdx = (currentIndex - 2 + total) % total;
+        const hiddenBottomIdx = (currentIndex + 2) % total;
+
+        cards[hiddenTopIdx].classList.add("is-hidden-top");
+        cards[prevIdx].classList.add("is-prev");
+        cards[activeIdx].classList.add("is-active");
+        cards[nextIdx].classList.add("is-next");
+        cards[hiddenBottomIdx].classList.add("is-hidden-bottom");
+
+        if (dots.length > 0) {
+          dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+              dot.classList.add("is-active");
+            } else {
+              dot.classList.remove("is-active");
+            }
+          });
+        }
+      });
     }
 
     function nextSlide() {
       if (isAnimating) return;
       isAnimating = true;
 
-      const firstCard = list.firstElementChild;
-      list.appendChild(firstCard);
+      currentIndex = (currentIndex + 1) % total;
       updateCards();
 
       setTimeout(() => {
@@ -124,24 +157,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }, animDuration);
     }
 
-    function prevSlide() {
-      if (isAnimating) return;
-      isAnimating = true;
+    if (dots.length > 0) {
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          if (isAnimating || currentIndex === index) return;
+          isAnimating = true;
 
-      const lastCard = list.lastElementChild;
-      list.prepend(lastCard);
-      updateCards();
+          currentIndex = index;
+          updateCards();
+          resetAutoPlay();
 
-      setTimeout(() => {
-        isAnimating = false;
-      }, animDuration);
+          setTimeout(() => {
+            isAnimating = false;
+          }, animDuration);
+        });
+      });
     }
 
     function startAutoPlay() {
       stopAutoPlay();
-      autoPlayInterval = setInterval(() => {
-        nextSlide();
-      }, autoPlayDelay);
+      autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
     }
 
     function stopAutoPlay() {
@@ -155,49 +190,13 @@ document.addEventListener("DOMContentLoaded", () => {
       startAutoPlay();
     }
 
-    list.addEventListener("touchstart", (e) => {
-      startY = e.touches[0].clientY;
-      stopAutoPlay();
-    });
-
-    list.addEventListener(
-      "touchmove",
-      (e) => {
-        e.preventDefault();
-      },
-      { passive: false }
-    );
-
-    list.addEventListener("touchend", (e) => {
-      const endY = e.changedTouches[0].clientY;
-      const diffY = startY - endY;
-
-      if (Math.abs(diffY) > 30) {
-        if (diffY > 0) {
-          nextSlide();
-        } else {
-          prevSlide();
-        }
-      }
-      resetAutoPlay();
-    });
-
-    list.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-        if (e.deltaY > 0) {
-          nextSlide();
-        } else if (e.deltaY < 0) {
-          prevSlide();
-        }
-        resetAutoPlay();
-      },
-      { passive: false }
-    );
-
     updateCards();
     startAutoPlay();
+
+    list.addEventListener("mouseenter", stopAutoPlay);
+    list.addEventListener("mouseleave", startAutoPlay);
+    list.addEventListener("touchstart", stopAutoPlay, { passive: true });
+    list.addEventListener("touchend", startAutoPlay, { passive: true });
   }
 
   // =========================================================
@@ -231,10 +230,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dots.length === 0 || items.length === 0) return;
 
       const scrollLeft = consultSliderList.scrollLeft;
+      const maxScrollLeft =
+        consultSliderList.scrollWidth - consultSliderList.clientWidth;
       const itemWidth = items[0].offsetWidth;
       const gap = parseInt(window.getComputedStyle(consultSliderList).gap) || 0;
 
-      const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+      let currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+
+      if (scrollLeft >= maxScrollLeft - 10) {
+        currentIndex = dots.length - 1;
+      }
 
       dots.forEach((dot, index) => {
         if (index === currentIndex) {
@@ -256,15 +261,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     consultSliderList.addEventListener("scroll", () => {
       clearTimeout(consultSliderList.scrollTimeout);
-      consultSliderList.scrollTimeout = setTimeout(updateDots, 100);
+      consultSliderList.scrollTimeout = setTimeout(updateDots, 50);
     });
+
+    updateDots();
   }
-});
-// =========================================================
-// 6. 支援事例スライダー（横スクロール制御）
-// =========================================================
-{
-  // ★ 変数の重複を防ぐためにブロックで囲んでいます
+
+  // =========================================================
+  // 6. 支援事例スライダー（横スクロール制御）
+  // =========================================================
   const supportSliderList = document.querySelector(".js-support-slider-list");
 
   if (supportSliderList) {
@@ -291,10 +296,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (dots.length === 0 || items.length === 0) return;
 
       const scrollLeft = supportSliderList.scrollLeft;
+      const maxScrollLeft =
+        supportSliderList.scrollWidth - supportSliderList.clientWidth;
       const itemWidth = items[0].offsetWidth;
       const gap = parseInt(window.getComputedStyle(supportSliderList).gap) || 0;
 
-      const currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+      let currentIndex = Math.round(scrollLeft / (itemWidth + gap));
+
+      if (scrollLeft >= maxScrollLeft - 10) {
+        currentIndex = dots.length - 1;
+      }
 
       dots.forEach((dot, index) => {
         if (index === currentIndex) {
@@ -310,7 +321,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
     supportSliderList.addEventListener("scroll", () => {
       clearTimeout(supportSliderList.scrollTimeout);
-      supportSliderList.scrollTimeout = setTimeout(updateDots, 100);
+      supportSliderList.scrollTimeout = setTimeout(updateDots, 50);
     });
+
+    updateDots();
   }
-}
+
+  // =========================================================
+  // 7. フローセクション（アコーディオン）処理
+  // =========================================================
+  const flowItems = document.querySelectorAll(".p-flow-item");
+
+  flowItems.forEach((item) => {
+    // クラス名を dt と dd に変更
+    const dt = item.querySelector(".p-flow-item__dt");
+    const dd = item.querySelector(".p-flow-item__dd");
+
+    if (!dt || !dd) return;
+
+    let isAnimating = false;
+
+    dt.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (isAnimating) return;
+      isAnimating = true;
+
+      const isOpen = item.classList.contains("is-open");
+
+      if (isOpen) {
+        // 【閉じる時】
+        item.classList.remove("is-open");
+
+        const animation = dd.animate(
+          { height: [`${dd.scrollHeight}px`, "0px"] },
+          { duration: 300, easing: "ease-out" }
+        );
+
+        animation.onfinish = () => {
+          dd.style.display = "none";
+          isAnimating = false;
+        };
+      } else {
+        // 【開く時】
+        item.classList.add("is-open");
+        dd.style.display = "block";
+
+        const animation = dd.animate(
+          { height: ["0px", `${dd.scrollHeight}px`] },
+          { duration: 300, easing: "ease-out" }
+        );
+
+        animation.onfinish = () => {
+          dd.style.height = "auto";
+          isAnimating = false;
+        };
+      }
+    });
+  });
+});

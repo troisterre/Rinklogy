@@ -91,7 +91,7 @@
     letter-spacing: 1.28px;
 
     @include tab {
-      width: 48.9%;
+      flex: 1;
       font-size: 36px;
       font-style: normal;
       font-weight: 700;
@@ -118,7 +118,7 @@
     gap: 32px;
     align-self: stretch;
     @include tab {
-      width: 51%;
+      flex: 1;
     }
     @include pc {
       padding-top: 6px;
