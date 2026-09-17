@@ -537,90 +537,93 @@
       </section>
       <!-- OUR APPROACH (縦ループスライダー) -->
       <section class="l-section p-approach">
-        <h2 class="c-section-title">
-          <span class="c-section-title__sub">OUR APPROACH</span>
-          私たちの支援スタイル
-        </h2>
+        <!-- ★修正: l-inner でタイトルと中身を包む -->
+        <div class="l-inner">
+          <h2 class="c-section-title">
+            <span class="c-section-title__sub">OUR APPROACH</span>
+            私たちの支援スタイル
+          </h2>
 
-        <div class="p-approach__inner">
-          <!-- 左側の固定エリア -->
-          <div class="p-approach__bg-circle">
-            <img
-              class="p-approach__icon"
-              src="./assets/images/streamline.svg"
-              alt=""
-            />
-            <img
-              class="p-approach__img-pc"
-              src="./assets/images/approach-visual.png"
-              alt=""
-            />
-            <h3>経営課題を整理し、<br />ともに前へ進む。</h3>
-            <p>
-              システムを売るのではなく、お客様の課題に向き合い、整理から定着まで<br />一貫して伴走します。
-            </p>
-          </div>
-
-          <!-- 右側の縦ループスライダーエリア -->
-          <div class="p-approach__list js-scroll-list">
-            <div class="c-approach-card js-scroll-item">
-              <div class="c-approach-card__header">
-                <span class="c-approach-card__num">01</span>
-                <span class="c-approach-card__title">対話から始める</span>
-              </div>
-              <p class="c-approach-card__desc">
-                まずは現状や課題を丁寧に伺い、本質的な課題を一緒に見つけます。
+          <div class="p-approach__inner">
+            <!-- 左側の固定エリア -->
+            <div class="p-approach__bg-circle">
+              <img
+                class="p-approach__icon"
+                src="./assets/images/streamline.svg"
+                alt=""
+              />
+              <img
+                class="p-approach__img-pc"
+                src="./assets/images/approach-visual.png"
+                alt=""
+              />
+              <h3>経営課題を整理し、<br />ともに前へ進む。</h3>
+              <p>
+                システムを売るのではなく、お客様の課題に向き合い、整理から定着まで<br />一貫して伴走します。
               </p>
             </div>
 
-            <div class="c-approach-card js-scroll-item">
-              <div class="c-approach-card__header">
-                <span class="c-approach-card__num">02</span>
-                <span class="c-approach-card__title">課題を整理する</span>
+            <!-- 右側の縦ループスライダーエリア -->
+            <div class="p-approach__list js-scroll-list">
+              <div class="c-approach-card js-scroll-item">
+                <div class="c-approach-card__header">
+                  <span class="c-approach-card__num">01</span>
+                  <span class="c-approach-card__title">対話から始める</span>
+                </div>
+                <p class="c-approach-card__desc">
+                  まずは現状や課題を丁寧に伺い、本質的な課題を一緒に見つけます。
+                </p>
               </div>
-              <p class="c-approach-card__desc">
-                業務やシステムの状況を整理し、解決すべき優先順位を明確にします。
-              </p>
-            </div>
 
-            <div class="c-approach-card js-scroll-item">
-              <div class="c-approach-card__header">
-                <span class="c-approach-card__num">03</span>
-                <span class="c-approach-card__title">解決策の提案</span>
+              <div class="c-approach-card js-scroll-item">
+                <div class="c-approach-card__header">
+                  <span class="c-approach-card__num">02</span>
+                  <span class="c-approach-card__title">課題を整理する</span>
+                </div>
+                <p class="c-approach-card__desc">
+                  業務やシステムの状況を整理し、解決すべき優先順位を明確にします。
+                </p>
               </div>
-              <p class="c-approach-card__desc">
-                御社に合わせた最適なITツールと運用の仕組みを設計します。
-              </p>
-            </div>
 
-            <!-- 追加: カード04 -->
-            <div class="c-approach-card js-scroll-item">
-              <div class="c-approach-card__header">
-                <span class="c-approach-card__num">04</span>
-                <span class="c-approach-card__title">システムの導入</span>
+              <div class="c-approach-card js-scroll-item">
+                <div class="c-approach-card__header">
+                  <span class="c-approach-card__num">03</span>
+                  <span class="c-approach-card__title">解決策の提案</span>
+                </div>
+                <p class="c-approach-card__desc">
+                  御社に合わせた最適なITツールと運用の仕組みを設計します。
+                </p>
               </div>
-              <p class="c-approach-card__desc">
-                選定したツールをスムーズに導入し、現場への定着をサポートします。
-              </p>
-            </div>
 
-            <!-- 追加: カード05 -->
-            <div class="c-approach-card js-scroll-item">
-              <div class="c-approach-card__header">
-                <span class="c-approach-card__num">05</span>
-                <span class="c-approach-card__title">効果検証と改善</span>
+              <!-- 追加: カード04 -->
+              <div class="c-approach-card js-scroll-item">
+                <div class="c-approach-card__header">
+                  <span class="c-approach-card__num">04</span>
+                  <span class="c-approach-card__title">システムの導入</span>
+                </div>
+                <p class="c-approach-card__desc">
+                  選定したツールをスムーズに導入し、現場への定着をサポートします。
+                </p>
               </div>
-              <p class="c-approach-card__desc">
-                導入後の効果を測定し、さらなる業務改善に向けて伴走を続けます。
-              </p>
-            </div>
 
-            <div class="p-approach__dots">
-              <button class="c-dot js-scroll-dot" aria-label="1"></button>
-              <button class="c-dot js-scroll-dot" aria-label="2"></button>
-              <button class="c-dot js-scroll-dot" aria-label="3"></button>
-              <button class="c-dot js-scroll-dot" aria-label="4"></button>
-              <button class="c-dot js-scroll-dot" aria-label="5"></button>
+              <!-- 追加: カード05 -->
+              <div class="c-approach-card js-scroll-item">
+                <div class="c-approach-card__header">
+                  <span class="c-approach-card__num">05</span>
+                  <span class="c-approach-card__title">効果検証と改善</span>
+                </div>
+                <p class="c-approach-card__desc">
+                  導入後の効果を測定し、さらなる業務改善に向けて伴走を続けます。
+                </p>
+              </div>
+
+              <div class="p-approach__dots">
+                <button class="c-dot js-scroll-dot" aria-label="1"></button>
+                <button class="c-dot js-scroll-dot" aria-label="2"></button>
+                <button class="c-dot js-scroll-dot" aria-label="3"></button>
+                <button class="c-dot js-scroll-dot" aria-label="4"></button>
+                <button class="c-dot js-scroll-dot" aria-label="5"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -628,121 +631,119 @@
 
       <!-- FLOW -->
       <section class="l-section p-flow">
-        <div class="p-flow__container">
+        <!-- ★修正: p-flow__containerの重複を解消し、l-innerを併記 -->
+        <div class="l-inner p-flow__container">
           <h2 class="c-section-title">
             <span class="c-section-title__sub">FLOW</span>
             ご相談から解決まで
           </h2>
 
-          <!-- ★ 追加：タブレット・PC時の白背景となる大きな枠 -->
-          <div class="p-flow__container">
-            <div class="p-flow__list">
-              <!-- 01 -->
-              <dl class="p-flow-item">
-                <dt class="p-flow-item__dt">
-                  <span class="p-flow-item__num">1</span>
-                  <span class="p-flow-item__title">お問い合わせ</span>
-                </dt>
-                <dd class="p-flow-item__dd">
-                  <div class="p-flow-item__content-inner">
-                    <img
-                      src="./assets/images/flow-icon_1.svg"
-                      alt=""
-                      class="p-flow-item__icon"
-                    />
-                    <p class="p-flow-item__text">
-                      フォームからお気軽にご連絡ください
-                    </p>
-                  </div>
-                </dd>
-              </dl>
+          <div class="p-flow__list">
+            <!-- 01 -->
+            <dl class="p-flow-item">
+              <dt class="p-flow-item__dt">
+                <span class="p-flow-item__num">1</span>
+                <span class="p-flow-item__title">お問い合わせ</span>
+              </dt>
+              <dd class="p-flow-item__dd">
+                <div class="p-flow-item__content-inner">
+                  <img
+                    src="./assets/images/flow-icon_1.svg"
+                    alt=""
+                    class="p-flow-item__icon"
+                  />
+                  <p class="p-flow-item__text">
+                    フォームからお気軽にご連絡ください
+                  </p>
+                </div>
+              </dd>
+            </dl>
 
-              <!-- 02 -->
-              <dl class="p-flow-item">
-                <dt class="p-flow-item__dt">
-                  <span class="p-flow-item__num">2</span>
-                  <span class="p-flow-item__title">ヒアリング</span>
-                </dt>
-                <dd class="p-flow-item__dd">
-                  <div class="p-flow-item__content-inner">
-                    <img
-                      src="./assets/images/flow-icon_2.svg"
-                      alt=""
-                      class="p-flow-item__icon"
-                    />
-                    <p class="p-flow-item__text">
-                      現状の課題やご要望を丁寧にお伺いします
-                    </p>
-                  </div>
-                </dd>
-              </dl>
+            <!-- 02 -->
+            <dl class="p-flow-item">
+              <dt class="p-flow-item__dt">
+                <span class="p-flow-item__num">2</span>
+                <span class="p-flow-item__title">ヒアリング</span>
+              </dt>
+              <dd class="p-flow-item__dd">
+                <div class="p-flow-item__content-inner">
+                  <img
+                    src="./assets/images/flow-icon_2.svg"
+                    alt=""
+                    class="p-flow-item__icon"
+                  />
+                  <p class="p-flow-item__text">
+                    現状の課題やご要望を丁寧にお伺いします
+                  </p>
+                </div>
+              </dd>
+            </dl>
 
-              <!-- 03 -->
-              <dl class="p-flow-item">
-                <dt class="p-flow-item__dt">
-                  <span class="p-flow-item__num">3</span>
-                  <span class="p-flow-item__title">ご提案</span>
-                </dt>
-                <dd class="p-flow-item__dd">
-                  <div class="p-flow-item__content-inner">
-                    <img
-                      src="./assets/images/flow-icon_3.svg"
-                      alt=""
-                      class="p-flow-item__icon"
-                    />
-                    <p class="p-flow-item__text">
-                      課題やご要望に合わせた支援内容をご提案します
-                    </p>
-                  </div>
-                </dd>
-              </dl>
+            <!-- 03 -->
+            <dl class="p-flow-item">
+              <dt class="p-flow-item__dt">
+                <span class="p-flow-item__num">3</span>
+                <span class="p-flow-item__title">ご提案</span>
+              </dt>
+              <dd class="p-flow-item__dd">
+                <div class="p-flow-item__content-inner">
+                  <img
+                    src="./assets/images/flow-icon_3.svg"
+                    alt=""
+                    class="p-flow-item__icon"
+                  />
+                  <p class="p-flow-item__text">
+                    課題やご要望に合わせた支援内容をご提案します
+                  </p>
+                </div>
+              </dd>
+            </dl>
 
-              <!-- 04 (★ ダークテーマ用クラス p-flow-item--dark を追加) -->
-              <dl class="p-flow-item p-flow-item--dark">
-                <dt class="p-flow-item__dt">
-                  <span class="p-flow-item__num">4</span>
-                  <span class="p-flow-item__title">支援開始</span>
-                </dt>
-                <dd class="p-flow-item__dd">
-                  <div class="p-flow-item__content-inner">
-                    <img
-                      src="./assets/images/flow-icon_4.svg"
-                      alt=""
-                      class="p-flow-item__icon"
-                    />
-                    <p class="p-flow-item__text">
-                      ご提案内容に沿って必要な支援を開始します
-                    </p>
-                  </div>
-                </dd>
-              </dl>
+            <!-- 04 (★ ダークテーマ用クラス p-flow-item--dark を追加) -->
+            <dl class="p-flow-item p-flow-item--dark">
+              <dt class="p-flow-item__dt">
+                <span class="p-flow-item__num">4</span>
+                <span class="p-flow-item__title">支援開始</span>
+              </dt>
+              <dd class="p-flow-item__dd">
+                <div class="p-flow-item__content-inner">
+                  <img
+                    src="./assets/images/flow-icon_4.svg"
+                    alt=""
+                    class="p-flow-item__icon"
+                  />
+                  <p class="p-flow-item__text">
+                    ご提案内容に沿って必要な支援を開始します
+                  </p>
+                </div>
+              </dd>
+            </dl>
 
-              <!-- 05 -->
-              <dl class="p-flow-item">
-                <dt class="p-flow-item__dt">
-                  <span class="p-flow-item__num">5</span>
-                  <span class="p-flow-item__title">運用支援</span>
-                </dt>
-                <dd class="p-flow-item__dd">
-                  <div class="p-flow-item__content-inner">
-                    <img
-                      src="./assets/images/flow-icon_5.svg"
-                      alt=""
-                      class="p-flow-item__icon"
-                    />
-                    <p class="p-flow-item__text">
-                      導入後も安心のサポート体制でお支えします
-                    </p>
-                  </div>
-                </dd>
-              </dl>
-            </div>
+            <!-- 05 -->
+            <dl class="p-flow-item">
+              <dt class="p-flow-item__dt">
+                <span class="p-flow-item__num">5</span>
+                <span class="p-flow-item__title">運用支援</span>
+              </dt>
+              <dd class="p-flow-item__dd">
+                <div class="p-flow-item__content-inner">
+                  <img
+                    src="./assets/images/flow-icon_5.svg"
+                    alt=""
+                    class="p-flow-item__icon"
+                  />
+                  <p class="p-flow-item__text">
+                    導入後も安心のサポート体制でお支えします
+                  </p>
+                </div>
+              </dd>
+            </dl>
+          </div>
 
-            <div class="p-flow__footer">
-              <p>
-                まずはお気軽にお問い合わせください。課題整理から運用定着まで一貫してサポートします。
-              </p>
-            </div>
+          <div class="p-flow__footer">
+            <p>
+              まずはお気軽にお問い合わせください。課題整理から運用定着まで一貫してサポートします。
+            </p>
           </div>
         </div>
       </section>

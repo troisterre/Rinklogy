@@ -1,26 +1,25 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
+
 .p-concept {
   position: relative;
-  padding: 80px 20px;
   overflow: hidden;
   display: flex;
-  padding: 60px 8px;
   flex-direction: column;
   align-items: center;
+  padding: 60px 16px; // ★修正: 重複していたpaddingを一つにまとめました
   gap: 36px;
 
   @include tab {
-    display: flex;
-    padding: 100px 20px;
-    flex-direction: column;
+    padding: 100px 40px;
     align-items: flex-start;
     gap: 56px;
   }
   @include pc {
     width: 100%;
+    padding: 120px 0; // 左右の余白は l-inner に任せる
     align-items: center;
-    gap: 5.6rem;
+    gap: 56px;
   }
 
   // ==========================================
@@ -31,14 +30,14 @@
     position: absolute;
     left: 50%;
     top: 20%;
-    transform: translate(-50%, -50%); // ど真ん中に配置
+    transform: translate(-50%, -50%);
     width: 464px;
     height: 396px;
     aspect-ratio: 116/99;
-    // ★Figmaから書き出したうずまきの背景画像パスを指定してください
     background: url("/assets/images/company-bg-image.png") center/contain no-repeat;
-    z-index: -1; // テキストの後ろに配置
+    z-index: -1;
     pointer-events: none;
+
     @include tab {
       width: 651px;
       height: 556px;
@@ -47,14 +46,11 @@
     }
   }
 
+  // ★修正: &__inner は .l-inner が幅と中央寄せを担当するため丸ごと削除しました
+
   // ==========================================
   // レイアウト・コンテンツ
   // ==========================================
-  &__inner {
-    max-width: 1120px; // PC表示時の最大幅
-    margin: 0 auto;
-  }
-
   &__content {
     margin-top: 40px;
     display: flex;
@@ -62,13 +58,11 @@
     align-items: center;
     gap: 40px;
 
-    // タブレット以上で横並び（2カラム）にする
     @include tab {
-      display: flex;
-      padding-left: 40px;
       flex-direction: row;
       justify-content: center;
       align-items: flex-start;
+      padding-left: 40px;
       gap: 24px;
       align-self: stretch;
     }
@@ -83,19 +77,16 @@
   &__catch {
     color: var(--text-black, #020d1b);
     text-align: center;
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 32px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 150%; /* 48px */
+    line-height: 1.5;
     letter-spacing: 1.28px;
 
     @include tab {
       flex: 1;
       font-size: 36px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 170%; /* 61.2px */
+      line-height: 1.7;
       letter-spacing: 1.44px;
       text-align: start;
     }
@@ -103,8 +94,9 @@
       font-size: 40px;
       letter-spacing: 1.6px;
     }
+
     span {
-      color: $logo2; // 青緑色（対話 の部分）
+      color: $logo2;
     }
   }
 
@@ -112,11 +104,11 @@
   &__desc {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 6px 8px 0 8px;
     align-items: flex-start;
+    padding: 6px 8px 0 8px;
     gap: 32px;
     align-self: stretch;
+
     @include tab {
       flex: 1;
     }
@@ -141,21 +133,21 @@
     // 太字強調テキスト
     &--strong {
       color: #1f2125;
+      font-family: "Noto Sans JP", sans-serif;
       font-weight: 700;
       font-size: 20px;
       text-align: center;
       letter-spacing: 0;
+
       @include tab {
-        font-size: 20px;
-        font-style: normal;
         font-weight: 500;
-        line-height: 170%; /* 34px */
+        line-height: 1.7;
         letter-spacing: 0.4px;
         text-align: start;
       }
 
       span {
-        color: $logo2; // 青緑色（向き合い、考え 等の部分）
+        color: $logo2;
       }
     }
   }

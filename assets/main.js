@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================
   const headerElement = document.querySelector(".l-header");
 
+  // ★修正: { が抜けて構文エラーになっていたのを修正しました
   if (headerElement) {
     window.addEventListener("scroll", function () {
       const scrollY = window.scrollY;
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 画面幅が変わった時に判定を実行
     mediaQuery.addEventListener("change", handleResize);
   }
+
   // =========================================================
   // 3. ヒーロースライダー処理
   // =========================================================
@@ -209,7 +211,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtnSp = document.querySelector(".js-consult-next-sp");
     const prevBtnPc = document.querySelector(".js-consult-prev");
     const nextBtnPc = document.querySelector(".js-consult-next");
-    const dots = document.querySelectorAll(".js-consult-dot");
+
+    // ★修正: 親枠ではなく、中に入っている個別のドット(.c-dot)を正しく取得
+    const dotsContainer = document.querySelector(".js-consult-dot");
+    const dots = dotsContainer ? dotsContainer.querySelectorAll(".c-dot") : [];
+
     const items = consultSliderList.querySelectorAll(".js-slider-item");
 
     const scrollSlider = (direction) => {

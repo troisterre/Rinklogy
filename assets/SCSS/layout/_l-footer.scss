@@ -2,31 +2,24 @@
 @use "../foundation/variables" as *;
 
 .l-footer {
-  // デザインに合わせた深いネイビー
-
-  color: #fff;
-
   background: var(--footer-bgc, #061c38);
-  display: flex;
+  color: #fff;
   padding: 40px 24px 32px 24px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  align-self: stretch;
+
+  // ★修正: 親要素の flex を解除し、自然な縦積み（上：情報、下：コピーライト）にします
+  display: block;
+
   @include tab {
     padding: 80px 40px 24px;
   }
   @include pc {
-    display: flex;
-    padding: 40px 120px;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+    padding: 80px 0 24px; // PC時は左右の余白を auto に任せる
   }
 
   &__inner {
-    max-width: 900px;
+    max-width: 1160px; // ★修正: 他のセクションと幅（1160px）を合わせる
     margin: 0 auto;
+    width: 100%;
 
     // スマホ時は縦積み
     display: flex;
@@ -50,7 +43,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    align-self: stretch;
+
     @include pc {
       gap: 24px;
     }
@@ -65,9 +58,6 @@
     @include tab {
       font-size: 28px;
     }
-    @include pc {
-      font-size: 20px;
-    }
   }
 
   &__desc {
@@ -76,7 +66,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 180%; /* 21.6px */
+    line-height: 180%;
   }
 
   // =========================
@@ -93,27 +83,25 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
-    align-self: stretch;
-    @include tab {
-      flex-direction: row;
-    }
+
+    // ★修正: flex-direction: row; を削除し、デザイン通り常に縦積みをキープ
+
     @include pc {
-      gap: 60px;
+      gap: 24px; // 少し間隔を整えました
     }
   }
 
   &__item {
     a {
       display: inline-block;
-
       transition: opacity 0.3s ease;
-
       color: #fff;
       font-family: "Noto Sans JP";
       font-size: 14px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
+
       &:hover {
         opacity: 0.7;
       }
@@ -124,11 +112,12 @@
   // コピーライト
   // =========================
   &__copyright {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1160px; // ★修正: innerと同じ幅に揃える
+    margin: 40px auto 0; // 上に余白を取り、中央揃え
     padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); // 上部のうっすらとした区切り線
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
+    width: 100%;
 
     small {
       color: var(--base_background, #f8fafc);
@@ -138,6 +127,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+
       @include pc {
         font-size: 11px;
       }

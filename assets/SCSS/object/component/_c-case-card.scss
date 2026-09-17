@@ -8,20 +8,18 @@
   overflow: hidden;
   text-decoration: none;
   display: flex;
-  width: 100%; // ★修正: PCで3列並びの計算（calc）を生かすため 100% を推奨
+  width: 100%;
   height: 352px;
   flex-direction: column;
-  justify-content: flex-end; // ★修正: bodyが一番下に配置されるようにする
+  justify-content: flex-end;
   align-items: flex-start;
   border-radius: 12px;
-
-  /* ドロップシャドウ */
   box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
 
-  // ホバー時に少し画像を拡大するアニメーション
   &:hover &__bg img {
     transform: scale(1.05);
   }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -30,6 +28,7 @@
     height: 100%;
     z-index: 1;
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -38,6 +37,7 @@
     width: 100%;
     height: 70%;
     background: linear-gradient(to top, rgba(2, 13, 27, 0.9) 0%, rgba(2, 13, 27, 0) 100%);
+    z-index: 1; // 背景画像とコンテンツの間に配置
   }
 
   img {
@@ -52,7 +52,6 @@
     top: 0;
     left: 0;
     z-index: 2;
-    overflow: hidden;
     display: flex;
     padding: 12px 16px;
     align-items: center;
@@ -62,13 +61,11 @@
   }
 
   &__badge-num {
-    display: flex;
     padding: 6px 10px;
-    align-items: flex-start;
     border-radius: 6px;
     background: var(--logo1, #113058);
     color: #fff;
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 14px;
     font-weight: 700;
   }
@@ -76,14 +73,11 @@
   &__badge-cat {
     padding: 8px 16px;
     color: var(--logo1, #113058);
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
   }
 
-  // 3. 下部のテキストコンテンツ
   &__body {
     position: relative;
     z-index: 2;
@@ -95,11 +89,6 @@
   }
 
   &__label {
-    background: rgba(15, 23, 42, 0.8);
-    color: #fff;
-    font-family: "Noto Sans JP";
-    font-size: 16px;
-    font-weight: 700;
     display: flex;
     padding: 6px 10px;
     justify-content: center;
@@ -107,29 +96,30 @@
     gap: 10px;
     border-radius: 6px;
     background: var(--logo1, #113058);
+    color: #fff;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
     margin-bottom: 8px;
   }
+
   &__title {
     color: #fff;
     font-size: 22px;
-    font-style: normal;
     font-weight: 900;
-    line-height: 125%; /* 27.5px */
+    line-height: 1.25;
 
     &--small {
-      color: #fff;
-      font-family: "Noto Sans JP";
+      font-family: "Noto Sans JP", sans-serif;
       font-size: 26px;
-      font-style: normal;
-      font-weight: 900;
-      line-height: 125%; /* 32.5px */
     }
   }
+
   &__arrow {
-    background-image: url(/assets/images/Vector.svg);
+    background-image: url("/assets/images/Vector.svg");
     width: 11px;
-    display: block;
     height: 20px;
+    display: block;
     margin: 20px 0;
     background-repeat: no-repeat;
     transform: rotate(137deg);

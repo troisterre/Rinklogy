@@ -3,35 +3,32 @@
 
 .p-consultation {
   background: var(--base_background, #f8fafc);
+
   &__inner {
-    margin: 0 auto;
-    width: 100%;
     padding: 64px 8px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 36px;
+
     @include tab {
       padding: 100px 40px;
     }
     @include pc {
-      max-width: 1160px;
-      margin: 0 auto;
+      padding: 120px 0; // 左右の余白は .l-inner(auto) に任せる
       align-items: center;
       gap: 32px;
-      align-self: stretch;
-      width: 100%;
     }
   }
 
   &__header {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 40px;
+
     @include tab {
-      display: flex;
-      width: 100%;
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
@@ -42,32 +39,31 @@
   &__nav {
     display: flex;
     gap: 16px;
+
     @include tab {
       align-self: flex-end;
       gap: 12px;
     }
+
     .c-slider-btn {
       background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); // 軽い影をつける
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
-      // 矢印の色を紺色（テキストカラー）に変更
       &::before {
         border-color: #0f172a;
       }
     }
   }
 
-  // ★重複していた __slider を統合しました
   &__slider {
     width: 100%;
-    overflow: visible; // SPでスライドの端を見せるため
+    overflow: visible;
 
     @include tab {
       overflow: hidden;
     }
   }
 
-  // ★ 修正した __list
   &__list {
     display: flex;
     gap: 16px;
@@ -83,14 +79,12 @@
     @include tab {
       gap: 24px;
       padding: 0 10% 24px;
-      // ※ここに混ざっていた background や box-shadow はカード側に指定済みのため削除しました
     }
 
     @include pc {
-      padding-bottom: 12px;
+      padding: 0 0 12px 0;
       align-items: flex-start;
       gap: 32px;
-      align-self: stretch;
     }
   }
 
@@ -102,18 +96,17 @@
     @include tab {
       flex: 0 0 60%;
       max-width: none;
-      scroll-snap-align: center;
     }
 
     @include pc {
       flex: 0 0 calc((100% - 64px) / 3);
-      max-width: none;
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
     }
   }
+
   &__controls {
     display: flex;
     width: 240px;
@@ -121,7 +114,6 @@
     align-items: center;
     margin: 32px auto 0;
 
-    // ★ ユーティリティクラスを使わず、ここで直接タブレット・PC時に非表示にする
     @include tab {
       display: none;
     }
@@ -130,18 +122,17 @@
   &__pagination {
     display: flex;
     align-items: center;
-    gap: 16px; // ドット同士の隙間
+    gap: 16px;
   }
 }
-
-// ==========================================
-// コンサルカード (Component)
-// ==========================================
+// ==========================================================================
+// Component: コンサルカード (.c-consult-card)
+// ==========================================================================
 .c-consult-card {
   overflow: hidden;
   display: flex;
-  width: 100%; // ★ 300px固定から100%に変更（レスポンシブ対応）
-  height: 100%; // ★ スライダー内でカードの高さを均一にするため追加
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   align-items: flex-start;
   border-radius: 12px;
@@ -152,7 +143,7 @@
   &__img {
     position: relative;
     width: 100%;
-    height: 160px; // Figmaの指定値
+    height: 160px;
 
     img {
       width: 100%;
@@ -167,13 +158,13 @@
     left: 0;
     background: $logo2;
     color: #fff;
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 11px;
     font-weight: 700;
     padding: 6px 12px;
     letter-spacing: 0.05em;
-    z-index: 2; // 画像より上に表示
+    z-index: 2;
     margin: 16px;
-    color: #fff;
   }
 
   &__body {
@@ -185,28 +176,28 @@
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
+
     @include tab {
       height: auto;
     }
   }
 
   &__title {
-    font-weight: 700;
     color: $text-black;
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 16px;
-    font-style: normal;
     font-weight: 700;
-    line-height: 140%; /* 22.4px */
+    line-height: 1.4;
     margin-bottom: 12px;
   }
 
   &__desc {
-    color: #666;
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
     margin-bottom: 31px;
     flex-grow: 1;
-    color: var(--text-black, #020d1b);
-    font-size: 13px;
-    line-height: 160%; /* 20.8px */
   }
 
   &__footer {
@@ -217,12 +208,11 @@
 
   &__footer-title {
     display: block;
+    color: var(--logo2, #07808e);
+    font-family: "Roboto", sans-serif;
     font-size: 11px;
-    color: $logo2;
     font-weight: 700;
     margin-bottom: 12px;
-    color: var(--logo2, #07808e);
-    font-size: 11px;
     text-transform: uppercase;
   }
 
@@ -239,39 +229,38 @@
   }
 
   &__tag {
+    color: var(--logo2, #07808e);
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 11px;
-    color: $logo2;
+    font-weight: 500;
     border: 1px solid var(--border, #c6dbde);
     border-radius: 4px;
     padding: 4px 8px;
     display: flex;
     align-items: flex-start;
-    color: var(--logo2, #07808e);
-    font-weight: 500;
   }
 }
-// ==========================================
-// スライダー操作ボタン (Component)
-// ==========================================
+
+// ==========================================================================
+// Component: スライダー操作ボタン (.c-slider-btn)
+// ==========================================================================
 .c-slider-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 44px; // ★Figmaのサイズに合わせて調整してください（例: 40px, 48pxなど）
+  width: 44px;
   height: 44px;
-  background-color: $logo2; // メインの緑色
+  background-color: $logo2;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
   padding: 0;
 
-  // ホバー（タップ）した時に少し薄くする
   &:hover {
     opacity: 0.8;
   }
 
-  // 白い矢印（CSSのボーダーで描画）
   &::before {
     content: "";
     display: block;
@@ -281,18 +270,18 @@
     border-right: 2px solid #fff;
   }
 
-  // 「前へ」ボタン（左向き）
   &--prev::before {
     transform: rotate(-135deg);
-    margin-left: 4px; // 矢印が視覚的にド真ん中に見えるための微調整
+    margin-left: 4px;
   }
 
-  // 「次へ」ボタン（右向き）
   &--next::before {
     transform: rotate(45deg);
-    margin-right: 4px; // 矢印が視覚的にド真ん中に見えるための微調整
+    margin-right: 4px;
   }
 }
+
+// SP用ドット並び
 .js-consult-dot {
   display: flex;
   gap: 16px;

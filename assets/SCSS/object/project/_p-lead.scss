@@ -1,5 +1,9 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
+
+// ==========================================================================
+// Component: リード文 (.p-lead)
+// ==========================================================================
 .p-lead {
   display: flex;
   width: 100%;
@@ -10,11 +14,13 @@
   gap: 14px;
   align-self: stretch;
   position: relative;
+  z-index: 3; // Hero内での重なり順をここで担保
 
-  // ★ 修正：タブレット以上でも枠自体は消さず、白背景と余白だけをリセット
   @include tab {
+    display: block; // Flexを解除して自然なブロック要素に
     background-color: transparent;
     padding: 0;
+    margin-top: 16px; // PC/Tabでの上余白
   }
 
   // 「私たちの役割」ラベル
@@ -23,7 +29,6 @@
     color: #fff;
     font-family: $font-sans;
     font-size: 12px;
-    font-style: normal;
     font-weight: 700;
     line-height: 1.6;
     letter-spacing: 0.24px;
@@ -31,7 +36,6 @@
     padding: 4px 10px;
     border-radius: 4px;
 
-    // ★ 修正：タブレット以上でラベルを非表示
     @include tab {
       display: none;
     }
@@ -43,16 +47,13 @@
     color: $text-black;
     font-family: $font-sans;
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: 1.7;
     letter-spacing: 0.28px;
     position: relative;
     z-index: 2;
 
-    // タブレット以上のテキストの大きさ調整が必要な場合はここに追記
     @include tab {
-      font-size: 15px; // デザインに合わせて微調整してください
       line-height: 1.8;
     }
   }
@@ -70,7 +71,6 @@
     z-index: 1;
     pointer-events: none;
 
-    // ★ 修正：タブレット以上で透かし文字を非表示
     @include tab {
       display: none;
     }
@@ -85,7 +85,6 @@
     background: $gra_01;
     margin-top: 8px;
 
-    // ★ 修正：タブレット以上で下線を非表示
     @include tab {
       display: none;
     }

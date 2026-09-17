@@ -25,9 +25,7 @@
     color: $text-black;
     font-family: $font-sans;
     font-size: 13px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: 0.52px;
   }
 
@@ -196,10 +194,9 @@
   }
 
   @include pc {
+    // 中央のコンテンツ幅を1160pxに固定しつつ、背景を全幅にする計算式
     padding-left: max(40px, calc(50% - 580px));
     padding-right: max(40px, calc(50% - 580px));
-
-    // 前回設定した制限を解除し、素直に左右均等(1fr 1fr)に戻します。
     grid-template-columns: 1fr 1fr;
     column-gap: 60px;
 
@@ -211,11 +208,9 @@
 
     &__copy {
       font-size: 62px;
-      line-height: normal;
       letter-spacing: 7.44px;
       span {
         font-size: 62px;
-        line-height: normal;
         letter-spacing: 6.2px;
       }
     }

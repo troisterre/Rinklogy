@@ -12,14 +12,13 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 36px;
-  overflow: hidden; // ★これは残します（不要な横スクロール防止）
+  overflow: hidden;
 
   @include tab {
     padding: 100px 40px;
   }
   @include pc {
-    // ★修正: 左右のpaddingを 0 → 40px（または60pxなど）に増やして、ドットが隠れない保護エリアを作ります
-    padding: 120px 60px;
+    padding: 120px 0; // 左右の余白は l-inner に任せる
     align-items: center;
   }
 
@@ -27,9 +26,8 @@
   .c-section-title {
     align-items: flex-start;
     text-align: left;
-    max-width: 1200px;
     width: 100%;
-    margin: 0 auto 40px;
+    margin-bottom: 40px;
     padding-left: 16px;
 
     &::after {
@@ -46,7 +44,7 @@
   }
 
   &__inner {
-    position: relative; // ★ここを基準（親）にする
+    position: relative;
     z-index: 1;
     display: flex;
     height: 280px;
@@ -57,13 +55,11 @@
 
     @include pc {
       height: 500px;
-      max-width: 1120px; // ★全体の枠幅（ここが1120px以上にはならない）
-      margin: 0 auto;
-      // ★絶対配置にするため、ややこしいgapやjustify-contentでの調整は不要になります！
       justify-content: flex-start;
       padding: 0;
     }
   }
+
   // ============================
   // 左側：円形エリア（PC時は画像）
   // ============================
@@ -84,7 +80,7 @@
     @include pc {
       position: relative;
       left: 0;
-      width: 65%; // ★画像を広々と大きく表示！
+      width: 65%;
       max-width: 760px;
       height: auto;
       padding: 0;
@@ -93,11 +89,12 @@
       margin: 0;
       z-index: 1;
     }
+
     .p-approach__img-pc {
       display: none;
       @include pc {
         display: block;
-        width: 100%; // 親枠(55%)に対して100%にする
+        width: 100%;
         height: auto;
       }
     }
@@ -116,25 +113,22 @@
       }
     }
 
-    h3 {
+    h3,
+    p {
       color: #fff;
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.5;
       margin: 0;
+      line-height: 1.5;
       @include pc {
         display: none;
       }
     }
 
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
     p {
-      color: #fff;
       font-size: 13px;
-      line-height: 1.5;
-      margin: 0;
-      @include pc {
-        display: none;
-      }
     }
   }
 
@@ -148,36 +142,31 @@
 
     @include pc {
       position: absolute;
-      // ★修正: スライダー本体をもう少し左（内側）に寄せて、ドットのスペースをしっかり確保します
       right: 10px;
       top: 50%;
       transform: translateY(-50%);
-
       width: 45%;
       max-width: 460px;
       height: 100%;
       z-index: 2;
     }
   }
+
   // スライダー右側のドット
   &__dots {
     display: none;
     @include pc {
       position: absolute;
       top: 50%;
-      right: 0;
+      right: -32px;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      z-index: 10;
-      display: flex;
-      height: 110px;
-      flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      right: -32px;
+      height: 110px;
       gap: 16px;
+      z-index: 10;
     }
   }
 }
@@ -211,7 +200,7 @@
   gap: 8px;
 
   @include tab {
-    width: 100%; // ★固定幅をやめて可変にする
+    width: 100%;
     max-width: 460px;
     height: auto;
     padding: 24px;
@@ -236,7 +225,7 @@
     border-radius: 4px;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
     color: #fff;
-    font-family: Roboto;
+    font-family: "Roboto", sans-serif;
     font-size: 12px;
     font-weight: 700;
     @include tab {
@@ -246,7 +235,7 @@
 
   &__title {
     color: var(--text-black, #020d1b);
-    font-family: "Noto Sans JP";
+    font-family: "Noto Sans JP", sans-serif;
     font-size: 16px;
     font-weight: 700;
     @include tab {
@@ -258,7 +247,7 @@
     color: var(--text-black, #020d1b);
     font-size: 13px;
     font-weight: 400;
-    line-height: 150%;
+    line-height: 1.5;
     @include tab {
       font-size: 18px;
     }
@@ -315,29 +304,5 @@
     @include pc {
       transform: perspective(500px) translateY(calc(-50% + 150px)) translateZ(-200px) rotateX(-80deg) scale(0.7);
     }
-  }
-} // ★ .c-approach-card のカッコ閉じ
-
-// ==========================================
-// Component: スライダー用ドット (.c-dot)
-// ==========================================
-.c-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #c6dbde;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  @include pc {
-    width: 10px;
-    height: 10px;
-  }
-
-  &.is-active {
-    background-color: var(--logo2, #07808e);
-    transform: scale(1.3);
   }
 }

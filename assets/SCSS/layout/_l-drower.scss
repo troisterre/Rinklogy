@@ -14,12 +14,13 @@
   height: 100vh;
   background-color: $white;
   z-index: 105;
-  padding: 100px 30px 40px; // $header-height-sp より少し多めに余白を取る
+  padding: 100px 30px 40px;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 
-  @include pc {
+  // ★修正: PCメニューが出るタブレット以上のサイズでドロワーを消す
+  @include tab {
     display: none;
   }
 
@@ -43,7 +44,7 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(2, 13, 27, 0.6); // $text-blackのRGB値をベースに半透明化
+  background-color: rgba(2, 13, 27, 0.6);
   z-index: 100;
   opacity: 0;
   visibility: hidden;
@@ -51,7 +52,8 @@
     opacity 0.3s,
     visibility 0.3s;
 
-  @include pc {
+  // ★修正: タブレット以上のサイズで暗幕を消す
+  @include tab {
     display: none;
   }
 
@@ -65,4 +67,9 @@
 // ドロワー展開時に背景のスクロールを防ぐ
 body.is-locked {
   overflow: hidden;
+
+  // ★追加: タブレット以上になったら強制的にロックを解除（リサイズバグ対策）
+  @include tab {
+    overflow: visible;
+  }
 }

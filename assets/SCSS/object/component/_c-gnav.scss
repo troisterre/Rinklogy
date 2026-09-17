@@ -9,22 +9,20 @@
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; // スマホ（ドロワー内）
+  flex-direction: column;
   gap: 24px;
 
-  // タブレット以上（ヘッダー内）
   @include tab {
     flex-direction: row;
     align-items: center;
-    gap: 0; // margin/paddingで間隔を調整するためgapは0
+    gap: 0;
   }
 
   &__item {
     @include tab {
       position: relative;
-      padding: 0 20px; // テキストと線の間の余白
+      padding: 0 20px;
 
-      // 区切り線（右側）
       &::after {
         content: "";
         position: absolute;
@@ -32,13 +30,18 @@
         right: 0;
         transform: translateY(-50%);
         width: 1px;
-        height: 14px; // 線の高さ
-        background-color: $logo2; // 青緑色の線（#07808e）
+        height: 14px;
+        background-color: $logo2;
       }
+
+      // 最後のアイテムの右側には線を引かない場合は以下を有効化
+      // &:last-child::after {
+      //   display: none;
+      // }
     }
 
     @include pc {
-      padding: 0 30px; // PCでは少し余白を広げる
+      padding: 0 30px;
     }
 
     a {
@@ -50,7 +53,7 @@
       display: block;
 
       @include tab {
-        font-size: 14px; // タブレットでの文字サイズ
+        font-size: 14px;
       }
 
       &:hover {

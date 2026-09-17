@@ -1,26 +1,24 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
 
+// ==========================================================================
+// Component: セクションタイトル (.c-section-title)
+// ==========================================================================
 .c-section-title {
   color: var(--text-black, #020d1b);
-  font-family: "Noto Sans JP";
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 25px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 130%; /* 32.5px */
+  line-height: 1.3;
   display: flex;
   flex-direction: column;
-  align-items: center; // ★追加: デフォルトは中央揃え
+  align-items: center;
   text-align: center;
   gap: 12px;
   position: relative;
   padding-bottom: 16px;
 
   @include tab {
-    font-size: 42px;
-    text-align: center;
-  }
-  @include pc {
     font-size: 42px;
   }
 
@@ -29,7 +27,7 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%); // ド真ん中にする
+    transform: translateX(-50%);
     width: 64px;
     height: 2px;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
@@ -37,94 +35,33 @@
 
   &__sub {
     color: var(--logo2, #07808e);
-    font-family: Roboto;
+    font-family: "Roboto", sans-serif;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 3px;
-    text-align: center;
+
     @include tab {
       font-size: 20px;
-      font-weight: 700;
     }
     @include pc {
       font-size: 24px;
-      font-style: normal;
-      letter-spacing: 3px;
-    }
-  }
-
-  &__catch {
-    color: var(--text-black, #020d1b);
-    text-align: center;
-    font-family: "Noto Sans JP";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    letter-spacing: 1.28px;
-
-    // ★修正: &span から span に変更（これで中のspanタグに当たります）
-    span {
-      color: var(--logo2, #07808e);
-      font-family: "Noto Sans JP";
-      font-size: 32px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 150%;
-      letter-spacing: 1.28px;
-    }
-  }
-
-  &__text {
-    color: var(--text-black, #020d1b);
-    font-family: "Noto Sans JP";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 170%;
-  }
-
-  &__text--strong {
-    color: var(--text-black, #020d1b);
-    text-align: center;
-    font-family: "Noto Sans JP";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 170%;
-
-    // ★修正: &span から span に変更
-    span {
-      color: var(--logo2, #07808e);
     }
   }
 }
 
-// ==========================================
-// 左寄せ用モディファイア（--left）
-// ==========================================
+// 左寄せ用モディファイア
 .c-section-title--left {
   @extend .c-section-title;
+  align-items: flex-start;
   text-align: left;
-  align-items: flex-start; // ★追加: Flexboxの子要素（サブタイトルなど）を左に寄せる
 
   &::after {
-    left: 0; // ★追加: スマホ時も線を左端からスタートさせる
-    transform: none; // ★追加: 中央寄せの計算を解除
+    left: 0;
+    transform: none;
   }
 }
+
 .c-section-title-sub--left {
-  text-align: left;
   @extend .c-section-title__sub;
-
-  @include tab {
-    font-size: 30px;
-    font-weight: 700;
-
-    &::after {
-      content: "";
-      left: 0;
-      transform: none;
-    }
-  }
+  text-align: left;
 }

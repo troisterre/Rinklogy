@@ -1,8 +1,9 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
-// ==========================================
+
+// ==========================================================================
 // Project: 支援事例セクション (.p-support-case)
-// ==========================================
+// ==========================================================================
 .p-support-case {
   background: var(--base_background, #f8fafc);
 
@@ -13,20 +14,17 @@
     align-items: flex-start;
     gap: 36px;
     align-self: stretch;
-    width: 100%; // ★追加: 念のため幅100%を確保
+    // ★修正: width や max-width、margin は .l-inner が担当するため削除
 
     @include tab {
-      padding: 100px 20px;
+      padding: 100px 40px; // 左右の余白を他のセクションと統一
       gap: 56px;
     }
     @include pc {
-      // ★修正: max-width を設定して中央に寄せる
-      max-width: 1160px;
-      margin: 0 auto;
+      padding: 120px 0; // PC時は左右の余白を auto に任せる
     }
   }
 
-  // ★追加：スライダーの外枠が確実に100%になるように指定
   &__slider {
     width: 100%;
   }
@@ -42,13 +40,13 @@
     gap: 16px;
     align-self: stretch;
     scrollbar-width: none;
+
     &::-webkit-scrollbar {
       display: none;
     }
 
     @include tab {
       gap: 24px;
-      // ★修正：中央スタートのための左右余白を削除し、左揃えにします
       padding: 0 0 24px;
     }
     @include pc {
@@ -70,13 +68,12 @@
     align-items: flex-start;
 
     @include tab {
-      // ★修正：全体(100%)から隙間(24px)を引いた幅を「2」で割ってピッタリ2枚表示にします
-      flex: 0 0 calc((100% - 24px) / 2);
+      flex: 0 0 calc((100% - 24px) / 2); // 2列
       max-width: none;
-      scroll-snap-align: start; // 左端でピタッと止まるようにする
+      scroll-snap-align: start;
     }
     @include pc {
-      flex: 0 0 calc((100% - 64px) / 3);
+      flex: 0 0 calc((100% - 64px) / 3); // 3列
       max-width: none;
       scroll-snap-align: start;
     }
@@ -85,7 +82,7 @@
   &__controls {
     display: flex;
     width: 240px;
-    justify-content: space-between; // ★これによって[左ボタン] [ドット群] [右ボタン]が等間隔に配置されます
+    justify-content: space-between;
     align-items: center;
     margin: 32px auto 0;
 

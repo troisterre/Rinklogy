@@ -2,9 +2,8 @@
 @use "../../foundation/variables" as *;
 
 // ==========================================================================
-// ハンバーガーボタン
+// Component: ハンバーガーボタン (.c-hamburger)
 // ==========================================================================
-
 .c-hamburger {
   position: relative;
   width: 44px;
@@ -14,6 +13,7 @@
   cursor: pointer;
   z-index: 110;
   padding: 0;
+
   @include tab {
     display: none;
   }
@@ -21,7 +21,7 @@
   &__line {
     position: absolute;
     left: 50%;
-    width: 30px; // 24pxから30pxに変更
+    width: 30px;
     height: 2px;
     background-color: $logo1;
     transform: translateX(-50%);
@@ -30,7 +30,6 @@
       top 0.3s,
       opacity 0.3s;
 
-    // 線の縦位置（現状維持ですが、ボタン全体のサイズに対してバランスが気になる場合は微調整してください）
     &:nth-child(1) {
       top: 14px;
     }
@@ -42,7 +41,6 @@
     }
   }
 
-  // メニュー展開時
   &.is-active {
     .c-hamburger__line {
       &:nth-child(1) {

@@ -30,8 +30,8 @@
     @include pc {
       height: $header-height-pc;
       padding: 0 40px;
-      // ★追加: 大画面時に両端に離れすぎないよう最大幅を決めて中央寄せ
-      max-width: 1340px;
+      // ★修正: サイト全体の幅(1160px)に合わせることで、下のコンテンツと左右のラインが美しく揃います
+      max-width: 1160px;
       margin: 0 auto;
       width: 100%;
     }
@@ -43,14 +43,13 @@
 
     img {
       width: 50px;
-      height: 46px;
+      height: auto; // ★修正: aspect-ratio(縦横比)を活かすためautoに変更
       flex-shrink: 0;
       aspect-ratio: 25 / 23;
       display: block;
 
       @include tab {
         width: 99px;
-        height: 90px;
       }
       @include pc {
         width: 150px;
@@ -61,7 +60,6 @@
   &__nav {
     display: none;
 
-    // ★修正: タブレットでメニューが消えないように pc から tab に戻しました
     @include tab {
       display: flex;
       align-items: center;
