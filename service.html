@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO設定 -->
+    <title>サービス紹介 | 株式会社Rinklogy</title>
+    <meta
+      name="description"
+      content="株式会社Rinklogyのサービス紹介ページです。ITコンサルティングからシステム開発まで、お客様の事業成長をITの力で力強く後押しします。"
+    />
+
+    <!-- ドメイン確認後修正 -->
+    <link rel="canonical" href="https://example.com/service/" />
+    <meta property="og:site_name" content="株式会社Rinklogy" />
+    <meta property="og:title" content="サービス紹介 | 株式会社Rinklogy" />
+    <meta
+      property="og:description"
+      content="株式会社Rinklogyのサービス紹介ページです。ITコンサルティングからシステム開発まで、お客様の事業成長をITの力で力強く後押しします。"
+    />
+    <meta property="og:url" content="https://example.com/service/" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://example.com/assets/images/common/ogp.jpg"
+    />
+    <meta name="twitter:card" content="button_large_image" />
+
+    <!-- ファビコン -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- CSS / JS の読み込み -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="/assets/main.js" defer></script>
+  </head>
+  <body>
+    <!-- ========================================
+         HEADER (トップページと共通)
+    ======================================== -->
+    <header
+      class="l-header"
+      itemscope
+      itemtype="http://schema.org/LocalBusiness"
+    >
+      <div class="l-header__inner">
+        <h1 class="l-header__logo">
+          <a href="/" itemprop="url">
+            <img
+              src="/assets/images/logo.svg"
+              alt="株式会社Rinklogy"
+              width="150"
+              height="45"
+              decoding="async"
+              itemprop="logo"
+            />
+          </a>
+        </h1>
+
+        <nav class="l-header__nav" aria-label="PC用グローバルナビゲーション">
+          <ul class="c-gnav">
+            <li class="c-gnav__item"><a href="/about.html">会社案内</a></li>
+            <li class="c-gnav__item"><a href="/service.html">サービス</a></li>
+            <li class="c-gnav__item">
+              <a href="/#flow">ご相談から解決まで</a>
+            </li>
+          </ul>
+          <div class="l-header__cta">
+            <a href="#contact" class="c-btn c-btn--primary c-btn--small"
+              >お問い合わせ</a
+            >
+          </div>
+        </nav>
+
+        <button
+          type="button"
+          class="c-hamburger js-hamburger"
+          aria-controls="global-nav"
+          aria-expanded="false"
+          aria-label="メニューを開く"
+        >
+          <span class="c-hamburger__line"></span>
+          <span class="c-hamburger__line"></span>
+          <span class="c-hamburger__line"></span>
+        </button>
+      </div>
+
+      <nav id="global-nav" class="l-drawer js-drawer" aria-hidden="true">
+        <div class="l-drawer__inner">
+          <ul class="c-gnav">
+            <li class="c-gnav__item"><a href="/about.html">会社案内</a></li>
+            <li class="c-gnav__item"><a href="/service.html">サービス</a></li>
+            <li class="c-gnav__item">
+              <a href="/#flow">ご相談から解決まで</a>
+            </li>
+          </ul>
+          <div class="l-drawer__cta">
+            <a href="#contact" class="c-btn c-btn--primary">お問い合わせ</a>
+          </div>
+        </div>
+      </nav>
+      <div class="l-overlay js-overlay"></div>
+    </header>
+
+    <main class="l-main">
+      <!-- ========================================
+           下層ページ用ヒーロー (p-page-hero)
+      ======================================== -->
+      <section class="p-page-hero">
+        <div class="l-inner p-page-hero__inner">
+          <h1 class="p-page-hero__title">
+            <span class="p-page-hero__title-en">Service</span>
+            <span class="p-page-hero__title-ja">サービス紹介</span>
+          </h1>
+          <p class="p-page-hero__copy">
+            ITコンサルティングからシステム開発まで、<br class="u-hidden-pc" />
+            お客様の事業成長をITの力で<br
+              class="u-hidden-pc"
+            />力強く後押しします。
+          </p>
+        </div>
+        <!-- 背景のうずまき装飾用 -->
+        <div class="p-page-hero__deco" aria-hidden="true"></div>
+      </section>
+
+      <!-- ========================================
+           こんなお悩みはありませんか？ (p-service-trouble)
+      ======================================== -->
+      <section class="l-section p-service-trouble">
+        <div class="l-inner">
+          <h2 class="c-section-title--left">
+            <span class="c-section-title-sub--left">TROUBLE</span>
+            こんなお悩みはありませんか？
+          </h2>
+
+          <div class="p-service-trouble__list">
+            <!-- アイテム 01 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.01</span>
+                <img
+                  src="/assets/images/trouble-icon_1.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                IT化の推進、何から手をつけて良いか…
+              </p>
+            </div>
+            <!-- アイテム 02 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.02</span>
+                <img
+                  src="/assets/images/trouble-icon_2.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                業務効率化したいが、何が課題かわからない…
+              </p>
+            </div>
+            <!-- アイテム 03 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.03</span>
+                <img
+                  src="/assets/images/trouble-icon_3.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                システムを導入したがうまく活用できていない…
+              </p>
+            </div>
+            <!-- アイテム 04 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.04</span>
+                <img
+                  src="/assets/images/trouble-icon_4.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                既存のシステムが古く、使い勝手が悪い…
+              </p>
+            </div>
+            <!-- アイテム 05 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.05</span>
+                <img
+                  src="/assets/images/trouble-icon_5.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                IT人材が不足していて、相談できる人がいない…
+              </p>
+            </div>
+            <!-- アイテム 06 -->
+            <div class="c-trouble-card">
+              <div class="c-trouble-card__head">
+                <span class="c-trouble-card__num">No.06</span>
+                <img
+                  src="/assets/images/trouble-icon_6.svg"
+                  alt=""
+                  class="c-trouble-card__icon"
+                />
+              </div>
+              <p class="c-trouble-card__text">
+                もっと効果的にデータを活用したい…
+              </p>
+            </div>
+          </div>
+
+          <p class="p-service-trouble__message">
+            このような課題をお持ちなら、ぜひ一度私たちにご相談ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================
+           提供サービス (p-service-list)
+      ======================================== -->
+      <section class="l-section p-service-list">
+        <div class="l-inner">
+          <h2 class="c-section-title--left">
+            <span class="c-section-title-sub--left">SERVICE</span>
+            提供サービス
+          </h2>
+
+          <div class="p-service-list__content">
+            <!-- サービス 01 -->
+            <div class="c-service-card">
+              <div class="c-service-card__header">
+                <span class="c-service-card__num">01</span>
+                <h3 class="c-service-card__title">課題整理・戦略策定</h3>
+              </div>
+              <div class="c-service-card__body">
+                <span class="c-service-card__label">こんな課題に</span>
+                <p class="c-service-card__text">
+                  何から手をつけて良いかわからない、業務を効率化したい
+                </p>
+              </div>
+            </div>
+
+            <!-- サービス 02 -->
+            <div class="c-service-card">
+              <div class="c-service-card__header">
+                <span class="c-service-card__num">02</span>
+                <h3 class="c-service-card__title">要件定義・業務設計支援</h3>
+              </div>
+              <div class="c-service-card__body">
+                <span class="c-service-card__label">こんな課題に</span>
+                <p class="c-service-card__text">
+                  自社にあったシステムが欲しい、既存システムを刷新したい
+                </p>
+              </div>
+            </div>
+
+            <!-- サービス 03 -->
+            <div class="c-service-card">
+              <div class="c-service-card__header">
+                <span class="c-service-card__num">03</span>
+                <h3 class="c-service-card__title">システム開発・導入支援</h3>
+              </div>
+              <div class="c-service-card__body">
+                <span class="c-service-card__label">こんな課題に</span>
+                <p class="c-service-card__text">
+                  システムを構築したい、パッケージを導入したい
+                </p>
+              </div>
+            </div>
+
+            <!-- サービス 04 -->
+            <div class="c-service-card">
+              <div class="c-service-card__header">
+                <span class="c-service-card__num">04</span>
+                <h3 class="c-service-card__title">運用・定着化支援</h3>
+              </div>
+              <div class="c-service-card__body">
+                <span class="c-service-card__label">こんな課題に</span>
+                <p class="c-service-card__text">
+                  導入したツールを定着させたい、効果検証したい
+                </p>
+              </div>
+            </div>
+
+            <!-- サービス 05 -->
+            <div class="c-service-card">
+              <div class="c-service-card__header">
+                <span class="c-service-card__num">05</span>
+                <h3 class="c-service-card__title">プロジェクト管理支援</h3>
+              </div>
+              <div class="c-service-card__body">
+                <span class="c-service-card__label">こんな課題に</span>
+                <p class="c-service-card__text">
+                  IT人材が不足している、開発をスムーズに進めたい
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           開発言語について (p-service-tech)
+      ======================================== -->
+      <section class="l-section p-service-tech">
+        <div class="l-inner">
+          <h2 class="c-section-title--left">
+            <span class="c-section-title-sub--left">DEVELOPMENT</span>
+            開発言語について
+          </h2>
+          <div class="p-service-tech__diagram">
+            <!-- ここには図解画像（円形にスタックが配置されているもの）を挿入想定 -->
+            <img
+              src="/assets/images/tech_diagram.png"
+              alt="開発言語・フレームワークの図解"
+              class="p-service-tech__img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           課題に沿った支援イメージ (p-service-case)
+      ======================================== -->
+      <section class="l-section p-service-case">
+        <div class="l-inner">
+          <h2 class="c-section-title--left">
+            <span class="c-section-title-sub--left">SUPPORT IMAGE</span>
+            課題に沿った支援イメージ
+          </h2>
+
+          <div class="p-service-case__list">
+            <!-- Case 01 -->
+            <div class="c-support-step">
+              <div class="c-support-step__header">
+                <span class="c-support-step__num">Case.01</span>
+                <img
+                  src="/assets/images/case-icon_1.svg"
+                  alt=""
+                  class="c-support-step__icon"
+                />
+                <h3 class="c-support-step__title">
+                  業務を効率化したいが何から始めればよいか…
+                </h3>
+              </div>
+              <div class="c-support-step__body">
+                <ul class="c-support-step__list">
+                  <li>課題整理から伴走し、現状の可視化と改善提案</li>
+                  <li>業務に最適なITツールの選定・導入支援</li>
+                  <li>運用ルールの策定、現場への定着までサポート</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Case 02 -->
+            <div class="c-support-step">
+              <div class="c-support-step__header">
+                <span class="c-support-step__num">Case.02</span>
+                <img
+                  src="/assets/images/case-icon_2.svg"
+                  alt=""
+                  class="c-support-step__icon"
+                />
+                <h3 class="c-support-step__title">
+                  自社独自のシステムを開発したい
+                </h3>
+              </div>
+              <div class="c-support-step__body">
+                <ul class="c-support-step__list">
+                  <li>既存システムの課題ヒアリング、要件定義</li>
+                  <li>使いやすさを重視したシステム開発</li>
+                  <li>段階的なリリース、運用改善支援</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Case 03 -->
+            <div class="c-support-step">
+              <div class="c-support-step__header">
+                <span class="c-support-step__num">Case.03</span>
+                <img
+                  src="/assets/images/case-icon_3.svg"
+                  alt=""
+                  class="c-support-step__icon"
+                />
+                <h3 class="c-support-step__title">
+                  IT人材不足でプロジェクトが進まない
+                </h3>
+              </div>
+              <div class="c-support-step__body">
+                <ul class="c-support-step__list">
+                  <li>PMOとしてプロジェクト全体を推進・管理</li>
+                  <li>開発パートナーとの折衝、進行管理</li>
+                  <li>社内メンバーへのノウハウ共有、スキル移行</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ご相談から解決までの流れへの誘導 -->
+          <div class="p-service-case__lead">
+            <h3 class="p-service-case__lead-title">ご相談から解決までの流れ</h3>
+            <p class="p-service-case__lead-text">
+              弊社では、お問い合わせから実際の支援開始まで、お客様の課題を丁寧にヒアリングし、最適なプランをご提案します。
+            </p>
+            <a href="/#flow" class="c-btn c-btn--outline">
+              サービスの流れを見る <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           CTA (トップページと共通)
+      ======================================== -->
+      <section class="l-section p-cta" id="contact">
+        <div class="l-inner">
+          <div class="p-cta__inner">
+            <h2 class="p-cta__title">
+              <span class="p-cta__title-en">Contact us</span>
+              <span class="p-cta__title-ja"
+                >まずは、お話をお聞かせください。</span
+              >
+            </h2>
+            <div class="p-cta__content">
+              <p class="p-cta__text">
+                業務改善やIT活用のことはもちろん、<br />
+                「何から始めれば良いか分からない」という<br />
+                段階でも、お気軽にご相談ください。
+              </p>
+              <a href="/contact/" class="p-cta__btn">
+                無料で相談してみる
+                <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================
+         FOOTER (トップページと共通)
+    ======================================== -->
+    <footer class="l-footer">
+      <div class="l-footer__inner">
+        <div class="l-footer__info">
+          <h2 class="l-footer__logo">株式会社 Rinklogy</h2>
+          <p class="l-footer__desc">
+            経営課題を整理し、ITで解決を支援するパートナー
+          </p>
+        </div>
+
+        <nav class="l-footer__nav" aria-label="フッターナビゲーション">
+          <ul class="l-footer__list">
+            <li class="l-footer__item"><a href="/about.html">会社案内</a></li>
+            <li class="l-footer__item"><a href="/service.html">サービス</a></li>
+            <li class="l-footer__item">
+              <a href="/#flow">ご相談から解決まで</a>
+            </li>
+            <li class="l-footer__item"><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="l-footer__copyright">
+        <small>© 2026 Rinklogy Inc. All Rights Reserved.</small>
+      </div>
+    </footer>
+  </body>
+</html>

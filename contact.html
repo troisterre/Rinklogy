@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO設定 -->
+    <title>お問い合わせ | 株式会社Rinklogy</title>
+    <meta
+      name="description"
+      content="株式会社Rinklogyへのお問い合わせはこちらから。業務改善やIT活用のことなど、お気軽にご相談ください。"
+    />
+
+    <!-- ドメイン確認後修正 -->
+    <link rel="canonical" href="https://example.com/contact/" />
+    <meta property="og:site_name" content="株式会社Rinklogy" />
+    <meta property="og:title" content="お問い合わせ | 株式会社Rinklogy" />
+    <meta
+      property="og:description"
+      content="株式会社Rinklogyへのお問い合わせはこちらから。業務改善やIT活用のことなど、お気軽にご相談ください。"
+    />
+    <meta property="og:url" content="https://example.com/contact/" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://example.com/assets/images/common/ogp.jpg"
+    />
+    <meta name="twitter:card" content="button_large_image" />
+
+    <!-- ファビコン -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- CSS / JS の読み込み -->
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="/assets/main.js" defer></script>
+  </head>
+  <body>
+    <!-- ========================================
+         HEADER (共通)
+    ======================================== -->
+    <header
+      class="l-header"
+      itemscope
+      itemtype="http://schema.org/LocalBusiness"
+    >
+      <div class="l-header__inner">
+        <h1 class="l-header__logo">
+          <a href="/" itemprop="url">
+            <img
+              src="/assets/images/logo.svg"
+              alt="株式会社Rinklogy"
+              width="150"
+              height="45"
+              decoding="async"
+              itemprop="logo"
+            />
+          </a>
+        </h1>
+
+        <nav class="l-header__nav" aria-label="PC用グローバルナビゲーション">
+          <ul class="c-gnav">
+            <li class="c-gnav__item"><a href="/about.html">会社案内</a></li>
+            <li class="c-gnav__item"><a href="/service.html">サービス</a></li>
+            <li class="c-gnav__item">
+              <a href="/flow.html">ご相談から解決まで</a>
+            </li>
+          </ul>
+          <div class="l-header__cta">
+            <a href="/contact.html" class="c-btn c-btn--primary c-btn--small"
+              >お問い合わせ</a
+            >
+          </div>
+        </nav>
+
+        <button
+          type="button"
+          class="c-hamburger js-hamburger"
+          aria-controls="global-nav"
+          aria-expanded="false"
+          aria-label="メニューを開く"
+        >
+          <span class="c-hamburger__line"></span>
+          <span class="c-hamburger__line"></span>
+          <span class="c-hamburger__line"></span>
+        </button>
+      </div>
+
+      <nav id="global-nav" class="l-drawer js-drawer" aria-hidden="true">
+        <div class="l-drawer__inner">
+          <ul class="c-gnav">
+            <li class="c-gnav__item"><a href="/about.html">会社案内</a></li>
+            <li class="c-gnav__item"><a href="/service.html">サービス</a></li>
+            <li class="c-gnav__item">
+              <a href="/flow.html">ご相談から解決まで</a>
+            </li>
+          </ul>
+          <div class="l-drawer__cta">
+            <a href="/contact.html" class="c-btn c-btn--primary"
+              >お問い合わせ</a
+            >
+          </div>
+        </div>
+      </nav>
+      <div class="l-overlay js-overlay"></div>
+    </header>
+
+    <main class="l-main">
+      <!-- ========================================
+           お問い合わせ用ヒーロー (p-contact-hero)
+      ======================================== -->
+      <section class="p-contact-hero">
+        <div class="l-inner p-contact-hero__inner">
+          <h1 class="p-contact-hero__title">
+            <span class="p-contact-hero__title-en">CONTACT</span>
+            <span class="p-contact-hero__title-ja">お問い合わせ</span>
+          </h1>
+          <p class="p-contact-hero__copy">
+            業務やITに関するお困りごとがございましたら、<br
+              class="u-hidden-pc"
+            />
+            お気軽にお問い合わせください。<br />
+            「何から手をつければよいか分からない」という<br
+              class="u-hidden-pc"
+            />
+            段階でも構いません。<br />
+            分かる範囲で、現在のお困りごとを<br
+              class="u-hidden-pc"
+            />お聞かせください。
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================
+           お問い合わせフォーム (p-contact-form)
+      ======================================== -->
+      <section class="l-section p-contact-form">
+        <div class="l-inner">
+          <form action="#" method="post" class="p-contact-form__form">
+            <!-- お名前 -->
+            <div class="c-form-group">
+              <div class="c-form-label">
+                <label for="name" class="c-form-label__text">お名前</label>
+                <span class="c-form-badge c-form-badge--required">必須</span>
+              </div>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="c-form-input"
+                placeholder="山田 太郎"
+                required
+              />
+            </div>
+
+            <!-- 会社名 -->
+            <div class="c-form-group">
+              <div class="c-form-label">
+                <label for="company" class="c-form-label__text">会社名</label>
+                <span class="c-form-badge c-form-badge--required">必須</span>
+              </div>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                class="c-form-input"
+                placeholder="株式会社〇〇"
+                required
+              />
+            </div>
+
+            <!-- メールアドレス -->
+            <div class="c-form-group">
+              <div class="c-form-label">
+                <label for="email" class="c-form-label__text"
+                  >メールアドレス</label
+                >
+                <span class="c-form-badge c-form-badge--required">必須</span>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="c-form-input"
+                required
+              />
+            </div>
+
+            <!-- ご相談内容 (チェックボックス) -->
+            <div class="c-form-group">
+              <div class="c-form-label">
+                <span class="c-form-label__text">ご相談内容</span>
+                <span class="c-form-badge c-form-badge--required">必須</span>
+              </div>
+              <p class="c-form-hint">当てはまるものをすべてお選びください。</p>
+              <div class="c-form-checkbox-group">
+                <label class="c-form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="category[]"
+                    value="業務のムダや手間を減らしたい"
+                  />
+                  <span class="c-form-checkbox__text"
+                    >業務のムダや手間を減らしたい</span
+                  >
+                </label>
+                <label class="c-form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="category[]"
+                    value="社内のIT活用を進めたい"
+                  />
+                  <span class="c-form-checkbox__text"
+                    >社内のIT活用を進めたい</span
+                  >
+                </label>
+                <label class="c-form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="category[]"
+                    value="システムの導入・見直しを考えている"
+                  />
+                  <span class="c-form-checkbox__text"
+                    >システムの導入・見直しを考えている</span
+                  >
+                </label>
+                <label class="c-form-checkbox">
+                  <input
+                    type="checkbox"
+                    name="category[]"
+                    value="何から手をつけるべきか相談したい"
+                  />
+                  <span class="c-form-checkbox__text"
+                    >何から手をつけるべきか相談したい</span
+                  >
+                </label>
+                <label class="c-form-checkbox">
+                  <input type="checkbox" name="category[]" value="その他" />
+                  <span class="c-form-checkbox__text">その他</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- ご相談内容詳細 (テキストエリア) -->
+            <div class="c-form-group">
+              <div class="c-form-label">
+                <label for="detail" class="c-form-label__text"
+                  >ご相談内容詳細</label
+                >
+              </div>
+              <p class="c-form-hint">
+                現在お困りのことや、ご相談したい内容について、分かる範囲でご記入ください。
+              </p>
+              <textarea
+                id="detail"
+                name="detail"
+                class="c-form-textarea"
+                rows="8"
+              ></textarea>
+            </div>
+
+            <!-- プライバシーポリシー -->
+            <div class="p-contact-form__privacy">
+              <label class="c-form-checkbox c-form-checkbox--center">
+                <input type="checkbox" name="privacy" value="agree" required />
+                <span class="c-form-checkbox__text">
+                  プライバシーポリシーに同意する<br class="u-hidden-pc" />
+                  <a href="/privacy.html" target="_blank" class="c-form-link"
+                    >（プライバシーポリシーを開く）</a
+                  >
+                </span>
+              </label>
+            </div>
+
+            <!-- 送信ボタン -->
+            <div class="p-contact-form__submit">
+              <button type="submit" class="c-btn">入力内容を確認する</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================================
+         FOOTER (共通)
+    ======================================== -->
+    <footer class="l-footer">
+      <div class="l-footer__inner">
+        <div class="l-footer__info">
+          <h2 class="l-footer__logo">株式会社 Rinklogy</h2>
+          <p class="l-footer__desc">
+            経営課題を整理し、ITで解決を支援するパートナー
+          </p>
+        </div>
+
+        <nav class="l-footer__nav" aria-label="フッターナビゲーション">
+          <ul class="l-footer__list">
+            <li class="l-footer__item"><a href="/about.html">会社案内</a></li>
+            <li class="l-footer__item"><a href="/service.html">サービス</a></li>
+            <li class="l-footer__item">
+              <a href="/flow.html">ご相談から解決まで</a>
+            </li>
+            <li class="l-footer__item">
+              <a href="/contact.html">お問い合わせ</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="l-footer__copyright">
+        <small>© 2026 Rinklogy Inc. All Rights Reserved.</small>
+      </div>
+    </footer>
+  </body>
+</html>
