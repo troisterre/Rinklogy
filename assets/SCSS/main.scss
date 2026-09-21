@@ -22,11 +22,13 @@
 @use "object/component/c-dot";
 @use "object/component/c-strength-card";
 @use "object/component/c-value";
+@use "object/component/c-service-card";
+@use "object/component/c-trouble-card";
 
 // 4. Object - Project
 @use "object/project/p-hero";
 @use "object/project/p-company";
-@use "object/project/p-service";
+@use "object/project/p-service-trouble";
 @use "object/project/p-contact";
 @use "object/project/p-lead";
 @use "object/project/p-concept";

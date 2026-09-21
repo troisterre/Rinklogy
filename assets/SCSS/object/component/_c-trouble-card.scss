@@ -1,0 +1,102 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.c-trouble-card {
+  display: flex;
+  flex-direction: column;
+  width: 171px;
+  min-height: 138px;
+  padding: 16px 6px 12px 6px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.08);
+  gap: 12px;
+
+  @include tab {
+    position: relative;
+    width: 350px;
+    padding: 28px 20px 20px 20px;
+    gap: 16px;
+    align-items: center;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  @include pc {
+    // タブレットの指定が引き継がれるため、PC特有のGrid用指定のみ残す
+    justify-self: stretch;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include tab {
+      justify-content: center;
+      align-items: center;
+      height: 68px; // PC・タブレット時のheadの高さ
+    }
+  }
+
+  &__num {
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 24px;
+    border-radius: 12px 0;
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: -16px;
+
+    @include tab {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
+      padding: 8px 16px;
+    }
+  }
+
+  // ==========================================
+  // アイコン画像
+  // ==========================================
+  &__icon {
+    width: 53px;
+    height: 36px;
+    margin-right: 16px;
+    object-fit: contain; // ★coverからcontainに変更（見切れ防止）
+
+    @include tab {
+      width: 94px;
+      height: 68px;
+      margin-right: 0;
+    }
+  }
+
+  // ★不要だった &__img は削除しました
+
+  &__text {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    @include tab {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 0;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.p-service-trouble {
+  background: #fff;
+
+  &__container {
+    display: flex;
+    padding: 40px 8px 64px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+
+    @include tab {
+      padding: 80px 20px;
+      gap: 56px;
+    }
+    @include pc {
+      padding: 140px 0 100px;
+      gap: 80px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    flex-wrap: wrap;
+    position: relative;
+
+    @include tab {
+      gap: 28px;
+    }
+
+    @include pc {
+      display: grid;
+      // ★修正: 高さや行の指定は削除し、中身に合わせて自動で伸びるようにします
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      row-gap: 32px;
+      column-gap: 35px;
+
+      // ==========================================
+      // ★魔法のコード: 最後の1枚を真ん中（2列目）に配置
+      // （4枚目、7枚目など「3の倍数＋1」で終わる時だけ発動します）
+      // ==========================================
+      > *:last-child:nth-child(3n + 1) {
+        grid-column: 2 / 3;
+      }
+    }
+  }
+
+  &__message {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: start;
+
+    @include tab {
+      font-size: 18px;
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
