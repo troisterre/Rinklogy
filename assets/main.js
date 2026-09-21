@@ -385,3 +385,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+// =========================================================
+// 8. サービスセクション（アコーディオン）処理
+// =========================================================
+const serviceAccordions = document.querySelectorAll(".js-accordion");
+
+serviceAccordions.forEach((item) => {
+  const trigger = item.querySelector(".js-accordion-trigger");
+  const body = item.querySelector(".js-accordion-body");
+
+  if (!trigger || !body) return;
+
+  let isAnimating = false;
+
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    // アニメーション中の連打防止
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const isOpen = item.classList.contains("is-open");
+
+    if (isOpen) {
+      // 【閉じる時】
+      item.classList.remove("is-open");
+
+      const animation = body.animate(
+        { height: [`${body.scrollHeight}px`, "0px"] },
+        { duration: 300, easing: "ease-out" }
+      );
+
+      animation.onfinish = () => {
+        body.style.display = "none";
+        isAnimating = false;
+      };
+    } else {
+      // 【開く時】
+      item.classList.add("is-open");
+      body.style.display = "block";
+
+      const animation = body.animate(
+        { height: ["0px", `${body.scrollHeight}px`] },
+        { duration: 300, easing: "ease-out" }
+      );
+
+      animation.onfinish = () => {
+        body.style.height = "auto";
+        isAnimating = false;
+      };
+    }
+  });
+});

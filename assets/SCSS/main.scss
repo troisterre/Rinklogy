@@ -24,6 +24,7 @@
 @use "object/component/c-value";
 @use "object/component/c-service-card";
 @use "object/component/c-trouble-card";
+@use "object/component/c-service-accordion";
 
 // 4. Object - Project
 @use "object/project/p-hero";
@@ -42,6 +43,7 @@
 @use "object/project/p-about-mission";
 @use "object/project/p-about-strength";
 @use "object/project/p-about-outline";
+@use "object/project/p-service-list";
 
 // 5. Object - Utility
 @use "object/utility/u-margin";

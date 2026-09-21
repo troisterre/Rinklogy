@@ -1,0 +1,41 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+/* ========================================
+   4. Object / Project
+   ======================================== */
+// 下層ページサービス
+.p-service-list {
+  background: #fff;
+  &__container {
+    display: flex;
+    padding: 64px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+    @include tab {
+      padding: 80px 20px;
+      gap: 56px;
+    }
+    @include pc {
+      padding: 140px 0 100px;
+      gap: 80px;
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    align-self: stretch;
+    @include tab {
+      gap: 20px;
+    }
+    @include pc {
+      max-width: 1120px;
+      width: 100%;
+      gap: 64px;
+    }
+  }
+}
