@@ -1,0 +1,111 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+// 強みカード
+.c-strength-card {
+  display: flex;
+  padding: 14px 6px 20px 6px;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: var(
+    --gra-radial,
+    radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 56.25%, rgba(230, 243, 245, 0.6) 100%),
+    #fff
+  );
+  @include tab {
+    width: 265px;
+    padding: 52px 20px 32px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  &__header {
+    margin-bottom: 16px;
+    width: 31.4%;
+  }
+  &__img {
+    display: flex;
+    padding: 48px 32px 0 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include tab {
+      margin: 0 auto;
+    }
+  }
+  &__num {
+    display: flex;
+    font-size: 13px;
+    color: var(--logo2, #07808e);
+    font-weight: 700;
+    margin-bottom: 4px;
+    border-radius: 12px 0;
+    background: #fff;
+    width: 93px;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+    @include tab {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 111px;
+      height: 38px;
+    }
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @include tab {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__title h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black, #020d1b);
+    line-height: 1.4;
+  }
+  &__title strong {
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Noto Sans JP";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+  }
+  &__body {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 65%;
+    @include tab {
+      width: 100%;
+      align-items: center;
+    }
+  }
+  &__icon {
+    width: 48px;
+    flex-shrink: 0;
+    @include tab {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.6;
+  }
+}

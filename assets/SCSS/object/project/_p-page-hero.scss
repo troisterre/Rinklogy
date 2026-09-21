@@ -1,0 +1,117 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+/* ========================================
+   4. Object / Project
+   ======================================== */
+// 下層ページヒーロー
+.p-page-hero {
+  position: relative;
+  background: #f8fafc;
+  padding: 60px 0;
+  overflow: hidden;
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    height: 456px;
+    padding: 76px 8px 0 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    align-self: stretch;
+    @include tab {
+      height: 560px;
+      padding: 120px 20px 0 20px;
+    }
+    @include pc {
+      height: 590px;
+      padding: 120px 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 48px;
+    }
+  }
+  &__title {
+    margin-bottom: 28px;
+    @include tab {
+      margin-bottom: 40px;
+    }
+  }
+  &__title-en {
+    display: block;
+    color: var(--color-primary);
+    line-height: 1;
+    font-family: Roboto;
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    opacity: 0.85;
+    background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include tab {
+      font-size: 100px;
+    }
+  }
+  &__title-ja {
+    color: var(--logo1, #113058);
+    font-family: "Noto Sans JP";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    @include tab {
+      font-size: 32px;
+    }
+  }
+  &__copy {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%; /* 25.2px */
+    @include tab {
+      color: var(--text-black, #020d1b);
+      font-size: 16px;
+      line-height: 180%; /* 28.8px */
+    }
+  }
+  // 背景の渦巻き装飾
+  &__deco {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 125, 153, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    @include tab {
+      width: 390px;
+      height: 390px;
+      aspect-ratio: 1/1;
+    }
+    @include pc {
+      top: 25%;
+      width: 650px;
+      height: 650px;
+    }
+    & img {
+      position: absolute;
+      width: 100%;
+      right: -78px;
+      bottom: 70px;
+      opacity: 0.4;
+      background: url(<path-to-image>) / cover no-repeat;
+      @include tab {
+        opacity: 0.7;
+        background: url(<path-to-image>) / cover no-repeat;
+      }
+    }
+  }
+}

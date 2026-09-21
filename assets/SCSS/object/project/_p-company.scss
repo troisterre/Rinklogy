@@ -162,47 +162,53 @@
       gap: 40px;
       align-self: stretch;
       border-radius: 16px;
-      border: 1px solid var(--border, #c6dbde);
+
       background: #fff;
       margin-top: 40px;
     }
   }
 
   &__outline-row {
-    @include tab {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 24px 0;
-      border-bottom: 1px solid #e2e8f0;
-
-      &:first-child {
-        padding-top: 0;
-      }
-      &:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-    }
+    display: flex;
+    padding: 16px 8px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-bottom: 1px solid var(--border, #c6dbde);
   }
 
   &__outline-list {
+    width: 100%;
     dt {
+      width: 28%;
+      color: var(--text-black, #020d1b);
+      font-family: "Noto Sans JP";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
       @include tab {
-        width: 200px;
+        width: 30.8%;
         font-weight: 700;
         color: var(--text-black, #020d1b);
         font-size: 14px;
       }
+      @include pc {
+        width: 19.5%;
+      }
     }
     dd {
+      width: 72%;
+      color: var(--text-black, #020d1b);
+      font-family: "Noto Sans JP";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
       @include tab {
-        width: 432px;
-        color: var(--text-black, #020d1b);
-        font-family: "Noto Sans JP", sans-serif;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: normal;
+        width: 69.2%;
+      }
+      @include pc {
+        width: 80%;
       }
     }
   }

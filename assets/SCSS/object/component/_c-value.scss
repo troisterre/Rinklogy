@@ -1,0 +1,60 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+// バリュー（価値観）リスト
+.c-value-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  align-self: stretch;
+  width: 100%;
+  @include pc {
+    gap: 48px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    align-self: stretch;
+    @include tab {
+      flex-direction: row;
+      gap: 60px;
+    }
+    @include pc {
+      gap: 140px;
+    }
+
+    & dt {
+      color: var(--text-black, #020d1b);
+      font-family: "Noto Sans JP";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      @include tab {
+        width: 42.5%;
+      }
+      @include pc {
+        width: 27.6%;
+      }
+    }
+    & dd {
+      color: var(--text-black, #020d1b);
+      font-family: "Noto Sans JP";
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px; /* 157.143% */
+      @include tab {
+        width: 49.1%;
+        font-size: 16px;
+        line-height: 28px; /* 175% */
+      }
+      @include pc {
+        width: 59.8%;
+      }
+    }
+  }
+}

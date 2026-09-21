@@ -52,6 +52,10 @@
     align-items: center;
     gap: 10px;
     width: 100%;
+    @include tab {
+      height: auto;
+      min-height: 400px; // タブレット時の最低の高さ（デザインに合わせて調整してください）
+    }
 
     @include pc {
       height: 500px;

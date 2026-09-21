@@ -20,6 +20,8 @@
 @use "object/component/c-section-title";
 @use "object/component/c-case-card";
 @use "object/component/c-dot";
+@use "object/component/c-strength-card";
+@use "object/component/c-value";
 
 // 4. Object - Project
 @use "object/project/p-hero";
@@ -33,6 +35,11 @@
 @use "object/project/p-approach";
 @use "object/project/p-flow";
 @use "object/project/p-cta";
+@use "object/project/p-about-message";
+@use "object/project/p-page-hero";
+@use "object/project/p-about-mission";
+@use "object/project/p-about-strength";
+@use "object/project/p-about-outline";
 
 // 5. Object - Utility
 @use "object/utility/u-margin";

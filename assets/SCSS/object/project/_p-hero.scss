@@ -2,15 +2,83 @@
 @use "../../foundation/variables" as *;
 
 .p-hero {
-  display: flex;
-  padding: 108px 8px 60px 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  align-self: stretch;
-  background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 50.58%);
-  background-color: $base_background;
+  // ==========================================
+  // 外枠：背景画像（グラデーションやうずまき）を全画面に広げる担当
+  // ==========================================
+  position: relative;
+  overflow: hidden;
 
+  // ==========================================
+  // 内枠：Gridレイアウトと幅制限(1440px)の担当
+  // ==========================================
+  &__container {
+    display: flex;
+    padding: 108px 8px 60px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 50.58%);
+    background-color: $base_background;
+    @include tab {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "title photo"
+        "lead  photo"
+        "btn   photo";
+      align-items: center;
+      padding: 170px 40px 60px 40px;
+      gap: 20px;
+      background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
+      background-color: #f8fafc;
+
+      @include tab {
+        &::before {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 517px;
+          height: 540px;
+          background-image: url("/assets/images/background_image_tab.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: bottom right;
+          z-index: 1;
+          pointer-events: none;
+        }
+      }
+    }
+    @include pc {
+      // ★ ご提案通り！ここで素直に最大幅と中央寄せを指定します
+      max-width: 1440px;
+      margin: 0 auto;
+      column-gap: 60px;
+      @include pc {
+        &::before {
+          background-image: url("/assets/images/background_image_pc.png");
+          width: 901px;
+          height: 736px;
+        }
+      }
+    }
+
+    // ボタンのGrid配置
+    > .c-btn {
+      @include tab {
+        grid-area: btn;
+        margin-top: 10px;
+        justify-self: start;
+      }
+    }
+  }
+
+  // ==========================================
+  // 各パーツのスタイル
+  // ==========================================
   &__inner {
     display: flex;
     padding: 0.8rem;
@@ -18,6 +86,11 @@
     align-items: flex-start;
     gap: 24px;
     align-self: stretch;
+
+    @include tab {
+      grid-area: title;
+      padding: 0;
+    }
   }
 
   &__desc {
@@ -45,6 +118,27 @@
       font-size: 42px;
       line-height: 1.34;
       letter-spacing: 0.84px;
+    }
+
+    @include tab {
+      font-size: 42px;
+      line-height: 1.25;
+      letter-spacing: 5.04px;
+      span {
+        font-size: 42px;
+        letter-spacing: 0.84px;
+      }
+    }
+
+    @include pc {
+      font-size: 62px;
+      line-height: normal;
+      letter-spacing: 7.44px;
+      span {
+        font-size: 62px;
+        line-height: normal;
+        letter-spacing: 6.2px;
+      }
     }
   }
 
@@ -81,64 +175,8 @@
         z-index: 2;
       }
     }
-  }
 
-  // ==========================================
-  // タブレット・PC (Gridによる静的レイアウト)
-  // ==========================================
-  @include tab {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "title photo"
-      "lead  photo"
-      "btn   photo";
-    align-items: center;
-    padding: 170px 40px 60px 40px;
-    gap: 20px;
-    background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
-    background-color: #f8fafc;
-    position: relative;
-    z-index: 0;
-
-    &::before {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 517px;
-      height: 540px;
-      background-image: url("/assets/images/background_image_tab.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: bottom right;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    &__inner,
-    &__copy,
-    > .c-btn {
-      position: relative;
-      z-index: 3;
-    }
-
-    &__inner {
-      grid-area: title;
-      padding: 0;
-    }
-
-    &__copy {
-      font-size: 42px;
-      line-height: 1.25;
-      letter-spacing: 5.04px;
-      span {
-        font-size: 42px;
-        letter-spacing: 0.84px;
-      }
-    }
-
-    &__image {
+    @include tab {
       display: contents;
 
       .js-hero-slide {
@@ -166,52 +204,10 @@
       }
     }
 
-    .p-lead {
-      grid-area: lead;
-      display: block !important;
-      margin-top: 16px;
-
-      &__deco,
-      &__label {
-        display: none !important;
-      }
-
-      &__text {
-        display: block;
-        font-size: 14px;
-        line-height: 1.8;
-        color: $text-black;
-        position: relative;
-        z-index: 3;
-      }
-    }
-
-    > .c-btn {
-      grid-area: btn;
-      margin-top: 10px;
-      justify-self: start;
-    }
-  }
-
-  @include pc {
-    // 中央のコンテンツ幅を1160pxに固定しつつ、背景を全幅にする計算式
-    padding-left: max(40px, calc(50% - 580px));
-    padding-right: max(40px, calc(50% - 580px));
-    grid-template-columns: 1fr 1fr;
-    column-gap: 60px;
-
-    &::before {
-      background-image: url("/assets/images/background_image_pc.png");
-      width: 901px;
-      height: 736px;
-    }
-
-    &__copy {
-      font-size: 62px;
-      letter-spacing: 7.44px;
-      span {
-        font-size: 62px;
-        letter-spacing: 6.2px;
+    @include pc {
+      img.js-hero-slide:nth-of-type(2) {
+        transform: translateY(-40px); // ←位置調整
+        max-width: 100% !important; // ←幅制限の解除
       }
     }
   }
