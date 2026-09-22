@@ -2,16 +2,37 @@
 @use "../../foundation/variables" as *;
 
 .u-hidden-sp {
-  display: none; // デフォルト（スマホ）では改行を無効化
+  display: none; // デフォルト（スマホ）では非表示
 
   @include tab {
-    display: inline; // タブレット以上で改行を有効化
+    display: inline; // タブレット以上で表示
+  }
+}
+.u-hidden-sp-tab {
+  display: none;
+  @include tab {
+    display: none;
+  }
+  @include pc {
+    display: inline;
   }
 }
 .u-hidden-tab-pc {
-  display: inline; // デフォルト（スマホ）では改行を無効化
+  display: none; // デフォルト（スマホ）では表示
 
   @include tab {
-    display: none; // タブレット以上で改行を有効化
+    display: none; // タブレット以上で非表示
+  }
+  @include pc {
+    display: inline;
+  }
+}
+.u-hidden-pc {
+  display: inline;
+  @include tab {
+    display: inline;
+  }
+  @include pc {
+    display: none;
   }
 }

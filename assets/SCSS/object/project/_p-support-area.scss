@@ -1,0 +1,100 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+.p-support-area {
+  background-color: #fff;
+
+  @include tab {
+    padding: 80px 20px;
+  }
+
+  &__content {
+    position: relative;
+    padding: 40px 16px; // 内側の余白
+    border-radius: 16px;
+
+    background-image: url("/assets/images/support_bg_sp.png");
+    background-position:
+      top center,
+      center -60px;
+    background-size:
+      auto,
+      143.532% auto;
+    background-repeat: no-repeat, no-repeat;
+
+    @include tab {
+      background-image: url("/assets/images/support_bg_tab.png");
+      display: flex;
+      padding: 84px 0 0 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      align-self: stretch;
+    }
+
+    // ★追加: PC時のGridレイアウト（3カラム）
+    @include pc {
+      background-image: url("/assets/images/support_bg_pc.png");
+      gap: 32px 40px;
+      position: relative;
+      aspect-ratio: 1440 / 805;
+      padding: 0;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__lead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 52px; // リストとの間のスペース
+    width: 100%;
+
+    @include tab {
+      margin-bottom: 24px;
+    }
+
+    // ★追加: PC時はGridの中央（2列目の1〜2行目をぶち抜き）に配置
+    @include pc {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+
+  &__lead-icon {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+
+    @include tab {
+      width: 76px;
+      height: 64px;
+      aspect-ratio: 19/16;
+    }
+
+    @include pc {
+      width: 100px; // PC時は少し大きく
+      height: auto;
+    }
+  }
+
+  &__lead-text {
+    color: var(--logo1, #113058);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+
+    @include tab {
+      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.42);
+      font-size: 20px;
+    }
+  }
+}

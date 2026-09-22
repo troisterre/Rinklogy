@@ -1,0 +1,318 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+//==========================================================================
+// Component: 支援範囲リスト・カード (.c-support-list / .c-support-card)
+// ==========================================================================
+.c-support-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  @include pc {
+    display: block;
+  }
+}
+
+.c-support-card {
+  position: relative; // ★ 絶対配置の基準にする
+  display: flex;
+  align-items: center;
+  padding: 12px 16px 12px 56px; // ★ 左側に 01 を配置するための余白（12px + 32px + 12px）
+  gap: 12px; // アイコンとテキストエリアの隙間
+  border-radius: 40px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+
+  @include tab {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 32px;
+    border-radius: 20px;
+    gap: 20px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(7, 128, 142, 0.08); // ほんのり影をつける
+  }
+
+  @include pc {
+    position: absolute;
+    display: inline-flex;
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 40px 40px 160px 40px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+  }
+
+  // ★PC時：各カードをGridのどこに配置するか指定
+  &:nth-child(1) {
+    background:
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+
+    @include pc {
+      top: 10%; // 上からの位置
+      left: 4%; // 左からの位置
+      width: 39%;
+      display: flex;
+      padding: 16px 40px 16px 16px;
+      align-items: flex-start;
+      gap: 20px;
+      border-radius: 20px 20px 80px 20px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+    }
+  }
+
+  &:nth-child(2) {
+    background:
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.6) 48.08%, rgba(229, 237, 253, 0) 100%), #e4f1ff;
+
+    @include pc {
+      top: 45%; // 上からの位置
+      left: 4%; // 左からの位置
+      width: 36%;
+      display: inline-flex;
+      padding: 20px 24px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-radius: 40px 40px 160px 40px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+    }
+  }
+
+  &:nth-child(3) {
+    background:
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.6) 48.08%, rgba(229, 237, 253, 0) 100%), #e4f1ff;
+
+    @include pc {
+      top: 10%; // 上からの位置
+      left: 58%; // 左からの位置
+      width: 39%;
+      display: inline-flex;
+      padding: 20px 24px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-radius: 40px 40px 40px 160px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+
+      .c-support-card__tags {
+        justify-content: center;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    background:
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+
+    @include pc {
+      top: 41%; // 上からの位置
+      left: 63%; // 左からの位置
+      width: 34%;
+      display: inline-flex;
+      padding: 20px 24px;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      border-radius: 40px 40px 40px 160px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+
+      .c-support-card__tags {
+        justify-content: center;
+      }
+    }
+  }
+
+  &:nth-child(5) {
+    background:
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+
+    @include pc {
+      top: 72%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      display: inline-flex;
+      padding: 20px 24px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 160px 160px 40px 40px;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+
+      .c-support-card__head {
+        justify-content: center;
+      }
+      .c-support-card__tags {
+        justify-content: center;
+      }
+    }
+  }
+
+  // ==========================================
+  // カード内の各要素
+  // ==========================================
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 12px; // PC: 01 と タイトルの隙間
+
+    @include pc {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__num {
+    // ★ SP/Tab時は HTMLの構造を無視して左端に固定！
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #4ba0a9;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    @include pc {
+      position: static;
+      transform: none;
+      width: 56px;
+      height: 56px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      aspect-ratio: 1/1;
+      color: #fff;
+      text-align: center;
+      background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
+      font-size: 24px;
+    }
+  }
+
+  &__title {
+    color: var(--logo1, #113058);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+
+    @include pc {
+      font-size: 24px;
+      line-height: normal;
+      padding-right: 16px;
+      border-right: 1px solid var(--logo2, #07808e);
+    }
+  }
+
+  &__desc {
+    display: none; // SP・Tabは非表示
+    @include pc {
+      display: block;
+      color: var(--logo1, #113058);
+      font-family: "Noto Sans JP", sans-serif; // ※sans-serifを追加
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 145%; /* 17.4px */
+    }
+  }
+
+  &__sp-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    @include pc {
+      gap: 20px;
+    }
+  } // ★修正: 謎の s を消して閉じカッコを追加
+
+  &__tags {
+    display: block;
+
+    @include pc {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  &__tag {
+    display: inline; // SPではテキスト
+    font-size: 12px;
+    color: var(--text-black, #020d1b);
+
+    &::after {
+      content: " / ";
+      @include pc {
+        content: none;
+      }
+    }
+
+    &:last-child::after {
+      content: none;
+    }
+
+    @include pc {
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      display: flex;
+      padding: 10px 28px;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      img {
+        width: 28px;
+        height: 28px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+      }
+
+      span {
+        color: var(--logo1, #113058);
+        font-family: "Noto Sans JP", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+  }
+}

@@ -9,35 +9,109 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 80%;
-  max-width: 300px;
-  height: 100vh;
-  background-color: $white;
+  width: 100%; // デザインに合わせて全幅に変更
   z-index: 105;
-  padding: 100px 30px 40px;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
+  background: var(--base_background, #f8fafc);
+  height: 767px;
 
-  // ★修正: PCメニューが出るタブレット以上のサイズでドロワーを消す
   @include tab {
     display: none;
   }
 
-  // メニュー展開時
   &.is-active {
     transform: translateX(0);
   }
 
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  // ==========================================
+  // ドロワー内のナビゲーション専用スタイル
+  // ==========================================
+  .c-gnav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; // メニュー間の余白
+    width: 100%;
+    padding: 32px 0 0 30px;
+  }
+
+  .c-gnav__item {
+    a {
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      width: 100%;
+      display: flex;
+      width: 288px;
+      padding: 14px 16px;
+      gap: 16px;
+
+      // 右側の矢印（くの字）アイコン
+      // 右側の矢印（くの字）アイコン
+      &::after {
+        content: "";
+        display: block;
+        width: 7px; // Figmaの width
+        height: 10px; // Figmaの height
+        // いただいたSVGコードをそのまま背景画像として適用
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='10' viewBox='0 0 7 10' fill='none'%3E%3Cpath d='M1 9L5 5L1 1' stroke='%2307808E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  .c-gnav__text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .c-gnav__ja {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .c-gnav__en {
+    text-transform: uppercase;
+    color: var(--logo2, #07808e);
+    font-family: Roboto;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1px;
+  }
+
+  // ==========================================
+  // CTAボタンエリア
+  // ==========================================
   &__cta {
-    margin-top: 40px;
+    margin-top: 64px;
+    width: 100%;
 
     .c-btn {
       width: 100%;
+      // 影やグラデーションなどのボタン基本スタイルは .c-btn 側に依存します
     }
   }
 }
 
+// ==========================================================================
+// オーバーレイ（暗幕）※変更なし
+// ==========================================================================
 .l-overlay {
   position: fixed;
   top: 0;
@@ -52,23 +126,19 @@
     opacity 0.3s,
     visibility 0.3s;
 
-  // ★修正: タブレット以上のサイズで暗幕を消す
   @include tab {
     display: none;
   }
 
-  // メニュー展開時
   &.is-active {
     opacity: 1;
     visibility: visible;
   }
 }
 
-// ドロワー展開時に背景のスクロールを防ぐ
 body.is-locked {
   overflow: hidden;
 
-  // ★追加: タブレット以上になったら強制的にロックを解除（リサイズバグ対策）
   @include tab {
     overflow: visible;
   }

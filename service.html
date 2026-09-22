@@ -527,21 +527,282 @@
         </div>
       </section>
       <!-- ========================================
-           開発言語について (p-service-tech)
+           支援範囲について (p-support-area)
       ======================================== -->
-      <section class="l-section p-service-tech">
-        <div class="l-inner">
+      <section class="l-section p-support-area">
+        <div class="p-support-area__container">
           <h2 class="c-section-title--left">
-            <span class="c-section-title-sub--left">DEVELOPMENT</span>
-            開発言語について
+            <span class="c-section-title-sub--left">SUPPORT AREA</span>
+            支援範囲について
           </h2>
-          <div class="p-service-tech__diagram">
-            <!-- ここには図解画像（円形にスタックが配置されているもの）を挿入想定 -->
-            <img
-              src="/assets/images/tech_diagram.png"
-              alt="開発言語・フレームワークの図解"
-              class="p-service-tech__img"
-            />
+
+          <!-- ▼ PC時はこの親枠をGridコンテナにする -->
+          <div class="p-support-area__content">
+            <!-- 中央のリードエリア -->
+            <div class="p-support-area__lead">
+              <img
+                src="/assets/images/support_icon.svg"
+                alt=""
+                class="p-support-area__lead-icon"
+              />
+              <p class="p-support-area__lead-text">
+                最適な組み合わせで<br />ご支援
+              </p>
+            </div>
+
+            <!-- 支援範囲リスト -->
+            <ul class="c-support-list">
+              <!-- 01 -->
+              <li class="c-support-card">
+                <!-- SP用の大きなアイコン（PCでは非表示） -->
+                <div class="c-support-card__sp-icon u-hidden-pc">
+                  <img src="/assets/images/support_area_icon_01.svg" alt="" />
+                </div>
+
+                <div class="c-support-card__body">
+                  <div class="c-support-card__head">
+                    <span class="c-support-card__num">01</span>
+                    <h3 class="c-support-card__title">整理・要件定義</h3>
+                    <!-- PC用の説明文（SPでは非表示） -->
+                    <p class="c-support-card__desc u-hidden-sp">
+                      現状を整理し、<br />最適な方向性を見出します。
+                    </p>
+                  </div>
+
+                  <!-- タグリスト（SPではテキスト、PCではタグとして表示） -->
+                  <ul class="c-support-card__tags">
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_01.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>業務整理</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_02.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>課題整理</span>
+                    </li>
+
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_03.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>要件整理</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_04.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>社内調整</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- 02 -->
+              <li class="c-support-card">
+                <!-- SP用の大きなアイコン（PCでは非表示） -->
+                <div class="c-support-card__sp-icon u-hidden-pc">
+                  <img src="/assets/images/support_area_icon_01.svg" alt="" />
+                </div>
+
+                <div class="c-support-card__body">
+                  <div class="c-support-card__head">
+                    <span class="c-support-card__num">02</span>
+                    <h3 class="c-support-card__title">推進・マネジメント</h3>
+                    <!-- PC用の説明文（SPでは非表示） -->
+                    <p class="c-support-card__desc u-hidden-sp">
+                      プロジェクトを計画から<br />
+                      実行まで支援します。
+                    </p>
+                  </div>
+
+                  <!-- タグリスト（SPではテキスト、PCではタグとして表示） -->
+                  <ul class="c-support-card__tags">
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_05.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>PM / PMO</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_06.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>進行管理</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- 03 -->
+              <li class="c-support-card">
+                <!-- SP用の大きなアイコン（PCでは非表示） -->
+                <div class="c-support-card__sp-icon u-hidden-pc">
+                  <img src="/assets/images/support_area_icon_01.svg" alt="" />
+                </div>
+
+                <div class="c-support-card__body">
+                  <div class="c-support-card__head">
+                    <span class="c-support-card__num">03</span>
+                    <h3 class="c-support-card__title">インフラ・環境整備</h3>
+                    <!-- PC用の説明文（SPでは非表示） -->
+                    <p class="c-support-card__desc u-hidden-sp">
+                      安定したIT基盤で、<br />
+                      安心して使える環境を整えます。
+                    </p>
+                  </div>
+
+                  <!-- タグリスト（SPではテキスト、PCではタグとして表示） -->
+                  <ul class="c-support-card__tags">
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_07.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>クラウド</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_08.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>セキュリティ</span>
+                    </li>
+
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_09.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>サーバー</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_10.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>IT環境整備</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- 04 -->
+              <li class="c-support-card">
+                <!-- SP用の大きなアイコン（PCでは非表示） -->
+                <div class="c-support-card__sp-icon u-hidden-pc">
+                  <img src="/assets/images/support_area_icon_01.svg" alt="" />
+                </div>
+
+                <div class="c-support-card__body">
+                  <div class="c-support-card__head">
+                    <span class="c-support-card__num">04</span>
+                    <h3 class="c-support-card__title">導入・活用支援</h3>
+                    <!-- PC用の説明文（SPでは非表示） -->
+                    <p class="c-support-card__desc u-hidden-sp">
+                      最適なツールの導入と<br />
+                      効果的な活用を支援します。
+                    </p>
+                  </div>
+
+                  <!-- タグリスト（SPではテキスト、PCではタグとして表示） -->
+                  <ul class="c-support-card__tags">
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_11.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>システム選定</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_07.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>SaaS導入</span>
+                    </li>
+
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_12.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>IT活用</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <!-- 05 -->
+              <li class="c-support-card">
+                <!-- SP用の大きなアイコン（PCでは非表示） -->
+                <div class="c-support-card__sp-icon u-hidden-pc">
+                  <img src="/assets/images/support_area_icon_01.svg" alt="" />
+                </div>
+
+                <div class="c-support-card__body">
+                  <div class="c-support-card__head">
+                    <span class="c-support-card__num">05</span>
+                    <h3 class="c-support-card__title">開発・改善</h3>
+                    <!-- PC用の説明文（SPでは非表示） -->
+                    <p class="c-support-card__desc u-hidden-sp">
+                      業務にフィットしたシステム開発と<br />
+                      継続的な改善を支援します。
+                    </p>
+                  </div>
+
+                  <!-- タグリスト（SPではテキスト、PCではタグとして表示） -->
+                  <ul class="c-support-card__tags">
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_01.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>システム開発</span>
+                    </li>
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_02.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>既存システム改修</span>
+                    </li>
+
+                    <li class="c-support-card__tag">
+                      <img
+                        src="/assets/images/support_icon_pc_03.svg"
+                        alt=""
+                        class="u-hidden-sp-tab"
+                      />
+                      <span>業務改善</span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -565,7 +826,7 @@
                   src="/assets/images/case-icon_1.svg"
                   alt=""
                   class="c-support-step__icon"
-                />
+                />す。
                 <h3 class="c-support-step__title">
                   業務を効率化したいが何から始めればよいか…
                 </h3>
