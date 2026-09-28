@@ -7,8 +7,15 @@
 .c-support-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
   width: 100%;
+
+  @include tab {
+    gap: 2.4rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
 
   @include pc {
     display: block;
@@ -19,87 +26,97 @@
   position: relative; // ★ 絶対配置の基準にする
   display: flex;
   align-items: center;
-  padding: 12px 16px 12px 56px; // ★ 左側に 01 を配置するための余白（12px + 32px + 12px）
-  gap: 12px; // アイコンとテキストエリアの隙間
-  border-radius: 40px;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  padding: 1.2rem 1.6rem 1.2rem 5.6rem; // ★ 左側に 01 を配置するための余白
+  gap: 1.2rem; // アイコンとテキストエリアの隙間
+  border-radius: 4rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(15, 23, 42, 0.05);
 
   @include tab {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 32px;
-    border-radius: 20px;
-    gap: 20px;
+    width: calc((100% - 2.4rem) / 2);
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem 2.4rem 2rem 6.4rem;
+    border-radius: 2rem;
+    gap: 1.6rem;
     background: #fff;
-    box-shadow: 0 4px 20px rgba(7, 128, 142, 0.08); // ほんのり影をつける
+    box-shadow: 0 0.4rem 2rem rgba(7, 128, 142, 0.08); // ほんのり影をつける
   }
 
   @include pc {
     position: absolute;
     display: inline-flex;
-    padding: 20px 24px;
+    padding: 2rem 2.4rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
-    border-radius: 40px 40px 160px 40px;
-    border: 2px solid #fff;
-    box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+    gap: 2rem;
+    border-radius: 4rem 4rem 16rem 4rem;
+    border: 0.2rem solid #fff;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
   }
 
   // ★PC時：各カードをGridのどこに配置するか指定
   &:nth-child(1) {
+    border-radius: 2rem 2rem 8rem 2rem;
+    border: 0.2rem solid #fff;
     background:
-      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+      radial-gradient(62.77% 62.22% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
     @include pc {
       top: 10%; // 上からの位置
-      left: 4%; // 左からの位置
+      left: 2%; // 左からの位置
       width: 39%;
       display: flex;
-      padding: 16px 40px 16px 16px;
+      padding: 1.6rem 4rem 1.6rem 1.6rem;
       align-items: flex-start;
-      gap: 20px;
-      border-radius: 20px 20px 80px 20px;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      gap: 2rem;
+      border-radius: 2rem 2rem 8rem 2rem;
+      border: 0.2rem solid #fff;
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
     }
   }
 
   &:nth-child(2) {
+    border-radius: 2rem 2rem 8rem 2rem;
+    border: 0.2rem solid #fff;
     background:
       radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.6) 48.08%, rgba(229, 237, 253, 0) 100%), #e4f1ff;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
     @include pc {
       top: 45%; // 上からの位置
-      left: 4%; // 左からの位置
+      left: 2%; // 左からの位置
       width: 36%;
       display: inline-flex;
-      padding: 20px 24px;
+      padding: 2rem 2.4rem;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      border-radius: 40px 40px 160px 40px;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      gap: 2rem;
+      border-radius: 4rem 4rem 16rem 4rem;
+      border: 0.2rem solid #fff;
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
     }
   }
 
   &:nth-child(3) {
+    border-radius: 2rem 2rem 8rem 2rem;
+    border: 0.2rem solid #fff;
     background:
-      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.6) 48.08%, rgba(229, 237, 253, 0) 100%), #e4f1ff;
+      radial-gradient(62.77% 62.22% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
     @include pc {
       top: 10%; // 上からの位置
       left: 58%; // 左からの位置
       width: 39%;
       display: inline-flex;
-      padding: 20px 24px;
+      padding: 2rem 2.4rem;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      border-radius: 40px 40px 40px 160px;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      gap: 2rem;
+      border-radius: 4rem 4rem 4rem 16rem;
+      border: 0.2rem solid #fff;
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
       .c-support-card__tags {
         justify-content: center;
@@ -108,21 +125,24 @@
   }
 
   &:nth-child(4) {
+    border-radius: 2rem 2rem 8rem 2rem;
+    border: 0.2rem solid #fff;
     background:
-      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.6) 48.08%, rgba(229, 237, 253, 0) 100%), #e4f1ff;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
     @include pc {
-      top: 41%; // 上からの位置
+      top: 43%; // 上からの位置
       left: 63%; // 左からの位置
       width: 34%;
       display: inline-flex;
-      padding: 20px 24px;
+      padding: 2rem 2.4rem;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
-      border-radius: 40px 40px 40px 160px;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      gap: 2rem;
+      border-radius: 4rem 4rem 4rem 16rem;
+      border: 0.2rem solid #fff;
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
       .c-support-card__tags {
         justify-content: center;
@@ -131,8 +151,11 @@
   }
 
   &:nth-child(5) {
+    border-radius: 2rem 2rem 8rem 2rem;
+    border: 0.2rem solid #fff;
     background:
-      radial-gradient(60.49% 60% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+      radial-gradient(62.77% 62.22% at 50% 50%, rgba(255, 255, 255, 0.7) 48.08%, rgba(236, 249, 252, 0) 100%), #ecf9fc;
+    box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
     @include pc {
       top: 72%;
@@ -140,14 +163,14 @@
       transform: translateX(-50%);
       width: 50%;
       display: inline-flex;
-      padding: 20px 24px;
+      padding: 2rem 2.4rem;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      border-radius: 160px 160px 40px 40px;
-      border: 2px solid #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      gap: 2rem;
+      border-radius: 16rem 16rem 4rem 4rem;
+      border: 0.2rem solid #fff;
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
 
       .c-support-card__head {
         justify-content: center;
@@ -165,61 +188,68 @@
   &__head {
     display: flex;
     align-items: center;
-    gap: 12px; // PC: 01 と タイトルの隙間
+    gap: 1.2rem; // PC: 01 と タイトルの隙間
 
     @include pc {
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
   }
 
   &__num {
     // ★ SP/Tab時は HTMLの構造を無視して左端に固定！
     position: absolute;
-    left: 12px;
+    left: 1.2rem;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: #4ba0a9;
+    width: 3.2rem;
+    height: 3.2rem;
     color: #fff;
     font-family: "Inter", sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 700;
+    border-radius: 5rem;
+    background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
+    flex-direction: column;
+    gap: 1rem;
+    aspect-ratio: 1/1;
+
+    @include tab {
+      left: 1.6rem;
+    }
 
     @include pc {
       position: static;
       transform: none;
-      width: 56px;
-      height: 56px;
+      width: 5.6rem;
+      height: 5.6rem;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 1rem;
       aspect-ratio: 1/1;
       color: #fff;
       text-align: center;
       background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
-      font-size: 24px;
+      font-size: 2.4rem;
     }
   }
 
   &__title {
     color: var(--logo1, #113058);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.4;
 
     @include pc {
-      font-size: 24px;
+      font-size: 2.4rem;
       line-height: normal;
-      padding-right: 16px;
-      border-right: 1px solid var(--logo2, #07808e);
+      padding-right: 1.6rem;
+      border-right: 0.1rem solid var(--logo2, #07808e);
     }
   }
 
@@ -228,39 +258,47 @@
     @include pc {
       display: block;
       color: var(--logo1, #113058);
-      font-family: "Noto Sans JP", sans-serif; // ※sans-serifを追加
-      font-size: 12px;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1.2rem;
       font-weight: 400;
-      line-height: 145%; /* 17.4px */
+      line-height: 145%;
     }
   }
 
   &__sp-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
     border-radius: 50%;
     background-color: #fff;
+    display: flex;
+    width: 5.4rem;
+    height: 5.4rem;
+    padding: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1/1;
 
     img {
-      width: 24px;
-      height: 24px;
-      object-fit: contain;
+      width: 3.8rem;
+      height: 3.8rem;
+      @include pc {
+        width: 2.4rem;
+        height: 2.4rem;
+        object-fit: contain;
+      }
     }
   }
 
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0.4rem;
 
-    @include pc {
-      gap: 20px;
+    @include tab {
+      gap: 0.8rem;
     }
-  } // ★修正: 謎の s を消して閉じカッコを追加
+    @include pc {
+      gap: 2rem;
+    }
+  }
 
   &__tags {
     display: block;
@@ -270,13 +308,13 @@
       justify-content: flex-start;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 1.6rem;
     }
   }
 
   &__tag {
     display: inline; // SPではテキスト
-    font-size: 12px;
+    font-size: 1.2rem;
     color: var(--text-black, #020d1b);
 
     &::after {
@@ -291,18 +329,18 @@
     }
 
     @include pc {
-      border-radius: 999px;
+      border-radius: 99.9rem;
       background: #fff;
-      box-shadow: 0 4px 18px 0 rgba(22, 117, 181, 0.14);
+      box-shadow: 0 0.4rem 1.8rem 0 rgba(22, 117, 181, 0.14);
       display: flex;
-      padding: 10px 28px;
+      padding: 1rem 2.8rem;
       justify-content: center;
       align-items: center;
-      gap: 20px;
+      gap: 2rem;
 
       img {
-        width: 28px;
-        height: 28px;
+        width: 2.8rem;
+        height: 2.8rem;
         aspect-ratio: 1/1;
         object-fit: cover;
       }
@@ -310,7 +348,7 @@
       span {
         color: var(--logo1, #113058);
         font-family: "Noto Sans JP", sans-serif;
-        font-size: 18px;
+        font-size: 1.8rem;
         font-weight: 700;
       }
     }

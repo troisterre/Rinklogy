@@ -47,3 +47,56 @@
     display: none !important;
   }
 }
+.c-btn-service {
+  @extend .c-btn;
+  display: flex;
+  width: 30.6rem;
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  border-radius: 4rem;
+  border: 0.1rem solid var(--border, #c6dbde);
+  background: #fff;
+  color: var(--logo1, #113058);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.144rem;
+  box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.08);
+
+  @include tab {
+    width: 66.7%;
+    // ★追加: ベース(.c-btn)の最大幅制限を解除して広がるようにする
+    max-width: 100%;
+    padding: 2rem 0;
+  }
+
+  @include pc {
+    // もしPC時に幅を変えたい場合はここでさらに指定します
+    // 例: width: 40rem; など
+  }
+
+  &::after {
+    width: 2.7rem;
+    height: 1.8rem;
+
+    // 1. ベース(.c-btn)の白い背景画像を無効化
+    background-image: none;
+
+    // 2. 矢印に付けたい色（紺色）を背景色として設定
+    background-color: var(--logo1, #113058);
+
+    // 3. 元のSVGの形を使って、紺色を矢印の形に切り抜く
+    -webkit-mask-image: url("/assets/images/arrow-right.svg");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url("/assets/images/arrow-right.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}

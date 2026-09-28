@@ -1,0 +1,335 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// Project: 支援イメージセクション (.p-service-case)
+// ==========================================
+.p-service-case {
+  display: flex;
+  padding: 3.2rem 0.8rem 6.4rem 0.8rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.2rem;
+  align-self: stretch;
+  @include tab {
+    padding: 8rem 2rem;
+    align-self: stretch;
+  }
+  @include pc {
+    display: flex;
+    padding: 10rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  &__container {
+    @include tab {
+      display: flex;
+      flex-direction: column;
+      gap: 5.6rem;
+    }
+    @include pc {
+      gap: 8rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    padding: 2.8rem 2rem 2rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+    @include tab {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include pc {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 2.4rem;
+      margin-top: 5.6rem;
+      flex-wrap: nowrap;
+    }
+  }
+
+  // 下部の誘導エリア
+  &__lead {
+    background: #f8fafc;
+  }
+  &__lead-inner {
+    padding: 6.4rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.8rem;
+    @include tab {
+      display: flex;
+      padding: 8rem 2rem;
+      flex-direction: column;
+      gap: 5.6rem;
+      align-self: stretch;
+    }
+    @include pc {
+      padding: 10rem 0;
+      gap: 6rem;
+    }
+  }
+
+  &__lead-title {
+    display: flex;
+    padding-bottom: 0.8rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    @include tab {
+      display: flex;
+      padding-bottom: 0.8rem;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      align-self: stretch;
+    }
+    @include pc {
+      padding-bottom: 0.8rem;
+      gap: 1.6rem;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 6.4rem;
+      height: 0.2rem;
+      background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    }
+  }
+
+  &__lead-title-en {
+    color: var(--logo2, #07808e);
+    font-family: Roboto;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    @include tab {
+      font-size: 2rem;
+    }
+    @include pc {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__lead-title-ja {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    @include tab {
+      font-size: 3.4rem;
+    }
+
+    @include pc {
+      font-size: 4.2rem;
+    }
+  }
+
+  &__lead-text-sp {
+    color: #111827;
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 1.3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%;
+    margin-bottom: 0.4rem;
+    @include tab {
+      display: none;
+    }
+  }
+
+  &__lead-text-tab-pc {
+    display: none;
+    @include tab {
+      display: flex;
+      color: #111827;
+      text-align: center;
+      font-family: "Noto Sans JP";
+      font-size: 1.6rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 2.8rem;
+      margin-bottom: 0.4rem;
+      justify-content: center;
+    }
+    @include pc {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ==========================================
+// Component: 各ケースのカード (.c-support-step)
+// ==========================================
+.c-support-step {
+  position: relative;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 2rem rgba(15, 23, 42, 0.06);
+  padding: 5.6rem 2rem 3.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @include tab {
+    width: calc((100% - 3.2rem) / 2);
+    padding: 2.8rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  @include pc {
+    display: flex;
+    width: calc((100% - 3.5rem) / 3); // ※親のgap設定に合わせて微調整が必要な場合があります
+    padding: 2.8rem 2rem 2rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    align-self: stretch;
+  }
+
+  // 左上のバッジ（Case 01）
+  &__badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.8rem 1.6rem;
+    border-radius: 1.2rem 0 1.2rem 0;
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+
+    @include tab {
+      display: flex;
+      padding: 0.8rem 1.6rem;
+      align-items: center;
+    }
+
+    span {
+      font-size: 2.4rem;
+    }
+  }
+
+  // ヘッダー（アイコンとタイトル）
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__icon {
+    object-fit: contain;
+    width: 7.4rem;
+    flex: 1 0 0;
+    aspect-ratio: 37/34;
+
+    @include pc {
+      width: 10rem;
+      height: 10rem;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__title {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+
+    @include pc {
+      font-size: 2rem;
+    }
+  }
+
+  // ボディ（各ステップのリスト）
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  // 枠線付きのステップアイテム
+  &__item {
+    background-color: #fff;
+    display: flex;
+    padding: 1.2rem 0.8rem 1.2rem 2rem;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid #e2e8f0;
+
+    &-icon {
+      width: 3rem;
+      height: 3rem;
+      flex-shrink: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @include pc {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    &-text {
+      color: #111827;
+      font-family: "Noto Sans JP";
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 2rem;
+
+      @include pc {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  // ステップ間の矢印
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--logo2, #07808e);
+    font-family: "Noto Sans JP";
+    font-size: 1.4rem;
+    height: 1.7rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

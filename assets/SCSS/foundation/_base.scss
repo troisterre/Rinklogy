@@ -1,0 +1,13 @@
+@use "mixins" as *;
+html {
+  // SP・タブレット時は 1rem = 10px 固定（従来の 62.5%）
+  font-size: 62.5%;
+
+  @include pc {
+    font-size: clamp(7.63px, calc(10 / 1440 * 100vw), 10px);
+  }
+}
+
+body {
+  font-size: 1.6rem;
+}
