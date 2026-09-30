@@ -1,0 +1,300 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+// ==========================================
+// Component: フォーム要素 (.c-form)
+// ==========================================
+.c-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 1rem;
+
+  @include pc {
+    max-width: 80rem; // PC時はフォーム幅を制限して中央寄せ
+    margin: 0 auto;
+    gap: 3.2rem;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    @include tab {
+      width: 700px;
+      align-items: flex-start;
+    }
+  }
+
+  // ラベルとバッジのエリア
+  &__label-area {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    align-self: stretch;
+  }
+
+  &__label {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  // 必須バッジ
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    align-items: center;
+    font-family: "Noto Sans JP";
+    font-size: 1.1rem;
+    &--req {
+      background-color: var(--logo2, #07808e);
+      color: #fff;
+    }
+  }
+
+  &__input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+  }
+
+  // 補足テキスト
+  &__note {
+    font-size: 1.3rem;
+    color: #9ca3af;
+    font-family: "Noto Sans JP";
+    font-weight: 400;
+  }
+
+  &__input-text,
+  &__textarea {
+    display: block; // ★ flex を block に変更
+    box-sizing: border-box; // ★ width100%の中にpaddingとborderを含める
+    width: 100%;
+    border-radius: 0.8rem;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.6rem;
+    color: var(--text-black, #020d1b);
+    outline: none;
+    transition: border-color 0.3s ease;
+    border: 0.1rem solid var(--border, #c6dbde); // px を rem に変更
+    background: #fff;
+    height: 48px;
+    padding: 0 16px;
+    &::placeholder {
+      color: #cbd5e1;
+    }
+
+    &:focus {
+      border-color: var(--logo2, #07808e);
+    }
+  }
+
+  &__textarea {
+    resize: vertical; // ユーザーが縦方向にだけサイズ変更できるようにする
+  }
+
+  // チェックボックスグループ
+  &__checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  // カスタムチェックボックス
+  &__checkbox {
+    display: inline-flex;
+    align-items: flex-start;
+    cursor: pointer;
+    position: relative;
+
+    // デフォルトのチェックボックスを非表示にする
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    // テキストとカスタム枠
+    &-text {
+      position: relative;
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      line-height: 1.5;
+      color: var(--text-black, #020d1b);
+
+      // 未チェック状態の枠線
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 1.8rem;
+        height: 1.8rem;
+        border: 0.1rem solid var(--border, #c6dbde);
+        border-radius: 0.4rem;
+        background-color: #fff;
+        margin-right: 1.2rem;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        transition:
+          background-color 0.2s,
+          border-color 0.2s;
+      }
+
+      // チェックマーク（初期状態は透明）
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0.7rem; // 枠の中央にくるよう調整
+        top: 0.4rem;
+        width: 0.8rem;
+        height: 1.2rem;
+        // 白い線でL字を作り、回転させてチェックマークにする
+        border-right: 0.2rem solid #fff;
+        border-bottom: 0.2rem solid #fff;
+        transform: rotate(45deg);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+    }
+
+    // ★ チェックされた時のスタイル変化
+    input[type="checkbox"]:checked + &-text::before {
+      background-color: var(--logo2, #07808e);
+      border-color: var(--logo2, #07808e);
+    }
+    input[type="checkbox"]:checked + &-text::after {
+      opacity: 1; // 白いチェックマークを表示
+    }
+  }
+
+  // 区切り線
+  &__divider {
+    border: none;
+    border-top: 0.1rem solid #e2e8f0;
+    margin: 1.6rem 0;
+  }
+
+  &__privacy {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.6rem;
+
+    .c-form__checkbox-text {
+      display: inline-block; // SP時は2行になった時に綺麗に字下げ
+      padding-left: 3rem; // 枠幅(1.8) + 余白(1.2) = 3remに変更
+
+      &::before {
+        position: absolute;
+        left: 0;
+        top: 0.2rem;
+      }
+
+      &::after {
+        left: 0.6rem;
+        top: 0.5rem;
+      }
+
+      // ★追加：タブレット以上で横並びにリセット
+      @include tab {
+        display: flex;
+        align-items: center;
+        padding-left: 0; // 字下げを解除
+
+        br {
+          display: none; // タブレット以上で改行を無効化
+        }
+
+        &::before {
+          position: relative; // 絶対配置を解除してFlexアイテムとして並べる
+          top: 0;
+        }
+
+        &::after {
+          left: 0.6rem;
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg); // 縦中央寄せを適用
+          margin-top: -0.1rem; // 回転のズレを微調整
+        }
+      }
+    }
+
+    &-link {
+      color: var(--logo2, #07808e);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // 送信ボタンエリア
+  &__submit {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+// ==========================================
+// Component: 送信ボタン (.c-btn-submit)
+// ==========================================
+.c-btn-submit {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  padding: 24px 48px;
+  gap: 4rem;
+  border-radius: 4rem;
+  background: var(--logo2, #07808e);
+  /* ドロップシャドウ */
+  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.08);
+  color: #fff;
+  font-family: "Noto Sans JP";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.6px;
+  &:hover {
+    opacity: 0.8;
+    box-shadow: 0 0.4rem 1.2rem rgba(15, 23, 42, 0.1);
+  }
+
+  // 矢印アイコンをマスクで描画
+  &::after {
+    content: "";
+    width: 2.4rem;
+    height: 1.6rem;
+    background-color: #fff;
+    -webkit-mask-image: url("/assets/images/arrow-right.svg");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url("/assets/images/arrow-right.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}

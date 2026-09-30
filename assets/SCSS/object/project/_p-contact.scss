@@ -1,0 +1,119 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// Project: コンタクト用ヒーロー (.p-contact-hero)
+// ==========================================
+.p-contact-hero {
+  margin-top: 7.6rem;
+  padding: 48px 20px 38px 20px;
+  background:
+    radial-gradient(41.79% 53.19% at 75.21% 52.77%, rgba(7, 128, 142, 0.33) 0%, rgba(7, 128, 142, 0) 100%), #113058;
+  @include tab {
+    margin-top: 12rem;
+    padding: 8rem 2rem 6.8rem 2rem;
+  }
+  @include pc {
+    padding: 80px 0 98px;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.8rem;
+    @include tab {
+      gap: 4rem;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    @include pc {
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+  }
+
+  &__title-en {
+    color: #68b2bc; // 水色
+    font-family: "Inter", sans-serif;
+    font-size: 5.6rem;
+    font-weight: 800;
+    line-height: 1.1;
+    @include tab {
+      font-family: "Roboto";
+      font-size: 100px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      opacity: 0.85;
+      background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  &__title-ja {
+    color: #fff;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    @include tab {
+      color: var(--base_background, #f8fafc);
+      font-size: 32px;
+      font-weight: 900;
+    }
+  }
+
+  &__text {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    display: flex;
+    padding-right: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    color: var(--base_background, #f8fafc);
+    line-height: 170%; /* 23.8px */
+    @include tab {
+      justify-content: flex-start;
+      color: var(--base_background, #f8fafc);
+      font-family: "Noto Sans JP";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 180%; /* 28.8px */
+      padding-right: 0;
+    }
+  }
+}
+
+// ==========================================
+// Project: コンタクトフォームセクション (.p-contact-form)
+// ==========================================
+.p-contact-form {
+  display: flex;
+  padding: 48px 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  @include tab {
+    padding: 8rem 2rem;
+  }
+  @include pc {
+    padding: 8rem 0 12rem;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

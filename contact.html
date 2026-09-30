@@ -112,21 +112,19 @@
       <section class="p-contact-hero">
         <div class="l-inner p-contact-hero__inner">
           <h1 class="p-contact-hero__title">
-            <span class="p-contact-hero__title-en">CONTACT</span>
+            <span class="p-contact-hero__title-en">Contact us</span>
             <span class="p-contact-hero__title-ja">お問い合わせ</span>
           </h1>
-          <p class="p-contact-hero__copy">
+          <p class="p-contact-hero__text">
             業務やITに関するお困りごとがございましたら、<br
-              class="u-hidden-pc"
+              class="u-hidden-tab-pc"
             />
             お気軽にお問い合わせください。<br />
             「何から手をつければよいか分からない」という<br
-              class="u-hidden-pc"
+              class="u-hidden-tab-pc"
             />
             段階でも構いません。<br />
-            分かる範囲で、現在のお困りごとを<br
-              class="u-hidden-pc"
-            />お聞かせください。
+            分かる範囲で、現在のお困りごとをお聞かせください。
           </p>
         </div>
       </section>
@@ -135,137 +133,159 @@
            お問い合わせフォーム (p-contact-form)
       ======================================== -->
       <section class="l-section p-contact-form">
-        <div class="l-inner">
-          <form action="#" method="post" class="p-contact-form__form">
+        <div class="l-inner p-contact-form__inner">
+          <form action="#" method="post" class="c-form">
             <!-- お名前 -->
-            <div class="c-form-group">
-              <div class="c-form-label">
-                <label for="name" class="c-form-label__text">お名前</label>
-                <span class="c-form-badge c-form-badge--required">必須</span>
+            <div class="c-form__row">
+              <div class="c-form__label-area">
+                <label for="your-name" class="c-form__label">お名前</label>
+                <span class="c-form__badge c-form__badge--req">必須</span>
               </div>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="c-form-input"
-                placeholder="山田 太郎"
-                required
-              />
+              <div class="c-form__input-area">
+                <input
+                  type="text"
+                  id="your-name"
+                  name="your-name"
+                  placeholder="山田 太郎"
+                  class="c-form__input-text"
+                  required
+                />
+              </div>
             </div>
 
             <!-- 会社名 -->
-            <div class="c-form-group">
-              <div class="c-form-label">
-                <label for="company" class="c-form-label__text">会社名</label>
-                <span class="c-form-badge c-form-badge--required">必須</span>
+            <div class="c-form__row">
+              <div class="c-form__label-area">
+                <label for="your-company" class="c-form__label">会社名</label>
+                <span class="c-form__badge c-form__badge--req">必須</span>
               </div>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                class="c-form-input"
-                placeholder="株式会社〇〇"
-                required
-              />
+              <div class="c-form__input-area">
+                <input
+                  type="text"
+                  id="your-company"
+                  name="your-company"
+                  placeholder="株式会社〇〇"
+                  class="c-form__input-text"
+                  required
+                />
+              </div>
             </div>
 
             <!-- メールアドレス -->
-            <div class="c-form-group">
-              <div class="c-form-label">
-                <label for="email" class="c-form-label__text"
+            <div class="c-form__row">
+              <div class="c-form__label-area">
+                <label for="your-email" class="c-form__label"
                   >メールアドレス</label
                 >
-                <span class="c-form-badge c-form-badge--required">必須</span>
+                <span class="c-form__badge c-form__badge--req">必須</span>
               </div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="c-form-input"
-                required
-              />
+              <div class="c-form__input-area">
+                <input
+                  type="email"
+                  id="your-email"
+                  name="your-email"
+                  class="c-form__input-text"
+                  required
+                />
+              </div>
             </div>
 
             <!-- ご相談内容 (チェックボックス) -->
-            <div class="c-form-group">
-              <div class="c-form-label">
-                <span class="c-form-label__text">ご相談内容</span>
-                <span class="c-form-badge c-form-badge--required">必須</span>
+            <div class="c-form__row">
+              <div class="c-form__label-area">
+                <label class="c-form__label">ご相談内容</label>
+                <span class="c-form__badge c-form__badge--req">必須</span>
               </div>
-              <p class="c-form-hint">当てはまるものをすべてお選びください。</p>
-              <div class="c-form-checkbox-group">
-                <label class="c-form-checkbox">
-                  <input
-                    type="checkbox"
-                    name="category[]"
-                    value="業務のムダや手間を減らしたい"
-                  />
-                  <span class="c-form-checkbox__text"
-                    >業務のムダや手間を減らしたい</span
-                  >
-                </label>
-                <label class="c-form-checkbox">
-                  <input
-                    type="checkbox"
-                    name="category[]"
-                    value="社内のIT活用を進めたい"
-                  />
-                  <span class="c-form-checkbox__text"
-                    >社内のIT活用を進めたい</span
-                  >
-                </label>
-                <label class="c-form-checkbox">
-                  <input
-                    type="checkbox"
-                    name="category[]"
-                    value="システムの導入・見直しを考えている"
-                  />
-                  <span class="c-form-checkbox__text"
-                    >システムの導入・見直しを考えている</span
-                  >
-                </label>
-                <label class="c-form-checkbox">
-                  <input
-                    type="checkbox"
-                    name="category[]"
-                    value="何から手をつけるべきか相談したい"
-                  />
-                  <span class="c-form-checkbox__text"
-                    >何から手をつけるべきか相談したい</span
-                  >
-                </label>
-                <label class="c-form-checkbox">
-                  <input type="checkbox" name="category[]" value="その他" />
-                  <span class="c-form-checkbox__text">その他</span>
-                </label>
+              <div class="c-form__input-area">
+                <p class="c-form__note">
+                  当てはまるものをすべてお選びください。
+                </p>
+                <div class="c-form__checkbox-group">
+                  <label class="c-form__checkbox">
+                    <input
+                      type="checkbox"
+                      name="your-subject[]"
+                      value="業務のムダや手間を減らしたい"
+                    />
+                    <span class="c-form__checkbox-text"
+                      >業務のムダや手間を減らしたい</span
+                    >
+                  </label>
+                  <label class="c-form__checkbox">
+                    <input
+                      type="checkbox"
+                      name="your-subject[]"
+                      value="社内のIT活用を進めたい"
+                    />
+                    <span class="c-form__checkbox-text"
+                      >社内のIT活用を進めたい</span
+                    >
+                  </label>
+                  <label class="c-form__checkbox">
+                    <input
+                      type="checkbox"
+                      name="your-subject[]"
+                      value="システムの導入・見直しを考えている"
+                    />
+                    <span class="c-form__checkbox-text"
+                      >システムの導入・見直しを考えている</span
+                    >
+                  </label>
+                  <label class="c-form__checkbox">
+                    <input
+                      type="checkbox"
+                      name="your-subject[]"
+                      value="何から手をつけるべきか相談したい"
+                    />
+                    <span class="c-form__checkbox-text"
+                      >何から手をつけるべきか相談したい</span
+                    >
+                  </label>
+                  <label class="c-form__checkbox">
+                    <input
+                      type="checkbox"
+                      name="your-subject[]"
+                      value="その他"
+                    />
+                    <span class="c-form__checkbox-text">その他</span>
+                  </label>
+                </div>
               </div>
             </div>
 
             <!-- ご相談内容詳細 (テキストエリア) -->
-            <div class="c-form-group">
-              <div class="c-form-label">
-                <label for="detail" class="c-form-label__text"
+            <div class="c-form__row">
+              <div class="c-form__label-area">
+                <label for="your-message" class="c-form__label"
                   >ご相談内容詳細</label
                 >
               </div>
-              <p class="c-form-hint">
-                現在お困りのことや、ご相談したい内容について、分かる範囲でご記入ください。
-              </p>
-              <textarea
-                id="detail"
-                name="detail"
-                class="c-form-textarea"
-                rows="8"
-              ></textarea>
+              <div class="c-form__input-area">
+                <p class="c-form__note">
+                  現在お困りのことや、ご相談したい内容について、分かる範囲でご記入ください。
+                </p>
+                <textarea
+                  id="your-message"
+                  name="your-message"
+                  class="c-form__textarea"
+                  rows="6"
+                ></textarea>
+              </div>
             </div>
 
+            <!-- 区切り線 -->
+            <hr class="c-form__divider" />
+
             <!-- プライバシーポリシー -->
-            <div class="p-contact-form__privacy">
-              <label class="c-form-checkbox c-form-checkbox--center">
-                <input type="checkbox" name="privacy" value="agree" required />
-                <span class="c-form-checkbox__text">
+            <div class="c-form__privacy">
+              <label class="c-form__checkbox">
+                <input type="checkbox" name="acceptance" value="1" required />
+                <span class="c-form__checkbox-text">
                   プライバシーポリシーに同意する<br class="u-hidden-pc" />
-                  <a href="/privacy.html" target="_blank" class="c-form-link"
+                  <a
+                    href="/privacy.html"
+                    target="_blank"
+                    class="c-form__privacy-link"
                     >（プライバシーポリシーを開く）</a
                   >
                 </span>
@@ -273,8 +293,10 @@
             </div>
 
             <!-- 送信ボタン -->
-            <div class="p-contact-form__submit">
-              <button type="submit" class="c-btn">入力内容を確認する</button>
+            <div class="c-form__submit">
+              <button type="submit" class="c-btn-submit">
+                入力内容を確認する
+              </button>
             </div>
           </form>
         </div>
