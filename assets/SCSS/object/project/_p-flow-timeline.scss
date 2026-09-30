@@ -1,0 +1,143 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// Project: タイムライン (.p-flow-timeline)
+// ==========================================
+.p-flow-timeline {
+  background-color: #fff;
+  padding: 40px 8px 64px 8px;
+
+  @include tab {
+    padding: 8rem 2rem;
+  }
+  @include pc {
+    padding: 10rem 0;
+  }
+  &__inner {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    @include tab {
+      gap: 56px;
+    }
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    align-self: stretch;
+    @include tab {
+      gap: 40px;
+      min-height: 13rem;
+    }
+    @include pc {
+      margin-top: 5.6rem;
+      gap: 4.8rem;
+    }
+  }
+}
+
+// ==========================================
+// Component: タイムラインの各ステップ (.c-timeline-step)
+// ==========================================
+.c-timeline-step {
+  position: relative;
+  z-index: 2;
+
+  gap: 1.6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+
+  @include tab {
+    gap: 2.4rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 1.6rem; // SP時の円(3.2rem)の中心からスタート
+    bottom: -4.4rem; // gap(2.8rem) + 次の円の中心付近まで確実に届かせる
+    left: 1.6rem; // SP時のアイコンの中央位置
+    width: 0.1rem;
+    background: var(--logo2, #07808e);
+    z-index: -1; // 文字やアイコンの後ろに潜り込ませる
+
+    @include tab {
+      top: 2.8rem; // Tab時の円(5.6rem)の中心からスタート
+      left: 2.8rem; // Tab時のアイコンの中央位置
+      bottom: -6rem; // gap + 次の円の中心付近まで
+    }
+    @include pc {
+      bottom: -8rem; // PC時はgapが広がる(4.8rem)ため、さらに長く伸ばす
+    }
+  }
+  &:last-child::after {
+    display: none;
+  }
+
+  &__num {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.1rem;
+    display: flex;
+    padding: 6px 8px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 16px;
+
+    font-weight: 700;
+
+    @include tab {
+      width: 5.6rem;
+      height: 5.6rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 0.4rem; // 番号とタイトルの高さを合わせる
+
+    @include tab {
+      gap: 1.2rem;
+      padding-top: 1.2rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-black, #020d1b);
+
+    @include tab {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__text {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+
+    @include tab {
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+  }
+}

@@ -36,3 +36,9 @@
     display: none;
   }
 }
+.u-hidden-flow {
+  display: inline;
+  @include tab {
+    display: none;
+  }
+}

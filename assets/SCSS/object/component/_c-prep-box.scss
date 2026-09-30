@@ -1,0 +1,93 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// Component: 準備リストボックス (.c-prep-box)
+// ==========================================
+.c-prep-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem 2.4rem 2rem;
+  gap: 2.4rem;
+  align-self: stretch;
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.08);
+
+  @include tab {
+    width: 50%;
+    gap: 2rem;
+  }
+  @include pc {
+    width: 40rem;
+    gap: 2.4rem;
+  }
+
+  // ヘッダー部分
+  &__head {
+    display: flex;
+    align-items: center;
+    padding: 1.6rem 3.2rem;
+    gap: 2.4rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: -0.08em;
+
+    @include tab {
+      letter-spacing: -0.1rem;
+    }
+  }
+
+  // リスト部分
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 3.2rem;
+    gap: 1.6rem;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.6rem;
+    color: #111827;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.25; // 20px / 16px
+
+    // アイコンのベース設定
+    &::before {
+      content: "";
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-position: center;
+    }
+  }
+
+  // 「不要」のアイコン（薄いグレーの丸に×）
+  &--not-required &__item::before {
+    background-color: #e2e8f0;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-size: 1.4rem;
+    background-repeat: no-repeat;
+  }
+
+  // 「必要」のアイコン（紺色の丸にチェック）
+  &--required &__item::before {
+    background-color: var(--logo1, #113058);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 1.4rem;
+    background-repeat: no-repeat;
+  }
+}

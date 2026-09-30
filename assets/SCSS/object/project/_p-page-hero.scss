@@ -1,47 +1,37 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
 
-/* ========================================
-   4. Object / Project
-   ======================================== */
 // 下層ページヒーロー
 .p-page-hero {
   position: relative;
   background: #f8fafc;
-  padding: 60px 0;
+  padding: 6rem 0 0;
   overflow: hidden;
-  max-width: 1440px;
+  max-width: 144rem;
   margin: 0 auto;
 
   &__inner {
     position: relative;
     z-index: 2;
     display: flex;
-    height: 456px;
-    padding: 76px 8px 0 8px;
+    height: 38rem;
+    padding: 4.8rem 0.8rem 0 0.8rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 48px;
+    gap: 2.8rem;
     align-self: stretch;
     @include tab {
-      height: 560px;
-      padding: 120px 20px 0 20px;
+      padding: 80px 20px;
+      gap: 56px;
     }
     @include pc {
-      height: 590px;
-      padding: 120px 0 0;
+      height: 59rem;
+      padding: 12rem 0 0;
       flex-direction: column;
       align-items: flex-start;
-      gap: 48px;
-      max-width: 1160px;
+      gap: 4.8rem;
+      max-width: 116rem;
       margin: 0 auto;
-    }
-  }
-
-  &__title {
-    margin-bottom: 28px;
-    @include tab {
-      margin-bottom: 40px;
     }
   }
 
@@ -50,7 +40,7 @@
     color: var(--color-primary);
     line-height: 1;
     font-family: "Inter", sans-serif;
-    font-size: 68px;
+    font-size: 6.8rem;
     font-weight: 800;
     opacity: 0.85;
     background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
@@ -58,80 +48,92 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     @include tab {
-      font-size: 100px;
+      font-size: 10rem;
     }
   }
 
   &__title-ja {
     color: var(--logo1, #113058);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 24px;
+    font-size: 2.4rem;
     font-weight: 900;
     line-height: normal;
     @include tab {
-      font-size: 32px;
+      font-size: 3.2rem;
     }
   }
 
   &__copy {
     color: var(--text-black, #020d1b);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.8;
     @include tab {
-      font-size: 16px;
+      font-size: 1.6rem;
     }
   }
 
   // ==========================================
-  // 背景の渦巻き装飾（Company / Flow用）
+  // 背景の装飾（共通ベース）
   // ==========================================
   &__deco {
     position: absolute;
-    top: 50%;
-    right: -10%;
-    transform: translateY(-50%); // 縦中央に配置
-    width: 250px;
-    height: 250px;
     z-index: 1;
     pointer-events: none;
-    opacity: 0.4;
-
-    // 画像を背景として設定
-    background-image: url("/assets/images/company-bg-image.png"); // ★実際の画像のパスに合わせてください
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    // ★ マスク処理：中心から外側に向かってフワッと透過させる
-    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 70%);
-    -webkit-mask-image: -webkit-radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 70%);
+  }
+  // ==========================================
+  // Flowページ / Companyページ用
+  // ==========================================
+  &__deco-flow {
+    top: 54%;
+    right: -14%;
+    transform: translateY(-50%); // 縦中央に配置
+    opacity: 0.8;
+    background-image: url("/assets/images/flow-bg.png");
+    width: 466px;
+    height: 258px;
+    aspect-ratio: 233/129;
 
     @include tab {
-      width: 390px;
-      height: 390px;
-      right: 0;
-      opacity: 0.7;
-    }
-    @include pc {
-      top: 40%; // PC時の縦位置微調整
-      right: calc(50% - 600px); // 右端に寄りすぎないよう調整
-      width: 650px;
-      height: 650px;
+      display: none;
     }
   }
-
+  &__deco-flow-tab-pc {
+    display: none;
+    @include tab {
+      display: block;
+      top: 40%;
+      right: -15%;
+      transform: translateY(-50%); // 縦中央に配置
+      background-image: url("/assets/images/flow-pc-bg.png");
+      width: 751px;
+      height: 281px;
+      aspect-ratio: 302/113;
+      opacity: 0.8;
+    }
+    @include pc {
+      top: 50%;
+      right: calc(50% - 80rem); // 右端に寄りすぎないよう調整
+      width: 1209px;
+      height: 444px;
+      aspect-ratio: 226/83;
+    }
+  }
   // ==========================================
-  // 背景の渦巻き装飾（Service用）
+  // Serviceページ用
   // ==========================================
-  &__deco--service {
+  &__deco-service {
+    top: 50%;
     right: -70%;
-    width: 643px;
-    height: 241px;
+    transform: translateY(-50%);
+    width: 64.3rem;
+    height: 24.1rem;
     aspect-ratio: 643/241;
-    // サービス用の画像に差し替え
-    background-image: url("/assets/images/service-bg-img.png"); // ★実際の画像のパスに合わせてください
+    background-image: url("/assets/images/service-bg-img.png");
     opacity: 0.8;
 
     mask-image: linear-gradient(
@@ -148,24 +150,19 @@
       rgba(248, 250, 252, 0.6) 46.35%,
       #f8fafc 86.46%
     );
-    opacity: 0.4;
+
     @include tab {
-      width: 720px;
-      height: 270px;
+      width: 72rem;
+      height: 27rem;
       aspect-ratio: 8/3;
-      opacity: 0.8;
       right: 20%;
       opacity: 0.8;
     }
     @include pc {
-      width: 1005px;
-      height: 377px;
+      width: 100.5rem;
+      height: 37.7rem;
       aspect-ratio: 997/374;
       right: -5%;
-      top: 50%;
-    }
-    & img {
-      width: 100%;
     }
   }
 }

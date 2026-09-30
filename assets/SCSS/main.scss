@@ -26,6 +26,7 @@
 @use "object/component/c-trouble-card";
 @use "object/component/c-service-accordion";
 @use "object/component/c-support";
+@use "object/component/c-prep-box";
 
 // 4. Object - Project
 @use "object/project/p-hero";
@@ -47,6 +48,8 @@
 @use "object/project/p-service-list";
 @use "object/project/p-support-area";
 @use "object/project/p-service-case";
+@use "object/project/p-flow-timeline";
+@use "object/project/p-flow-prep";
 
 // 5. Object - Utility
 @use "object/utility/u-margin";

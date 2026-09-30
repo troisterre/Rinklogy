@@ -100,3 +100,49 @@
     mask-position: center;
   }
 }
+// ==========================================
+// Component: アウトラインボタン (.c-btn-outline)
+// ==========================================
+.c-btn-outline {
+  display: flex;
+  width: 100%;
+  max-width: 30.6rem;
+  margin: 0 auto;
+  padding: 1.8rem 2.4rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  border-radius: 4rem;
+  border: 0.1rem solid var(--border, #c6dbde);
+  background: #fff;
+  color: var(--logo1, #113058);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 0.4rem 1.2rem rgba(15, 23, 42, 0.05);
+
+  &:hover {
+    opacity: 0.8;
+    box-shadow: 0 0.4rem 1.6rem rgba(15, 23, 42, 0.1);
+  }
+
+  // マスクを利用して紺色の矢印を描画
+  &::after {
+    content: "";
+    width: 2.4rem;
+    height: 1.6rem;
+    background-color: var(--logo1, #113058);
+    -webkit-mask-image: url("/assets/images/arrow-right.svg");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url("/assets/images/arrow-right.svg");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
