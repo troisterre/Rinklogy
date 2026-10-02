@@ -6,7 +6,7 @@
   padding: 6.4rem 1.6rem;
 
   @include tab {
-    padding: 10rem 4rem;
+    padding: 8rem 2rem;
   }
   @include pc {
     padding: 12rem 0; // 左右の余白は l-inner に任せる

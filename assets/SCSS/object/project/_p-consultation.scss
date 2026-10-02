@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 3.6rem;
+    gap: 2.4rem;
 
     @include tab {
       padding: 10rem 4rem;
@@ -26,8 +26,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 4rem;
-
+    margin-bottom: 1.2rem;
     @include tab {
       flex-direction: column;
       align-items: flex-start;
@@ -70,7 +69,6 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0 0 2.4rem;
 
     &::-webkit-scrollbar {
       display: none;
@@ -112,7 +110,7 @@
     width: 24rem;
     justify-content: space-between;
     align-items: center;
-    margin: 3.2rem auto 0;
+    margin: 0 auto;
 
     @include tab {
       display: none;

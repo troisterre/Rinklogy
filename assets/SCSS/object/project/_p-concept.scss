@@ -120,11 +120,14 @@
 
   // 標準テキスト
   &__text {
-    font-size: 2rem;
-    line-height: 2;
     letter-spacing: -0.01em;
     margin: 0;
-    color: $text-black;
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%; /* 27.2px */
 
     @include tab {
       font-size: 1.6rem;
@@ -137,7 +140,7 @@
       font-weight: 700;
       font-size: 2rem;
       text-align: center;
-      letter-spacing: 0;
+      letter-spacing: -0.04em;
 
       @include tab {
         font-weight: 500;
