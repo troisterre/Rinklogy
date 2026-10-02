@@ -15,23 +15,23 @@
     z-index: 2;
     display: flex;
     height: 38rem;
-    padding: 4.8rem 0.8rem 0 0.8rem;
+    padding: 4.8rem 0.8rem 0; // 短縮記法に変更
     flex-direction: column;
     align-items: flex-start;
     gap: 2.8rem;
     align-self: stretch;
+
     @include tab {
-      padding: 80px 20px;
-      gap: 56px;
+      padding: 8rem 2rem;
+      gap: 5.6rem;
     }
     @include pc {
       height: 59rem;
       padding: 12rem 0 0;
-      flex-direction: column;
-      align-items: flex-start;
       gap: 4.8rem;
       max-width: 116rem;
       margin: 0 auto;
+      // flex-direction と align-items は引き継がれるため削除しました
     }
   }
 
@@ -47,6 +47,7 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
     @include tab {
       font-size: 10rem;
     }
@@ -57,7 +58,8 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 2.4rem;
     font-weight: 900;
-    line-height: normal;
+    // line-height: normal; を削除しました
+
     @include tab {
       font-size: 3.2rem;
     }
@@ -69,6 +71,7 @@
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 1.8;
+
     @include tab {
       font-size: 1.6rem;
     }
@@ -85,6 +88,7 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
   // ==========================================
   // Flowページ / Companyページ用
   // ==========================================
@@ -94,35 +98,38 @@
     transform: translateY(-50%); // 縦中央に配置
     opacity: 0.8;
     background-image: url("/assets/images/flow-bg.png");
-    width: 466px;
-    height: 258px;
+    width: 46.6rem;
+    height: 25.8rem;
     aspect-ratio: 233/129;
 
     @include tab {
       display: none;
     }
   }
+
   &__deco-flow-tab-pc {
     display: none;
+
     @include tab {
       display: block;
       top: 40%;
       right: -15%;
       transform: translateY(-50%); // 縦中央に配置
       background-image: url("/assets/images/flow-pc-bg.png");
-      width: 751px;
-      height: 281px;
+      width: 75.1rem;
+      height: 28.1rem;
       aspect-ratio: 302/113;
       opacity: 0.8;
     }
     @include pc {
       top: 50%;
       right: calc(50% - 80rem); // 右端に寄りすぎないよう調整
-      width: 1209px;
-      height: 444px;
+      width: 120.9rem;
+      height: 44.4rem;
       aspect-ratio: 226/83;
     }
   }
+
   // ==========================================
   // Serviceページ用
   // ==========================================
@@ -156,7 +163,7 @@
       height: 27rem;
       aspect-ratio: 8/3;
       right: 20%;
-      opacity: 0.8;
+      // opacity: 0.8; は引き継がれるため削除しました
     }
     @include pc {
       width: 100.5rem;

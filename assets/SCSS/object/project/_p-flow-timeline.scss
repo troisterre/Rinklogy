@@ -6,7 +6,7 @@
 // ==========================================
 .p-flow-timeline {
   background-color: #fff;
-  padding: 40px 8px 64px 8px;
+  padding: 4rem 0.8rem 6.4rem; // 左右が同じ値なのでまとめました
 
   @include tab {
     padding: 8rem 2rem;
@@ -15,13 +15,13 @@
     padding: 10rem 0;
   }
   &__inner {
-    gap: 32px;
+    gap: 3.2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
     @include tab {
-      gap: 56px;
+      gap: 5.6rem;
     }
   }
 
@@ -30,10 +30,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 28px;
+    gap: 2.8rem;
     align-self: stretch;
     @include tab {
-      gap: 40px;
+      gap: 4rem;
       min-height: 13rem;
     }
     @include pc {
@@ -50,10 +50,9 @@
   position: relative;
   z-index: 2;
 
-  gap: 1.6rem;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem; // 重複していた指定を1つにまとめました
   align-self: stretch;
 
   @include tab {
@@ -87,15 +86,14 @@
     width: 3.5rem;
     height: 3.1rem;
     display: flex;
-    padding: 6px 8px;
+    padding: 0.6rem 0.8rem;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
     color: #fff;
-    font-family: "Roboto";
-    font-size: 16px;
-
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
     font-weight: 700;
 
     @include tab {
@@ -129,11 +127,10 @@
 
   &__text {
     color: var(--text-black, #020d1b);
-    font-family: "Noto Sans JP";
-    font-size: 14px;
-    font-style: normal;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.4rem;
     font-weight: 400;
-    line-height: 150%; /* 21px */
+    line-height: 1.5;
 
     @include tab {
       font-size: 1.5rem;

@@ -1,21 +1,24 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
 
+// ==========================================
+// Component: ベースボタン (.c-btn)
+// ==========================================
 .c-btn {
   display: flex;
   width: 100%;
-  max-width: 306px;
+  max-width: 30.6rem;
   margin: 0 auto;
-  padding: 20px 40px;
+  padding: 2rem 4rem;
   align-items: center;
   justify-content: center;
-  gap: 30px;
-  border-radius: 40px;
+  gap: 3rem;
+  border-radius: 4rem;
   background: linear-gradient(87deg, #10748d 29.62%, #5eacbf 91.51%);
-  box-shadow: -2px 8px 16px 0 rgba(5, 85, 94, 0.3);
+  box-shadow: -0.2rem 0.8rem 1.6rem 0 rgba(5, 85, 94, 0.3);
   color: #fff;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-decoration: none;
@@ -25,14 +28,14 @@
 
   &:hover {
     opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-0.2rem);
   }
 
   &::after {
     content: "";
     display: block;
-    width: 24px;
-    height: 16px;
+    width: 2.4rem;
+    height: 1.6rem;
     background-image: url("/assets/images/arrow-right.svg");
     background-repeat: no-repeat;
     background-position: center;
@@ -47,36 +50,24 @@
     display: none !important;
   }
 }
+
+// ==========================================
+// Component: サービス用ボタン (.c-btn-service)
+// ==========================================
 .c-btn-service {
   @extend .c-btn;
-  display: flex;
-  width: 30.6rem;
+
+  // ベース(.c-btn)からの変更・上書き部分のみ記述
   padding: 2rem 0;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  border-radius: 4rem;
   border: 0.1rem solid var(--border, #c6dbde);
   background: #fff;
   color: var(--logo1, #113058);
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
   letter-spacing: 0.144rem;
   box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.08);
 
   @include tab {
     width: 66.7%;
-    // ★追加: ベース(.c-btn)の最大幅制限を解除して広がるようにする
-    max-width: 100%;
-    padding: 2rem 0;
-  }
-
-  @include pc {
-    // もしPC時に幅を変えたい場合はここでさらに指定します
-    // 例: width: 40rem; など
+    max-width: 100%; // ベースの最大幅制限を解除して広がるようにする
   }
 
   &::after {
@@ -100,6 +91,7 @@
     mask-position: center;
   }
 }
+
 // ==========================================
 // Component: アウトラインボタン (.c-btn-outline)
 // ==========================================

@@ -1,9 +1,10 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
+
 .c-dot {
   display: block !important;
-  width: 8px;
-  height: 8px;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50% !important;
   background-color: #c6dbde;
   transition: all 0.3s ease;

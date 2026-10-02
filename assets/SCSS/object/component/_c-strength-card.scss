@@ -1,110 +1,126 @@
 @use "../../foundation/mixins" as *;
 @use "../../foundation/variables" as *;
+
 // 強みカード
 .c-strength-card {
   display: flex;
-  padding: 14px 6px 20px 6px;
+  padding: 1.4rem 0.6rem 2rem; // 短縮記法に変更
   align-items: flex-start;
-  gap: 10px;
+  gap: 1rem;
   align-self: stretch;
-  border-radius: 12px;
+  border-radius: 1.2rem;
   background: var(
     --gra-radial,
     radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 56.25%, rgba(230, 243, 245, 0.6) 100%),
     #fff
   );
+
   @include tab {
-    width: 265px;
-    padding: 52px 20px 32px 20px;
+    width: 26.5rem;
+    padding: 5.2rem 2rem 3.2rem; // 短縮記法に変更
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
   }
+
   &__header {
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
     width: 31.4%;
   }
+
   &__img {
     display: flex;
-    padding: 48px 32px 0 32px;
+    padding: 4.8rem 3.2rem 0; // 短縮記法に変更
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     @include tab {
       margin: 0 auto;
     }
   }
+
   &__num {
     display: flex;
-    font-size: 13px;
+    font-size: 1.3rem;
     color: var(--logo2, #07808e);
     font-weight: 700;
-    margin-bottom: 4px;
-    border-radius: 12px 0;
+    margin-bottom: 0.4rem;
+    border-radius: 1.2rem 0;
     background: #fff;
-    width: 93px;
-    height: 28px;
+    width: 9.3rem;
+    height: 2.8rem;
     justify-content: center;
     align-items: center;
+
     @include tab {
       position: absolute;
       top: 0;
       left: 0;
-      width: 111px;
-      height: 38px;
+      width: 11.1rem;
+      height: 3.8rem;
     }
   }
+
   &__title {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+
     @include tab {
       justify-content: center;
       align-items: center;
     }
+
+    // SCSSのネストを使って &__title の中にまとめました
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-black, #020d1b);
+      line-height: 1.4;
+    }
+
+    strong {
+      background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.4; // 140%を倍率に変更
+    }
   }
-  &__title h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text-black, #020d1b);
-    line-height: 1.4;
-  }
-  &__title strong {
-    background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: "Noto Sans JP";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-  }
+
   &__body {
     display: flex;
-    gap: 16px;
+    gap: 1.6rem;
     flex-direction: column;
     align-items: flex-start;
     width: 65%;
+
     @include tab {
       width: 100%;
       align-items: center;
     }
   }
+
   &__icon {
-    width: 48px;
+    width: 4.8rem;
     flex-shrink: 0;
+
     @include tab {
-      width: 60px;
-      height: 60px;
-      flex-shrink: 0;
+      width: 6rem;
+      height: 6rem;
+      // flex-shrink: 0; は引き継がれるため削除しました
       aspect-ratio: 1/1;
     }
   }
+
   &__text {
-    font-size: 14px;
+    font-size: 1.4rem;
     color: #4a5568;
     line-height: 1.6;
   }

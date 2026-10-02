@@ -4,19 +4,19 @@
 .c-trouble-card {
   display: flex;
   flex-direction: column;
-  width: 171px;
-  min-height: 138px;
-  padding: 16px 6px 12px 6px;
-  border-radius: 12px;
+  width: 17.1rem;
+  min-height: 13.8rem;
+  padding: 1.6rem 0.6rem 1.2rem;
+  border-radius: 1.2rem;
   background: #fff;
-  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.08);
-  gap: 12px;
+  box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.08);
+  gap: 1.2rem;
 
   @include tab {
     position: relative;
-    width: 350px;
-    padding: 28px 20px 20px 20px;
-    gap: 16px;
+    width: 35rem;
+    padding: 2.8rem 2rem 2rem;
+    gap: 1.6rem;
     align-items: center;
     align-self: stretch;
     flex-shrink: 0;
@@ -35,30 +35,29 @@
     @include tab {
       justify-content: center;
       align-items: center;
-      height: 68px; // PC・タブレット時のheadの高さ
+      height: 6.8rem; // PC・タブレット時のheadの高さ
     }
   }
 
   &__num {
     display: flex;
-    padding: 6px 12px;
+    padding: 0.6rem 1.2rem;
     align-items: center;
-    gap: 24px;
-    border-radius: 12px 0;
+    gap: 2.4rem;
+    border-radius: 1.2rem 0;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
     color: #fff;
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 600;
-    line-height: normal;
-    margin-top: -16px;
+    margin-top: -1.6rem;
 
     @include tab {
       position: absolute;
       left: 0;
       top: 0;
       margin: 0;
-      padding: 8px 16px;
+      padding: 0.8rem 1.6rem;
     }
   }
 
@@ -66,14 +65,14 @@
   // アイコン画像
   // ==========================================
   &__icon {
-    width: 53px;
-    height: 36px;
-    margin-right: 16px;
+    width: 5.3rem;
+    height: 3.6rem;
+    margin-right: 1.6rem;
     object-fit: contain; // ★coverからcontainに変更（見切れ防止）
 
     @include tab {
-      width: 94px;
-      height: 68px;
+      width: 9.4rem;
+      height: 6.8rem;
       margin-right: 0;
     }
   }
@@ -84,7 +83,7 @@
     color: var(--text-black, #020d1b);
     text-align: center;
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 1.4;
 
@@ -94,7 +93,7 @@
       justify-content: center;
       align-items: center;
       flex: 1 0 0;
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: 700;
       line-height: 1.5;
     }

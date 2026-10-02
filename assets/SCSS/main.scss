@@ -7,14 +7,11 @@
 // 2. Layout
 @use "layout/l-header";
 @use "layout/l-footer";
-@use "layout/l-main";
 @use "layout/l-inner";
 @use "layout/l-drower";
 
 // 3. Object - Component
 @use "object/component/c-btn";
-@use "object/component/c-heading";
-@use "object/component/c-label";
 @use "object/component/c-gnav";
 @use "object/component/c-hamburger";
 @use "object/component/c-section-title";
@@ -22,10 +19,10 @@
 @use "object/component/c-dot";
 @use "object/component/c-strength-card";
 @use "object/component/c-value";
-@use "object/component/c-service-card";
 @use "object/component/c-trouble-card";
 @use "object/component/c-service-accordion";
 @use "object/component/c-support";
+@use "object/component/c-support-step";
 @use "object/component/c-prep-box";
 @use "object/component/c-form";
 
@@ -53,6 +50,4 @@
 @use "object/project/p-flow-prep";
 
 // 5. Object - Utility
-@use "object/utility/u-margin";
-@use "object/utility/u-text";
 @use "object/utility/u-hidden";

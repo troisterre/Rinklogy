@@ -7,19 +7,19 @@
 .c-section-title {
   color: var(--text-black, #020d1b);
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 12px;
+  gap: 1.2rem;
   position: relative;
-  padding-bottom: 16px;
+  padding-bottom: 1.6rem;
 
   @include tab {
-    font-size: 42px;
+    font-size: 4.2rem;
   }
 
   &::after {
@@ -28,23 +28,23 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 64px;
-    height: 2px;
+    width: 6.4rem;
+    height: 0.2rem;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
   }
 
   &__sub {
     color: var(--logo2, #07808e);
     font-family: "Roboto", sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: 0.3rem;
 
     @include tab {
-      font-size: 20px;
+      font-size: 2rem;
     }
     @include pc {
-      font-size: 24px;
+      font-size: 2.4rem;
     }
   }
 }

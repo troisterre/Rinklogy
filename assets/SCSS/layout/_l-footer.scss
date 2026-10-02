@@ -4,34 +4,34 @@
 .l-footer {
   background: var(--footer-bgc, #061c38);
   color: #fff;
-  padding: 40px 24px 32px 24px;
+  padding: 4rem 2.4rem 3.2rem; // 上 左右 下 でスッキリまとめました
 
   // ★修正: 親要素の flex を解除し、自然な縦積み（上：情報、下：コピーライト）にします
   display: block;
 
   @include tab {
-    padding: 80px 40px 24px;
+    padding: 8rem 4rem 2.4rem;
   }
   @include pc {
-    padding: 80px 0 24px; // PC時は左右の余白を auto に任せる
+    padding: 8rem 0 2.4rem; // PC時は左右の余白を auto に任せる
   }
 
   &__inner {
-    max-width: 1160px; // ★修正: 他のセクションと幅（1160px）を合わせる
+    max-width: 116rem; // ★修正: 他のセクションと幅（1160px）を合わせる
     margin: 0 auto;
     width: 100%;
 
     // スマホ時は縦積み
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 4.8rem;
 
     @include tab {
       // タブレット以上で左右分割
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 40px;
+      gap: 4rem;
     }
   }
 
@@ -42,31 +42,28 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0.8rem;
 
     @include pc {
-      gap: 24px;
+      gap: 2.4rem;
     }
   }
 
   &__logo {
-    font-size: 20px;
-    font-style: normal;
+    font-size: 2rem;
     font-weight: 700;
-    line-height: normal;
 
     @include tab {
-      font-size: 28px;
+      font-size: 2.8rem;
     }
   }
 
   &__desc {
     color: var(--base_background, #f8fafc);
-    font-family: "Noto Sans JP";
-    font-size: 12px;
-    font-style: normal;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.2rem;
     font-weight: 400;
-    line-height: 180%;
+    line-height: 1.8; // 180%を倍率指定に変更
   }
 
   // =========================
@@ -74,7 +71,7 @@
   // =========================
   &__nav {
     @include tab {
-      min-width: 220px; // リンクが窮屈にならないよう最低幅を確保
+      min-width: 22rem; // リンクが窮屈にならないよう最低幅を確保
     }
   }
 
@@ -82,13 +79,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
-
-    // ★修正: flex-direction: row; を削除し、デザイン通り常に縦積みをキープ
-
-    @include pc {
-      gap: 24px; // 少し間隔を整えました
-    }
+    gap: 2.4rem;
+    // PC用のgap指定はベースと同じだったため削除しました
   }
 
   &__item {
@@ -96,11 +88,9 @@
       display: inline-block;
       transition: opacity 0.3s ease;
       color: #fff;
-      font-family: "Noto Sans JP";
-      font-size: 14px;
-      font-style: normal;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1.4rem;
       font-weight: 700;
-      line-height: normal;
 
       &:hover {
         opacity: 0.7;
@@ -112,24 +102,22 @@
   // コピーライト
   // =========================
   &__copyright {
-    max-width: 1160px; // ★修正: innerと同じ幅に揃える
-    margin: 40px auto 0; // 上に余白を取り、中央揃え
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 116rem; // ★修正: innerと同じ幅に揃える
+    margin: 4rem auto 0; // 上に余白を取り、中央揃え
+    padding-top: 1.6rem;
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
     text-align: center;
     width: 100%;
 
     small {
       color: var(--base_background, #f8fafc);
       text-align: center;
-      font-family: "Noto Sans JP";
-      font-size: 10px;
-      font-style: normal;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1rem;
       font-weight: 400;
-      line-height: normal;
 
       @include pc {
-        font-size: 11px;
+        font-size: 1.1rem;
       }
     }
   }

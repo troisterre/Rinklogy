@@ -5,19 +5,19 @@
   background: var(--base_background, #f8fafc);
 
   &__inner {
-    padding: 64px 8px;
+    padding: 6.4rem 0.8rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 36px;
+    gap: 3.6rem;
 
     @include tab {
-      padding: 100px 40px;
+      padding: 10rem 4rem;
     }
     @include pc {
-      padding: 120px 0; // 左右の余白は .l-inner(auto) に任せる
+      padding: 12rem 0; // 左右の余白は .l-inner(auto) に任せる
       align-items: center;
-      gap: 32px;
+      gap: 3.2rem;
     }
   }
 
@@ -26,28 +26,28 @@
     width: 100%;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 
     @include tab {
       flex-direction: column;
       align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 28px;
+      gap: 1.2rem;
+      margin-bottom: 2.8rem;
     }
   }
 
   &__nav {
     display: flex;
-    gap: 16px;
+    gap: 1.6rem;
 
     @include tab {
       align-self: flex-end;
-      gap: 12px;
+      gap: 1.2rem;
     }
 
     .c-slider-btn {
       background-color: #fff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.05);
 
       &::before {
         border-color: #0f172a;
@@ -66,31 +66,31 @@
 
   &__list {
     display: flex;
-    gap: 16px;
+    gap: 1.6rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0 0 24px;
+    padding: 0 0 2.4rem;
 
     &::-webkit-scrollbar {
       display: none;
     }
 
     @include tab {
-      gap: 24px;
-      padding: 0 10% 24px;
+      gap: 2.4rem;
+      padding: 0 10% 2.4rem;
     }
 
     @include pc {
-      padding: 0 0 12px 0;
+      padding: 0 0 1.2rem;
       align-items: flex-start;
-      gap: 32px;
+      gap: 3.2rem;
     }
   }
 
   &__item {
     flex: 0 0 100%;
-    max-width: 340px;
+    max-width: 34rem;
     scroll-snap-align: center;
 
     @include tab {
@@ -99,7 +99,7 @@
     }
 
     @include pc {
-      flex: 0 0 calc((100% - 64px) / 3);
+      flex: 0 0 calc((100% - 6.4rem) / 3);
       scroll-snap-align: start;
       display: flex;
       flex-direction: column;
@@ -109,10 +109,10 @@
 
   &__controls {
     display: flex;
-    width: 240px;
+    width: 24rem;
     justify-content: space-between;
     align-items: center;
-    margin: 32px auto 0;
+    margin: 3.2rem auto 0;
 
     @include tab {
       display: none;
@@ -122,7 +122,7 @@
   &__pagination {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1.6rem;
   }
 }
 // ==========================================================================
@@ -135,15 +135,15 @@
   height: 100%;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 12px;
-  border: 1px solid var(--border, #c6dbde);
+  border-radius: 1.2rem;
+  border: 0.1rem solid var(--border, #c6dbde);
   background: #fff;
-  box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
+  box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.07);
 
   &__img {
     position: relative;
     width: 100%;
-    height: 160px;
+    height: 16rem;
 
     img {
       width: 100%;
@@ -159,19 +159,19 @@
     background: $logo2;
     color: #fff;
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 11px;
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: 6px 12px;
+    padding: 0.6rem 1.2rem;
     letter-spacing: 0.05em;
     z-index: 2;
-    margin: 16px;
+    margin: 1.6rem;
   }
 
   &__body {
     display: flex;
     flex-grow: 1;
-    height: 204px;
-    padding: 20px;
+    height: 20.4rem;
+    padding: 2rem;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
@@ -185,34 +185,34 @@
   &__title {
     color: $text-black;
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
     line-height: 1.4;
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
   }
 
   &__desc {
     color: var(--text-black, #020d1b);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 13px;
+    font-size: 1.3rem;
     line-height: 1.6;
-    margin-bottom: 31px;
+    margin-bottom: 3.1rem;
     flex-grow: 1;
   }
 
   &__footer {
     width: 100%;
-    border-top: 1px solid #c6dbde;
-    padding-top: 12px;
+    border-top: 0.1rem solid #c6dbde;
+    padding-top: 1.2rem;
   }
 
   &__footer-title {
     display: block;
     color: var(--logo2, #07808e);
     font-family: "Roboto", sans-serif;
-    font-size: 11px;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 1.2rem;
     text-transform: uppercase;
   }
 
@@ -224,18 +224,18 @@
     margin: 0;
     align-items: flex-start;
     align-content: flex-start;
-    gap: 6px;
+    gap: 0.6rem;
     align-self: stretch;
   }
 
   &__tag {
     color: var(--logo2, #07808e);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 11px;
+    font-size: 1.1rem;
     font-weight: 500;
-    border: 1px solid var(--border, #c6dbde);
-    border-radius: 4px;
-    padding: 4px 8px;
+    border: 0.1rem solid var(--border, #c6dbde);
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.8rem;
     display: flex;
     align-items: flex-start;
   }
@@ -248,10 +248,10 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 4.4rem;
+  height: 4.4rem;
   background-color: $logo2;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   border: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
@@ -264,25 +264,25 @@
   &::before {
     content: "";
     display: block;
-    width: 10px;
-    height: 10px;
-    border-top: 2px solid #fff;
-    border-right: 2px solid #fff;
+    width: 1rem;
+    height: 1rem;
+    border-top: 0.2rem solid #fff;
+    border-right: 0.2rem solid #fff;
   }
 
   &--prev::before {
     transform: rotate(-135deg);
-    margin-left: 4px;
+    margin-left: 0.4rem;
   }
 
   &--next::before {
     transform: rotate(45deg);
-    margin-right: 4px;
+    margin-right: 0.4rem;
   }
 }
 
 // SP用ドット並び
 .js-consult-dot {
   display: flex;
-  gap: 16px;
+  gap: 1.6rem;
 }

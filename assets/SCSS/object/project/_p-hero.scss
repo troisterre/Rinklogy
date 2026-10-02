@@ -13,15 +13,16 @@
   // ==========================================
   &__container {
     display: flex;
-    padding: 108px 8px 60px 8px;
+    padding: 10.8rem 0.8rem 6rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 2.4rem;
     position: relative;
     z-index: 3;
     width: 100%;
     background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 50.58%);
     background-color: $base_background;
+
     @include tab {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -30,39 +31,39 @@
         "lead  photo"
         "btn   photo";
       align-items: center;
-      padding: 170px 40px 60px 40px;
-      gap: 20px;
+      padding: 17rem 4rem 6rem;
+      gap: 2rem;
       background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
       background-color: #f8fafc;
 
-      @include tab {
-        &::before {
-          content: "";
-          position: absolute;
-          right: 0;
-          bottom: 0;
-          width: 517px;
-          height: 540px;
-          background-image: url("/assets/images/background_image_tab.png");
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: bottom right;
-          z-index: 1;
-          pointer-events: none;
-        }
+      // ネストされていた不要な @include tab を解除して統合
+      &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 51.7rem;
+        height: 54rem;
+        background-image: url("/assets/images/background_image_tab.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        z-index: 1;
+        pointer-events: none;
       }
     }
+
     @include pc {
       // ★ ご提案通り！ここで素直に最大幅と中央寄せを指定します
-      max-width: 1440px;
+      max-width: 144rem;
       margin: 0 auto;
-      column-gap: 60px;
-      @include pc {
-        &::before {
-          background-image: url("/assets/images/background_image_pc.png");
-          width: 901px;
-          height: 736px;
-        }
+      column-gap: 6rem;
+
+      // ネストされていた不要な @include pc を解除して統合
+      &::before {
+        background-image: url("/assets/images/background_image_pc.png");
+        width: 90.1rem;
+        height: 73.6rem;
       }
     }
 
@@ -70,7 +71,7 @@
     > .c-btn {
       @include tab {
         grid-area: btn;
-        margin-top: 10px;
+        margin-top: 1rem;
         justify-self: start;
       }
     }
@@ -84,7 +85,7 @@
     padding: 0.8rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    gap: 2.4rem;
     align-self: stretch;
 
     @include tab {
@@ -97,9 +98,9 @@
     margin: 0;
     color: $text-black;
     font-family: $font-sans;
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 700;
-    letter-spacing: 0.52px;
+    letter-spacing: 0.052rem;
   }
 
   &__copy {
@@ -108,36 +109,35 @@
     color: $text-black;
     font-family: $font-sans;
     font-weight: 900;
-    font-size: 32px;
+    font-size: 3.2rem;
     line-height: 1.34;
-    letter-spacing: 0.64px;
+    letter-spacing: 0.064rem;
 
     span {
       color: $logo2;
       font-weight: 900;
-      font-size: 42px;
+      font-size: 4.2rem;
       line-height: 1.34;
-      letter-spacing: 0.84px;
+      letter-spacing: 0.084rem;
     }
 
     @include tab {
-      font-size: 42px;
+      font-size: 4.2rem;
       line-height: 1.25;
-      letter-spacing: 5.04px;
+      letter-spacing: 0.504rem;
       span {
-        font-size: 42px;
-        letter-spacing: 0.84px;
+        font-size: 4.2rem;
+        letter-spacing: 0.084rem;
       }
     }
 
     @include pc {
-      font-size: 62px;
-      line-height: normal;
-      letter-spacing: 7.44px;
+      font-size: 6.2rem;
+      letter-spacing: 0.744rem;
+
       span {
-        font-size: 62px;
-        line-height: normal;
-        letter-spacing: 6.2px;
+        font-size: 6.2rem;
+        letter-spacing: 0.62rem;
       }
     }
   }
@@ -145,11 +145,11 @@
   &__image {
     position: relative;
     width: 100%;
-    height: 185px;
+    height: 18.5rem;
     align-self: stretch;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.05);
 
     .js-hero-slide {
       position: absolute;
@@ -194,7 +194,7 @@
       img.js-hero-slide:nth-of-type(2) {
         grid-area: photo;
         width: 100%;
-        max-width: 600px;
+        max-width: 60rem;
         height: auto;
         object-fit: contain;
         position: relative !important;
@@ -206,7 +206,7 @@
 
     @include pc {
       img.js-hero-slide:nth-of-type(2) {
-        transform: translateY(-40px); // ←位置調整
+        transform: translateY(-4rem); // ←位置調整
         max-width: 100% !important; // ←幅制限の解除
       }
     }

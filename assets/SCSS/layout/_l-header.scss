@@ -21,15 +21,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 16px 12px 16px;
+    padding: 1.8rem 1.6rem 1.2rem; // 上 左右 下
     background: var(--base_background, #f8fafc);
+
     @include tab {
-      padding: 20px 32px 10px 32px;
+      padding: 2rem 3.2rem 1rem;
     }
     @include pc {
-      height: $header-height-pc;
-      padding: 0 40px;
-      max-width: 1440px;
+      height: $header-height-pc; // variablesで定義されている変数はそのまま活かします
+      padding: 0 4rem;
+      max-width: 144rem;
       margin: 0 auto;
       width: 100%;
     }
@@ -40,14 +41,14 @@
     line-height: 1;
 
     img {
-      width: 50px;
+      width: 5rem;
       height: auto;
       flex-shrink: 0;
       aspect-ratio: 25 / 23;
       display: block;
 
       @include tab {
-        width: 99px;
+        width: 9.9rem;
       }
     }
   }
@@ -62,12 +63,12 @@
   }
 
   &__cta {
-    margin-left: 20px;
+    margin-left: 2rem;
   }
 
   &.is-scrolled {
     background: var(--base_background, #f8fafc);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -76,9 +77,9 @@
   @include tab {
     background: $logo1;
     color: $white;
-    padding: 12px 28px;
-    font-size: 14px;
-    border-radius: 30px;
+    padding: 1.2rem 2.8rem;
+    font-size: 1.4rem;
+    border-radius: 3rem;
     border: none;
     box-shadow: none;
   }

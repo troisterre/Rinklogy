@@ -8,17 +8,17 @@
   position: relative;
   background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.1) 56.25%, rgba(230, 243, 245, 0.6) 100%);
   display: flex;
-  padding: 64px 0;
+  padding: 6.4rem 0;
   flex-direction: column;
   align-items: flex-start;
-  gap: 36px;
+  gap: 3.6rem;
   overflow: hidden;
 
   @include tab {
-    padding: 100px 40px;
+    padding: 10rem 4rem;
   }
   @include pc {
-    padding: 120px 0; // 左右の余白は l-inner に任せる
+    padding: 12rem 0; // 左右の余白は l-inner に任せる
     align-items: center;
   }
 
@@ -27,11 +27,11 @@
     align-items: flex-start;
     text-align: left;
     width: 100%;
-    margin-bottom: 40px;
-    padding-left: 16px;
+    margin-bottom: 4rem;
+    padding-left: 1.6rem;
 
     &::after {
-      left: 16px;
+      left: 1.6rem;
       transform: none;
     }
 
@@ -47,18 +47,19 @@
     position: relative;
     z-index: 1;
     display: flex;
-    height: 280px;
+    height: 28rem;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     width: 100%;
+
     @include tab {
       height: auto;
-      min-height: 400px; // タブレット時の最低の高さ（デザインに合わせて調整してください）
+      min-height: 40rem; // タブレット時の最低の高さ（デザインに合わせて調整してください）
     }
 
     @include pc {
-      height: 500px;
+      height: 50rem;
       justify-content: flex-start;
       padding: 0;
     }
@@ -69,23 +70,23 @@
   // ============================
   &__bg-circle {
     position: absolute;
-    left: -90px;
-    width: 280px;
-    height: 280px;
+    left: -9rem;
+    width: 28rem;
+    height: 28rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 0 16px 0 100px;
+    padding: 0 1.6rem 0 10rem;
     border-radius: 50%;
     background: radial-gradient(50% 50% at 50% 50%, #113058 90%, #f8fafc 100%);
-    gap: 16px;
+    gap: 1.6rem;
 
     @include pc {
       position: relative;
       left: 0;
       width: 65%;
-      max-width: 760px;
+      max-width: 76rem;
       height: auto;
       padding: 0;
       background: transparent;
@@ -104,13 +105,14 @@
     }
 
     .p-approach__icon {
-      width: 48px;
-      height: 48px;
+      width: 4.8rem;
+      height: 4.8rem;
       display: flex;
       align-items: center;
       color: #fff;
+
       @include tab {
-        margin-left: 40px;
+        margin-left: 4rem;
       }
       @include pc {
         display: none;
@@ -128,11 +130,11 @@
     }
 
     h3 {
-      font-size: 18px;
+      font-size: 1.8rem;
       font-weight: 700;
     }
     p {
-      font-size: 13px;
+      font-size: 1.3rem;
     }
   }
 
@@ -142,15 +144,15 @@
   &__list {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 40rem;
 
     @include pc {
       position: absolute;
-      right: 10px;
+      right: 1rem;
       top: 50%;
       transform: translateY(-50%);
       width: 45%;
-      max-width: 460px;
+      max-width: 46rem;
       height: 100%;
       z-index: 2;
     }
@@ -162,14 +164,14 @@
     @include pc {
       position: absolute;
       top: 50%;
-      right: -32px;
+      right: -3.2rem;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: 110px;
-      gap: 16px;
+      height: 11rem;
+      gap: 1.6rem;
       z-index: 10;
     }
   }
@@ -183,10 +185,10 @@
   top: 50%;
   right: 0;
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #c6dbde;
+  border-radius: 1.2rem;
+  border: 0.1rem solid #c6dbde;
   background: #f8fafc;
-  box-shadow: 0 0 12px 0 rgba(13, 63, 69, 0.3);
+  box-shadow: 0 0 1.2rem 0 rgba(13, 63, 69, 0.3);
 
   transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   transform-style: preserve-3d;
@@ -196,64 +198,68 @@
   z-index: 0;
 
   display: flex;
-  width: 200px;
-  height: 120px;
-  padding: 16px;
+  width: 20rem;
+  height: 12rem;
+  padding: 1.6rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.8rem;
 
   @include tab {
     width: 100%;
-    max-width: 460px;
+    max-width: 46rem;
     height: auto;
-    padding: 24px;
-    gap: 12px;
+    padding: 2.4rem;
+    gap: 1.2rem;
   }
 
   &__header {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1.6rem;
+
     @include tab {
       align-items: flex-start;
-      gap: 12px;
+      gap: 1.2rem;
       align-self: stretch;
     }
   }
 
   &__num {
     display: flex;
-    padding: 3px 8px;
+    padding: 0.3rem 0.8rem;
     align-items: flex-start;
-    border-radius: 4px;
+    border-radius: 0.4rem;
     background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
     color: #fff;
     font-family: "Roboto", sans-serif;
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 700;
+
     @include tab {
-      padding: 3px 10px;
+      padding: 0.3rem 1rem;
     }
   }
 
   &__title {
     color: var(--text-black, #020d1b);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
+
     @include tab {
-      font-size: 20px;
+      font-size: 2rem;
     }
   }
 
   &__desc {
     color: var(--text-black, #020d1b);
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.5;
+
     @include tab {
-      font-size: 18px;
+      font-size: 1.8rem;
     }
   }
 
@@ -263,7 +269,7 @@
   &.is-active {
     opacity: 1;
     visibility: visible;
-    transform: perspective(500px) translateY(-50%) translateZ(0) rotateX(0deg) scale(1);
+    transform: perspective(50rem) translateY(-50%) translateZ(0) rotateX(0deg) scale(1);
     z-index: 3;
     pointer-events: auto;
   }
@@ -271,42 +277,46 @@
   &.is-prev {
     opacity: 0.7;
     visibility: visible;
-    transform: perspective(500px) translateY(calc(-50% - 125px)) translateZ(-60px) rotateX(30deg) scale(0.85);
+    transform: perspective(50rem) translateY(calc(-50% - 12.5rem)) translateZ(-6rem) rotateX(30deg) scale(0.85);
     z-index: 2;
     pointer-events: none;
+
     @include pc {
-      transform: perspective(500px) translateY(calc(-50% - 130px)) translateZ(-80px) rotateX(35deg) scale(0.85);
+      transform: perspective(50rem) translateY(calc(-50% - 13rem)) translateZ(-8rem) rotateX(35deg) scale(0.85);
     }
   }
 
   &.is-next {
     opacity: 0.7;
     visibility: visible;
-    transform: perspective(500px) translateY(calc(-50% + 125px)) translateZ(-60px) rotateX(-30deg) scale(0.85);
+    transform: perspective(50rem) translateY(calc(-50% + 12.5rem)) translateZ(-6rem) rotateX(-30deg) scale(0.85);
     z-index: 2;
     pointer-events: none;
+
     @include pc {
-      transform: perspective(500px) translateY(calc(-50% + 130px)) translateZ(-80px) rotateX(-35deg) scale(0.85);
+      transform: perspective(50rem) translateY(calc(-50% + 13rem)) translateZ(-8rem) rotateX(-35deg) scale(0.85);
     }
   }
 
   &.is-hidden-top {
     opacity: 0;
     visibility: hidden;
-    transform: perspective(500px) translateY(calc(-50% - 130px)) translateZ(-150px) rotateX(80deg) scale(0.7);
+    transform: perspective(50rem) translateY(calc(-50% - 13rem)) translateZ(-15rem) rotateX(80deg) scale(0.7);
     z-index: 1;
+
     @include pc {
-      transform: perspective(500px) translateY(calc(-50% - 150px)) translateZ(-200px) rotateX(80deg) scale(0.7);
+      transform: perspective(50rem) translateY(calc(-50% - 15rem)) translateZ(-20rem) rotateX(80deg) scale(0.7);
     }
   }
 
   &.is-hidden-bottom {
     opacity: 0;
     visibility: hidden;
-    transform: perspective(500px) translateY(calc(-50% + 130px)) translateZ(-150px) rotateX(-80deg) scale(0.7);
+    transform: perspective(50rem) translateY(calc(-50% + 13rem)) translateZ(-15rem) rotateX(-80deg) scale(0.7);
     z-index: 1;
+
     @include pc {
-      transform: perspective(500px) translateY(calc(-50% + 150px)) translateZ(-200px) rotateX(-80deg) scale(0.7);
+      transform: perspective(50rem) translateY(calc(-50% + 15rem)) translateZ(-20rem) rotateX(-80deg) scale(0.7);
     }
   }
 }

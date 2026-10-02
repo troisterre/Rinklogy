@@ -3,13 +3,13 @@
 
 .p-flow {
   background-color: var(--base_background, #f8fafc);
-  padding: 64px 16px;
+  padding: 6.4rem 1.6rem;
 
   @include tab {
-    padding: 100px 40px;
+    padding: 10rem 4rem;
   }
   @include pc {
-    padding: 120px 0; // 左右の余白は l-inner に任せる
+    padding: 12rem 0; // 左右の余白は l-inner に任せる
   }
 
   // ★修正: 幅と中央寄せは l-inner が担当するため削除し、レイアウト指定のみに特化
@@ -17,17 +17,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 3.2rem;
 
     @include tab {
-      padding: 60px 28px;
-      gap: 48px;
-      border-radius: 20px;
+      padding: 6rem 2.8rem;
+      gap: 4.8rem;
+      border-radius: 2rem;
       background: #fff;
     }
     @include pc {
-      padding: 80px;
-      gap: 56px;
+      padding: 8rem;
+      gap: 5.6rem;
     }
   }
 
@@ -35,29 +35,29 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 12px;
+    gap: 1.2rem;
 
     @include tab {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px 40px;
+      gap: 2.4rem 4rem;
     }
     @include pc {
       flex-wrap: nowrap;
-      gap: 20px;
+      gap: 2rem;
     }
   }
 
   &__footer {
     // ★修正: 隙間はコンテナの gap で空くため margin-top は削除
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: var(--text-black, #020d1b);
 
     @include pc {
-      font-size: 16px;
+      font-size: 1.6rem;
     }
   }
 }
@@ -68,23 +68,23 @@
 .p-flow-item {
   width: 100%;
   background: #fff;
-  border: 1px solid #c6dbde;
-  border-radius: 8px;
+  border: 0.1rem solid #c6dbde;
+  border-radius: 0.8rem;
   overflow: hidden;
   position: relative;
 
   @include tab {
     display: flex;
-    width: 200px;
+    width: 20rem;
     height: auto;
-    padding: 18px 8px 0 8px;
+    padding: 1.8rem 0.8rem 0;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    border-radius: 12px;
-    border: 1px solid var(--border, #c6dbde);
+    gap: 1rem;
+    border-radius: 1.2rem;
+    border: 0.1rem solid var(--border, #c6dbde);
     background: #fff;
-    box-shadow: 2px 4px 12px 0 rgba(15, 23, 42, 0.07);
+    box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.07);
     overflow: visible;
 
     // タブレット時（折り返しあり）の矢印指定
@@ -94,13 +94,13 @@
       &::after {
         content: "";
         position: absolute;
-        right: -26px;
+        right: -2.6rem;
         top: 50%;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 8px 0 8px 12px;
+        border-width: 0.8rem 0 0.8rem 1.2rem;
         border-color: transparent transparent transparent #07808e;
       }
     }
@@ -120,13 +120,13 @@
         display: block;
         content: "";
         position: absolute;
-        right: -18px; // 隙間(20px)の真ん中に来るように微調整
+        right: -1.8rem; // 隙間(20px)の真ん中に来るように微調整
         top: 50%;
         transform: translateY(-50%);
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 8px 0 8px 12px;
+        border-width: 0.8rem 0 0.8rem 1.2rem;
         border-color: transparent transparent transparent #07808e;
       }
     }
@@ -150,12 +150,12 @@
   &__dt {
     display: flex;
     align-items: center;
-    padding: 16px 40px 16px 20px;
+    padding: 1.6rem 4rem 1.6rem 2rem;
     margin: 0;
     cursor: pointer;
     position: relative;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #020d1b;
     width: 100%;
     user-select: none;
@@ -166,18 +166,20 @@
       content: "";
       position: absolute;
       display: block;
-      right: 20px;
+      right: 2rem;
       top: 50%;
-      width: 14px;
-      height: 2px;
+      width: 1.4rem;
+      height: 0.2rem;
       background-color: #07808e;
       transition: transform 0.3s ease;
     }
+
+    // ★追加: top: 50% 指定なので translateY(-50%) が必要
     &::before {
-      transform: rotate(0deg);
+      transform: translateY(-50%) rotate(0deg);
     }
     &::after {
-      transform: rotate(90deg);
+      transform: translateY(-50%) rotate(90deg);
     }
 
     @include tab {
@@ -211,17 +213,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 10px;
-    margin-right: 16px;
-    border-radius: 4px;
+    padding: 0.4rem 1rem;
+    margin-right: 1.6rem;
+    border-radius: 0.4rem;
     background: linear-gradient(90deg, rgba(7, 128, 142, 0.7) 0%, #07808e 50%, #113058 100%);
     color: #fff;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 700;
     font-family: "Roboto", sans-serif;
 
     @include tab {
-      font-size: 28px;
+      font-size: 2.8rem;
       color: var(--logo2, #07808e);
       font-weight: 800;
       line-height: 1;
@@ -236,7 +238,7 @@
       color: var(--logo1, #113058);
       text-align: center;
       font-family: "Noto Sans JP", sans-serif;
-      font-size: 18px;
+      font-size: 1.8rem;
       font-weight: 700;
     }
   }
@@ -257,8 +259,8 @@
 
   // 中身の内枠
   &__content-inner {
-    padding: 0 20px 24px 76px;
-    font-size: 14px;
+    padding: 0 2rem 2.4rem 7.6rem;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: #020d1b;
 
@@ -273,9 +275,9 @@
     display: none;
 
     @include tab {
-      width: 32px;
-      height: 32px;
-      margin: 0 auto 12px;
+      width: 3.2rem;
+      height: 3.2rem;
+      margin: 0 auto 1.2rem;
       flex-shrink: 0;
       display: block;
     }

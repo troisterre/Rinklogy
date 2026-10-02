@@ -6,15 +6,16 @@
 // ==========================================
 .p-contact-hero {
   margin-top: 7.6rem;
-  padding: 48px 20px 38px 20px;
+  padding: 4.8rem 2rem 3.8rem; // 上 左右 下 に短縮
   background:
     radial-gradient(41.79% 53.19% at 75.21% 52.77%, rgba(7, 128, 142, 0.33) 0%, rgba(7, 128, 142, 0) 100%), #113058;
+
   @include tab {
     margin-top: 12rem;
-    padding: 8rem 2rem 6.8rem 2rem;
+    padding: 8rem 2rem 6.8rem;
   }
   @include pc {
-    padding: 80px 0 98px;
+    padding: 8rem 0 9.8rem;
   }
 
   &__inner {
@@ -22,6 +23,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2.8rem;
+
     @include tab {
       gap: 4rem;
     }
@@ -31,6 +33,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+
     @include pc {
       align-items: flex-start;
       gap: 0.2rem;
@@ -43,12 +46,11 @@
     font-size: 5.6rem;
     font-weight: 800;
     line-height: 1.1;
+
     @include tab {
-      font-family: "Roboto";
-      font-size: 100px;
-      font-style: normal;
+      font-family: "Roboto", sans-serif;
+      font-size: 10rem;
       font-weight: 800;
-      line-height: normal;
       opacity: 0.85;
       background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
       background-clip: text;
@@ -62,9 +64,10 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 2.4rem;
     font-weight: 700;
+
     @include tab {
       color: var(--base_background, #f8fafc);
-      font-size: 32px;
+      font-size: 3.2rem;
       font-weight: 900;
     }
   }
@@ -73,24 +76,21 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
-
     display: flex;
-    padding-right: 16px;
+    padding-right: 1.6rem;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
     align-self: stretch;
     color: var(--base_background, #f8fafc);
-    line-height: 170%; /* 23.8px */
+    line-height: 1.7; /* 170% */
+
     @include tab {
       justify-content: flex-start;
-      color: var(--base_background, #f8fafc);
-      font-family: "Noto Sans JP";
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 180%; /* 28.8px */
+      font-size: 1.6rem;
+      line-height: 1.8; /* 180% */
       padding-right: 0;
+      // 重複していた font-family, font-weight, color 指定は削除しました
     }
   }
 }
@@ -100,16 +100,18 @@
 // ==========================================
 .p-contact-form {
   display: flex;
-  padding: 48px 8px;
+  padding: 4.8rem 0.8rem;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
+
   @include tab {
     padding: 8rem 2rem;
   }
   @include pc {
     padding: 8rem 0 12rem;
   }
+
   &__inner {
     display: flex;
     flex-direction: column;

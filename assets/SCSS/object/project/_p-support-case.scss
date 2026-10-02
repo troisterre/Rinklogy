@@ -9,19 +9,19 @@
 
   &__inner {
     display: flex;
-    padding: 64px 8px;
+    padding: 6.4rem 0.8rem;
     flex-direction: column;
     align-items: flex-start;
-    gap: 36px;
+    gap: 3.6rem;
     align-self: stretch;
     // ★修正: width や max-width、margin は .l-inner が担当するため削除
 
     @include tab {
-      padding: 100px 40px; // 左右の余白を他のセクションと統一
-      gap: 56px;
+      padding: 10rem 4rem; // 左右の余白を他のセクションと統一
+      gap: 5.6rem;
     }
     @include pc {
-      padding: 120px 0; // PC時は左右の余白を auto に任せる
+      padding: 12rem 0; // PC時は左右の余白を auto に任せる
     }
   }
 
@@ -34,10 +34,10 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0 0 24px;
+    padding: 0 0 2.4rem;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 16px;
+    gap: 1.6rem;
     align-self: stretch;
     scrollbar-width: none;
 
@@ -46,12 +46,12 @@
     }
 
     @include tab {
-      gap: 24px;
-      padding: 0 0 24px;
+      gap: 2.4rem;
+      // padding: 0 0 2.4rem; はSP時と同じ値が引き継がれるため削除しました
     }
     @include pc {
       padding: 0;
-      gap: 32px;
+      gap: 3.2rem;
       overflow-x: visible;
       flex-wrap: wrap;
     }
@@ -61,19 +61,19 @@
     flex: 0 0 100%;
     scroll-snap-align: center;
     width: 100%;
-    max-width: 340px;
+    max-width: 34rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 
     @include tab {
-      flex: 0 0 calc((100% - 24px) / 2); // 2列
+      flex: 0 0 calc((100% - 2.4rem) / 2); // 2列
       max-width: none;
       scroll-snap-align: start;
     }
     @include pc {
-      flex: 0 0 calc((100% - 64px) / 3); // 3列
+      flex: 0 0 calc((100% - 6.4rem) / 3); // 3列
       max-width: none;
       scroll-snap-align: start;
     }
@@ -81,10 +81,10 @@
 
   &__controls {
     display: flex;
-    width: 240px;
+    width: 24rem;
     justify-content: space-between;
     align-items: center;
-    margin: 32px auto 0;
+    margin: 3.2rem auto 0;
 
     @include pc {
       display: none;
@@ -94,6 +94,6 @@
   &__pagination {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1.6rem;
   }
 }

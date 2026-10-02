@@ -6,8 +6,8 @@
 // ==========================================================================
 .c-hamburger {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 4.4rem;
+  height: 4.4rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -21,8 +21,8 @@
   &__line {
     position: absolute;
     left: 50%;
-    width: 30px;
-    height: 2px;
+    width: 3rem;
+    height: 0.2rem;
     background-color: $logo1;
     transform: translateX(-50%);
     transition:
@@ -31,27 +31,27 @@
       opacity 0.3s;
 
     &:nth-child(1) {
-      top: 14px;
+      top: 1.4rem;
     }
     &:nth-child(2) {
-      top: 21px;
+      top: 2.1rem;
     }
     &:nth-child(3) {
-      top: 28px;
+      top: 2.8rem;
     }
   }
 
   &.is-active {
     .c-hamburger__line {
       &:nth-child(1) {
-        top: 21px;
+        top: 2.1rem;
         transform: translateX(-50%) rotate(45deg);
       }
       &:nth-child(2) {
         opacity: 0;
       }
       &:nth-child(3) {
-        top: 21px;
+        top: 2.1rem;
         transform: translateX(-50%) rotate(-45deg);
       }
     }

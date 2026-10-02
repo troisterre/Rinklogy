@@ -3,13 +3,13 @@
 
 .p-company {
   background-color: var(--base_background, #f8fafc);
-  padding: 64px 16px;
+  padding: 6.4rem 1.6rem;
 
   @include tab {
-    padding: 100px 40px;
+    padding: 10rem 4rem;
   }
   @include pc {
-    padding: 120px 0; // 左右の余白は l-inner に任せる
+    padding: 12rem 0; // 左右の余白は l-inner に任せる
   }
 
   // ★修正: &__inner の幅指定と margin は l-inner が担当するため削除しました
@@ -19,22 +19,22 @@
   // =========================
   &__message {
     background-color: #fff;
-    border: 1px solid var(--border, #c6dbde);
-    border-radius: 12px;
-    padding: 24px;
-    margin-top: 32px;
+    border: 0.1rem solid var(--border, #c6dbde);
+    border-radius: 1.2rem;
+    padding: 2.4rem;
+    margin-top: 3.2rem;
 
     // スマホ時: 左側に画像(80px)、右側に見出し、下部にテキスト
     display: grid;
-    grid-template-columns: 80px 1fr;
-    column-gap: 20px;
+    grid-template-columns: 8rem 1fr;
+    column-gap: 2rem;
 
     @include tab {
-      margin-top: 56px;
-      padding: 40px;
+      margin-top: 5.6rem;
+      padding: 4rem;
       // タブレット以上: 画像を大きくし、見出しとテキストを右側にまとめる
-      grid-template-columns: 320px 1fr;
-      column-gap: 48px;
+      grid-template-columns: 32rem 1fr;
+      column-gap: 4.8rem;
     }
   }
 
@@ -57,7 +57,7 @@
 
       @include tab {
         aspect-ratio: 175 / 131; // タブレット以上は指定の比率
-        border-radius: 16px; // タブレット以上は角丸四角
+        border-radius: 1.6rem; // タブレット以上は角丸四角
       }
     }
   }
@@ -69,30 +69,30 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 4px;
+    gap: 0.4rem;
 
     @include tab {
       justify-content: flex-end;
-      padding-bottom: 24px;
-      margin-bottom: 24px;
-      border-bottom: 1px solid var(--border, #c6dbde);
+      padding-bottom: 2.4rem;
+      margin-bottom: 2.4rem;
+      border-bottom: 0.1rem solid var(--border, #c6dbde);
     }
   }
 
   &__role {
-    font-size: 13px;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--logo2, #07808e);
   }
 
   &__name {
-    font-size: 22px;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--text-black, #020d1b);
     letter-spacing: 0.05em;
 
     @include tab {
-      font-size: 28px;
+      font-size: 2.8rem;
     }
   }
 
@@ -100,9 +100,9 @@
   &__message-body {
     grid-column: 1 / 3; // スマホ時は全幅を使う
     grid-row: 2 / 3;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border, #c6dbde);
+    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 0.1rem solid var(--border, #c6dbde);
 
     @include tab {
       grid-column: 2 / 3; // タブレット以上は右側半分に収める
@@ -114,15 +114,15 @@
   }
 
   &__text {
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: var(--text-black, #020d1b);
-    margin-bottom: 24px;
+    margin-bottom: 2.4rem;
 
     @include tab {
-      font-size: 15px;
+      font-size: 1.5rem;
       line-height: 1.8;
-      margin-bottom: 32px;
+      margin-bottom: 3.2rem;
     }
   }
 
@@ -136,8 +136,8 @@
   &__link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 14px;
+    gap: 0.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--logo2, #07808e);
     text-decoration: none;
@@ -156,54 +156,51 @@
 
     @include tab {
       display: flex;
-      padding: 24px 40px;
+      padding: 2.4rem 4rem;
       flex-direction: column;
       align-items: flex-start;
-      gap: 40px;
+      gap: 4rem;
       align-self: stretch;
-      border-radius: 16px;
+      border-radius: 1.6rem;
 
       background: #fff;
-      margin-top: 40px;
+      margin-top: 4rem;
     }
   }
 
   &__outline-row {
     display: flex;
-    padding: 16px 8px;
+    padding: 1.6rem 0.8rem;
     align-items: flex-start;
     align-self: stretch;
-    border-bottom: 1px solid var(--border, #c6dbde);
+    border-bottom: 0.1rem solid var(--border, #c6dbde);
   }
 
   &__outline-list {
     width: 100%;
+
     dt {
       width: 28%;
       color: var(--text-black, #020d1b);
-      font-family: "Noto Sans JP";
-      font-size: 14px;
-      font-style: normal;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1.4rem;
       font-weight: 700;
-      line-height: normal;
+
       @include tab {
         width: 30.8%;
-        font-weight: 700;
-        color: var(--text-black, #020d1b);
-        font-size: 14px;
       }
       @include pc {
         width: 19.5%;
       }
     }
+
     dd {
       width: 72%;
       color: var(--text-black, #020d1b);
-      font-family: "Noto Sans JP";
-      font-size: 14px;
-      font-style: normal;
+      font-family: "Noto Sans JP", sans-serif;
+      font-size: 1.4rem;
       font-weight: 400;
-      line-height: normal;
+
       @include tab {
         width: 69.2%;
       }

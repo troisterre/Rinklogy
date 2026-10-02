@@ -10,7 +10,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2.4rem;
 
   @include tab {
     flex-direction: row;
@@ -21,7 +21,7 @@
   &__item {
     @include tab {
       position: relative;
-      padding: 0 20px;
+      padding: 0 2rem;
 
       &::after {
         content: "";
@@ -29,8 +29,8 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        width: 1px;
-        height: 14px;
+        width: 0.1rem;
+        height: 1.4rem;
         background-color: $logo2;
       }
 
@@ -41,19 +41,19 @@
     }
 
     @include pc {
-      padding: 0 30px;
+      padding: 0 3rem;
     }
 
     a {
       text-decoration: none;
       color: $text-black;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 1.6rem;
       transition: color 0.3s;
       display: block;
 
       @include tab {
-        font-size: 14px;
+        font-size: 1.4rem;
       }
 
       &:hover {

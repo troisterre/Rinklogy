@@ -5,18 +5,18 @@
   background-color: #fff;
 
   @include tab {
-    padding: 80px 20px;
+    padding: 8rem 2rem;
   }
 
   &__content {
     position: relative;
-    padding: 40px 16px; // 内側の余白
-    border-radius: 16px;
+    padding: 4rem 1.6rem; // 内側の余白
+    border-radius: 1.6rem;
 
     background-image: url("/assets/images/support_bg_sp.png");
     background-position:
       top center,
-      center -60px;
+      center -6rem;
     background-size:
       auto,
       143.532% auto;
@@ -25,17 +25,17 @@
     @include tab {
       background-image: url("/assets/images/support_bg_tab.png");
       display: flex;
-      padding: 84px 0 0 0;
+      padding: 8.4rem 0 0; // 0を省略してスッキリ
       flex-direction: column;
       align-items: flex-start;
-      gap: 20px;
+      gap: 2rem;
       align-self: stretch;
     }
 
     // ★追加: PC時のGridレイアウト（3カラム）
     @include pc {
       background-image: url("/assets/images/support_bg_pc.png");
-      gap: 32px 40px;
+      gap: 3.2rem 4rem;
       position: relative;
       aspect-ratio: 1440 / 805;
       padding: 0;
@@ -48,12 +48,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 52px; // リストとの間のスペース
+    gap: 1.6rem;
+    margin-bottom: 5.2rem; // リストとの間のスペース
     width: 100%;
 
     @include tab {
-      margin-bottom: 24px;
+      margin-bottom: 2.4rem;
     }
 
     // ★追加: PC時はGridの中央（2列目の1〜2行目をぶち抜き）に配置
@@ -68,18 +68,18 @@
   }
 
   &__lead-icon {
-    width: 80px;
+    width: 8rem;
     height: auto;
     object-fit: contain;
 
     @include tab {
-      width: 76px;
-      height: 64px;
+      width: 7.6rem;
+      height: 6.4rem;
       aspect-ratio: 19/16;
     }
 
     @include pc {
-      width: 100px; // PC時は少し大きく
+      width: 10rem; // PC時は少し大きく
       height: auto;
     }
   }
@@ -87,14 +87,14 @@
   &__lead-text {
     color: var(--logo1, #113058);
     font-family: "Noto Sans JP", sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 700;
     line-height: 1.5;
     text-align: center;
 
     @include tab {
-      text-shadow: 0 2px 6px rgba(255, 255, 255, 0.42);
-      font-size: 20px;
+      text-shadow: 0 0.2rem 0.6rem rgba(255, 255, 255, 0.42);
+      font-size: 2rem;
     }
   }
 }
