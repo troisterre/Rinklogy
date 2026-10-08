@@ -1,3 +1,6 @@
+<!-- ========================================
+         FOOTER (共通)
+    ======================================== -->
 <footer class="l-footer">
   <div class="l-footer__inner">
     <!-- 左側：会社情報 -->
@@ -10,20 +13,21 @@
 
     <!-- 右側：ナビゲーション -->
     <nav class="l-footer__nav" aria-label="フッターナビゲーション">
-      <ul class="l-footer__list">
-        <li class="l-footer__item"><a href="<?php echo esc_url(home_url('/#company')); ?>">会社案内</a></li>
-        <li class="l-footer__item"><a href="<?php echo esc_url(home_url('/#service')); ?>">サービス</a></li>
-        <li class="l-footer__item">
-          <a href="<?php echo esc_url(home_url('/#flow')); ?>">ご相談から解決まで</a>
-        </li>
-        <li class="l-footer__item"><a href="<?php echo esc_url(home_url('/#contact')); ?>">お問い合わせ</a></li>
-      </ul>
+      <?php
+      wp_nav_menu(array(
+        'theme_location' => 'footer',
+        'container'      => false,
+        'menu_class'     => 'l-footer__list',
+        'li_class'       => 'l-footer__item',
+        'fallback_cb'    => false,
+      ));
+      ?>
     </nav>
   </div>
 
   <!-- コピーライト -->
   <div class="l-footer__copyright">
-    <small>© 2026 Rinklogy Inc. All Rights Reserved.</small>
+    <small>&copy; <?php echo wp_date('Y'); ?> Rinklogy Inc. All Rights Reserved.</small>
   </div>
 </footer>
 
