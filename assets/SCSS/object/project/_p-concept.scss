@@ -29,12 +29,12 @@
     content: "";
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 36%;
     transform: translate(-50%, -50%);
     width: 46.4rem;
     height: 39.6rem;
     aspect-ratio: 116/99;
-    background: url("/assets/images/company-bg-image.png") center/contain no-repeat;
+    background: url("../images/company-bg-image.png") center/contain no-repeat;
     z-index: -1;
     pointer-events: none;
 
@@ -64,11 +64,9 @@
       align-items: flex-start;
       padding-left: 4rem;
       gap: 2.4rem;
-      align-self: stretch;
     }
     @include pc {
       margin-top: 5.6rem;
-      padding-left: 9rem;
       gap: 12rem;
     }
   }
@@ -84,7 +82,8 @@
     letter-spacing: 0.128rem;
 
     @include tab {
-      flex: 1;
+      padding-left: 9rem;
+      flex-shrink: 0;
       font-size: 3.6rem;
       line-height: 1.7;
       letter-spacing: 0.144rem;

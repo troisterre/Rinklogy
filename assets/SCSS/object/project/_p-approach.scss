@@ -18,8 +18,8 @@
     padding: 10rem 4rem;
   }
   @include pc {
-    padding: 12rem 0; // 左右の余白は l-inner に任せる
     align-items: center;
+    padding: 12rem 4rem;
   }
 
   // タイトル
@@ -99,7 +99,9 @@
       display: none;
       @include pc {
         display: block;
-        width: 100%;
+        width: 80rem;
+        max-width: 800px;
+        flex-shrink: 0;
         height: auto;
       }
     }
@@ -211,6 +213,9 @@
     height: auto;
     padding: 2.4rem;
     gap: 1.2rem;
+  }
+  @include pc {
+    width: 46rem;
   }
 
   &__header {

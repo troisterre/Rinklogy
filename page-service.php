@@ -5,7 +5,7 @@ Template Name: サービス紹介
 get_header(); ?>
 
 <main class="l-main">
-  <!-- ========================================
+  <!-- ======================================== 
            下層ページ用ヒーロー (p-page-hero)
       ======================================== -->
   <section class="p-page-hero">
@@ -15,8 +15,7 @@ get_header(); ?>
         <span class="p-page-hero__title-ja">サービス紹介</span>
       </h1>
       <p class="p-page-hero__copy">
-        ITコンサルティングからシステム開発まで、<br class="u-hidden-pc" />
-        お客様の事業成長をITの力で<br class="u-hidden-pc" />力強く後押しします。
+        どのサービスが必要か決まっていなくても大丈夫です。<br>お客様の悩みや課題を伺いながら、必要な支援を一緒に考えます。
       </p>
     </div>
     <div class="p-page-hero__deco p-page-hero__deco-service" aria-hidden="true">

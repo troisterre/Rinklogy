@@ -43,16 +43,23 @@
 
   &.is-active {
     .c-hamburger__line {
+      // 線の長さを指定（角度が30度の場合、この半分の30pxが視覚的な高さになります）
+      width: 30px;
+
       &:nth-child(1) {
         top: 2.1rem;
-        transform: translateX(-50%) rotate(45deg);
+        // 45deg → 30deg にして角度を低く（なだらかに）する
+        transform: translateX(-50%) rotate(30deg);
       }
+
       &:nth-child(2) {
         opacity: 0;
       }
+
       &:nth-child(3) {
         top: 2.1rem;
-        transform: translateX(-50%) rotate(-45deg);
+        // -45deg → -30deg
+        transform: translateX(-50%) rotate(-30deg);
       }
     }
   }

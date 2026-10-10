@@ -38,10 +38,11 @@
     gap: 1.2rem;
 
     @include tab {
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 2.4rem 4rem;
+      justify-content: center; // ★ ここを追加！これで下段が真ん中寄せになります
+      gap: 2.4rem;
     }
     @include pc {
       flex-wrap: nowrap;
@@ -75,7 +76,7 @@
 
   @include tab {
     display: flex;
-    width: 20rem;
+    width: calc((100% - 4.8rem) / 3);
     height: auto;
     padding: 1.8rem 0.8rem 0;
     flex-direction: column;
@@ -102,6 +103,9 @@
         border-style: solid;
         border-width: 0.8rem 0 0.8rem 1.2rem;
         border-color: transparent transparent transparent #07808e;
+        @include tab {
+          right: -2rem;
+        }
       }
     }
   }

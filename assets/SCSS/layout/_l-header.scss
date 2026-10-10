@@ -16,6 +16,8 @@
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease;
+  border-bottom: 1px solid #c6dbde;
+  background: var(--base_background, #f8fafc);
 
   &__inner {
     display: flex;

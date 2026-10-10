@@ -36,7 +36,7 @@
     display: block;
     width: 2.4rem;
     height: 1.6rem;
-    background-image: url("/assets/images/arrow-right.svg");
+    background-image: url("../images/arrow-right.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -81,11 +81,11 @@
     background-color: var(--logo1, #113058);
 
     // 3. 元のSVGの形を使って、紺色を矢印の形に切り抜く
-    -webkit-mask-image: url("/assets/images/arrow-right.svg");
+    -webkit-mask-image: url("../images/arrow-right.svg");
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    mask-image: url("/assets/images/arrow-right.svg");
+    mask-image: url("../images/arrow-right.svg");
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -128,11 +128,11 @@
     width: 2.4rem;
     height: 1.6rem;
     background-color: var(--logo1, #113058);
-    -webkit-mask-image: url("/assets/images/arrow-right.svg");
+    -webkit-mask-image: url("../images/arrow-right.svg");
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    mask-image: url("/assets/images/arrow-right.svg");
+    mask-image: url("../images/arrow-right.svg");
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;

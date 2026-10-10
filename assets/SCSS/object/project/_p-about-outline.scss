@@ -9,6 +9,12 @@
   gap: 3.2rem;
   align-self: stretch;
   background: #f8fafc;
+  @include tab {
+    padding: 8rem 2rem;
+  }
+  @include pc {
+    padding: 6.4rem 4rem 0.8rem;
+  }
 
   &__table {
     display: flex;

@@ -1,21 +1,19 @@
 @use "../foundation/mixins" as *;
 @use "../foundation/variables" as *;
-@use "../foundation/base" as *;
 
 // ==========================================================================
-// ドロワーメニュー・オーバーレイ
+// ドロワーメニュー
 // ==========================================================================
 .l-drawer {
   position: fixed;
-  top: 0;
+  top: 8rem; // ★ ヘッダーの高さ分、上からずらして配置
   right: 0;
-  width: 100%; // デザインに合わせて全幅に変更
-  z-index: 105;
+  width: 100%;
+  z-index: 90;
   transform: translateX(100%);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-y: auto;
   background: var(--base_background, #f8fafc);
-  height: 76.7rem; // ※画面全体を覆う場合は 100vh や 100dvh に変更するのもおすすめです
+  height: calc(100dvh - 80px); // ★ 画面全体の高さからヘッダー分（80px）を引く
 
   @include tab {
     display: none;
@@ -28,16 +26,20 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    min-height: 100%;
+    height: 100%;
+  }
+
+  &__nav {
+    flex-grow: 1;
+    overflow-y: auto;
   }
 
   // ==========================================
-  // ドロワー内のナビゲーション専用スタイル
+  // ドロワー内のナビゲーション専用スタイル（変更なし）
   // ==========================================
   .c-gnav {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem; // メニュー間の余白
     width: 100%;
     padding: 3.2rem 0 0 3rem;
   }
@@ -52,13 +54,11 @@
       padding: 1.4rem 1.6rem;
       gap: 1.6rem;
 
-      // 右側の矢印（くの字）アイコン
       &::after {
         content: "";
         display: block;
-        width: 0.7rem; // Figmaの width
-        height: 1rem; // Figmaの height
-        // いただいたSVGコードをそのまま背景画像として適用
+        width: 0.7rem;
+        height: 1rem;
         background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='10' viewBox='0 0 7 10' fill='none'%3E%3Cpath d='M1 9L5 5L1 1' stroke='%2307808E' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-size: contain;
@@ -93,31 +93,27 @@
     letter-spacing: 0.1rem;
   }
 
-  // ==========================================
-  // CTAボタンエリア
-  // ==========================================
   &__cta {
-    margin-top: 6.4rem;
+    margin-top: 9.2rem;
     width: 100%;
 
     .c-btn {
       width: 100%;
-      // 影やグラデーションなどのボタン基本スタイルは .c-btn 側に依存します
     }
   }
 }
 
 // ==========================================================================
-// オーバーレイ（暗幕）※変更なし
+// オーバーレイ（暗幕）
 // ==========================================================================
 .l-overlay {
   position: fixed;
-  top: 0;
+  top: 80px; // ★ オーバーレイもヘッダーの下からにする
   left: 0;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(2, 13, 27, 0.6);
-  z-index: 100;
+  height: calc(100vh - 80px);
+  background-color: transparent; // ★ 黒いマスクを「透明」に変更
+  z-index: 80;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -131,13 +127,5 @@
   &.is-active {
     opacity: 1;
     visibility: visible;
-  }
-}
-
-body.is-locked {
-  overflow: hidden;
-
-  @include tab {
-    overflow: visible;
   }
 }

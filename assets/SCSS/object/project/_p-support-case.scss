@@ -21,7 +21,7 @@
       gap: 5.6rem;
     }
     @include pc {
-      padding: 12rem 0; // PC時は左右の余白を auto に任せる
+      padding: 12rem 4rem;
     }
   }
 

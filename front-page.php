@@ -7,14 +7,15 @@
         <!-- /.p-hero__inner -->
         <p class="p-hero__desc">業務改善・IT導入を一気通貫で支援</p>
         <h1 class="p-hero__copy">
-          <span>課題整理</span>から<br /><span>解決</span>まで、<br />隣で支える<br /><span>ITパートナー</span>。
+          <span>課題整理</span>から<br class="u-hidden-pc" /><span>解決</span>まで、<br />隣で支える<br
+            class="u-hidden-pc" /><span>ITパートナー</span>。
         </h1>
       </div>
       <!-- ★スライダーの枠（ここから） -->
       <div class="p-hero__image js-hero-slider">
         <!-- 1枚目のスライド（画像） -->
         <img class="js-hero-slide is-active"
-          src="<?php echo esc_url(get_theme_file_uri('/assets/images/hero_img_1.png')); ?>" alt="打ち合わせの様子" width="600"
+          src="<?php echo esc_url(get_theme_file_uri('./assets/images/hero_img_1.png')); ?>" alt="打ち合わせの様子" width="600"
           height="400" decoding="async" />
 
         <!-- 2枚目のスライド（テキストコンテンツ）枠の中に入れます -->
@@ -31,7 +32,7 @@
           <div class="p-lead__deco" aria-hidden="true">OUR ROLE</div>
         </div>
 
-        <img class="js-hero-slide" src="<?php echo esc_url(get_theme_file_uri('/assets/images/hero_img_3.png')); ?>"
+        <img class="js-hero-slide" src="<?php echo esc_url(get_theme_file_uri('./assets/images/hero_img_3.png')); ?>"
           alt="全体の流れ" width="600" height="400" decoding="async" />
       </div>
       <!-- スライダーの枠（ここまで） -->
@@ -91,148 +92,102 @@
       <!-- スライダー本体（自作JS用） -->
       <div class="p-consultation__slider js-slider">
         <div class="p-consultation__list js-slider-list">
-          <!-- スライド1 -->
-          <div class="p-consultation__item js-slider-item">
-            <article class="c-consult-card">
-              <div class="c-consult-card__img">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')); ?>"
-                  alt="業務をもっと効率化したい" />
-                <span class="c-consult-card__label">BUSINESS IMPROVEMENT</span>
-              </div>
-              <div class="c-consult-card__body">
-                <h3 class="c-consult-card__title">
-                  業務をもっと効率化したい
-                </h3>
-                <p class="c-consult-card__desc">
-                  日々の業務を見直し、ITを活用した改善方法をご提案します。
-                </p>
-                <div class="c-consult-card__footer">
-                  <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
-                  <ul class="c-consult-card__tags">
-                    <li class="c-consult-card__tag">課題整理</li>
-                    <li class="c-consult-card__tag">業務改善提案</li>
-                    <li class="c-consult-card__tag">IT活用支援</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!-- スライド2 -->
-          <div class="p-consultation__item js-slider-item">
-            <article class="c-consult-card">
-              <div class="c-consult-card__img">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')); ?>"
-                  alt="業務をもっと効率化したい" />
-                <span class="c-consult-card__label">BUSINESS IMPROVEMENT</span>
-              </div>
-              <div class="c-consult-card__body">
-                <h3 class="c-consult-card__title">
-                  業務をもっと効率化したい
-                </h3>
-                <p class="c-consult-card__desc">
-                  日々の業務を見直し、ITを活用した改善方法をご提案します。
-                </p>
-                <div class="c-consult-card__footer">
-                  <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
-                  <ul class="c-consult-card__tags">
-                    <li class="c-consult-card__tag">課題整理</li>
-                    <li class="c-consult-card__tag">業務改善提案</li>
-                    <li class="c-consult-card__tag">IT活用支援</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
-          <!-- スライド3 -->
-          <div class="p-consultation__item js-slider-item">
-            <article class="c-consult-card">
-              <div class="c-consult-card__img">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')); ?>"
-                  alt="業務をもっと効率化したい" />
-                <span class="c-consult-card__label">BUSINESS IMPROVEMENT</span>
-              </div>
-              <div class="c-consult-card__body">
-                <h3 class="c-consult-card__title">
-                  業務をもっと効率化したい
-                </h3>
-                <p class="c-consult-card__desc">
-                  日々の業務を見直し、ITを活用した改善方法をご提案します。
-                </p>
-                <div class="c-consult-card__footer">
-                  <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
-                  <ul class="c-consult-card__tags">
-                    <li class="c-consult-card__tag">課題整理</li>
-                    <li class="c-consult-card__tag">業務改善提案</li>
-                    <li class="c-consult-card__tag">IT活用支援</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
+          <?php
+          $args = array(
+            'post_type'      => 'consultation',
+            'posts_per_page' => 10,
+            'order'          => 'ASC',
+          );
+          $consult_query = new WP_Query($args);
 
-          <!-- スライド4 -->
-          <div class="p-consultation__item js-slider-item">
-            <article class="c-consult-card">
-              <div class="c-consult-card__img">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')); ?>"
-                  alt="業務をもっと効率化したい" />
-                <span class="c-consult-card__label">BUSINESS IMPROVEMENT</span>
-              </div>
-              <div class="c-consult-card__body">
-                <h3 class="c-consult-card__title">
-                  業務をもっと効率化したい
-                </h3>
-                <p class="c-consult-card__desc">
-                  日々の業務を見直し、ITを活用した改善方法をご提案します。
-                </p>
-                <div class="c-consult-card__footer">
-                  <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
-                  <ul class="c-consult-card__tags">
-                    <li class="c-consult-card__tag">課題整理</li>
-                    <li class="c-consult-card__tag">業務改善提案</li>
-                    <li class="c-consult-card__tag">IT活用支援</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
+          if ($consult_query->have_posts()) :
+            while ($consult_query->have_posts()) : $consult_query->the_post();
 
-          <!-- スライド5 -->
-          <div class="p-consultation__item js-slider-item">
-            <article class="c-consult-card">
-              <div class="c-consult-card__img">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')); ?>"
-                  alt="業務をもっと効率化したい" />
-                <span class="c-consult-card__label">BUSINESS IMPROVEMENT</span>
+              // ① ACF: 説明文の取得
+              $description = get_field('description');
+
+              // ② タクソノミー: 画像上の英語ラベルを取得
+              $cat_terms = get_the_terms(get_the_ID(), 'consultation_category');
+              $category_label = ($cat_terms && ! is_wp_error($cat_terms)) ? $cat_terms[0]->name : '';
+
+              // ③ タクソノミー: 下部のタグを取得
+              $tag_terms = get_the_terms(get_the_ID(), 'consultation_tag');
+          ?>
+
+              <!-- スライドアイテム -->
+              <div class="p-consultation__item js-slider-item">
+                <article class="c-consult-card">
+
+                  <div class="c-consult-card__img">
+                    <?php
+                    if (has_post_thumbnail()) {
+                      the_post_thumbnail('full', array('alt' => get_the_title()));
+                    } else {
+                      echo '<img src="' . esc_url(get_theme_file_uri('/assets/images/consultation-img-1.png')) . '" alt="' . esc_attr(get_the_title()) . '" />';
+                    }
+                    ?>
+                    <?php if ($category_label) : ?>
+                      <span class="c-consult-card__label"><?php echo esc_html($category_label); ?></span>
+                    <?php endif; ?>
+                  </div>
+
+                  <div class="c-consult-card__body">
+                    <h3 class="c-consult-card__title">
+                      <?php the_title(); ?>
+                    </h3>
+
+                    <?php if ($description) : ?>
+                      <p class="c-consult-card__desc">
+                        <?php echo nl2br(esc_html($description)); ?>
+                      </p>
+                    <?php endif; ?>
+
+                    <div class="c-consult-card__footer">
+                      <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
+
+                      <?php if ($tag_terms && ! is_wp_error($tag_terms)) : ?>
+                        <ul class="c-consult-card__tags">
+                          <?php foreach ($tag_terms as $tag) : ?>
+                            <li class="c-consult-card__tag"><?php echo esc_html($tag->name); ?></li>
+                          <?php endforeach; ?>
+                        </ul>
+                      <?php endif; ?>
+
+                    </div>
+                  </div>
+
+                </article>
               </div>
-              <div class="c-consult-card__body">
-                <h3 class="c-consult-card__title">
-                  業務をもっと効率化したい
-                </h3>
-                <p class="c-consult-card__desc">
-                  日々の業務を見直し、ITを活用した改善方法をご提案します。
-                </p>
-                <div class="c-consult-card__footer">
-                  <span class="c-consult-card__footer-title">SUPPORT FIELDS</span>
-                  <ul class="c-consult-card__tags">
-                    <li class="c-consult-card__tag">課題整理</li>
-                    <li class="c-consult-card__tag">業務改善提案</li>
-                    <li class="c-consult-card__tag">IT活用支援</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </div>
+              <!-- /スライドアイテム -->
+
+          <?php
+            endwhile;
+          else :
+            echo '<p>現在、表示できるご相談内容がありません。</p>';
+          endif;
+          wp_reset_postdata();
+          ?>
+
         </div>
       </div>
 
       <!-- スマホ用ナビゲーション（ボタンのみ） -->
       <div class="p-consultation__controls">
         <button class="c-slider-btn c-slider-btn--prev c-slider-btn--sp js-consult-prev-sp"></button>
+
         <div class="js-consult-dot">
-          <span class="c-dot js-support-dot is-active"></span>
-          <span class="c-dot js-support-dot"></span>
-          <span class="c-dot js-support-dot"></span>
+          <?php
+          // スライドの枚数分だけ動的にドットを出力する
+          if ($consult_query->have_posts()) {
+            $dot_count = 0;
+            while ($dot_count < $consult_query->post_count) {
+              $active_class = ($dot_count === 0) ? ' is-active' : '';
+              echo '<span class="c-dot js-support-dot' . $active_class . '"></span>';
+              $dot_count++;
+            }
+          }
+          wp_reset_postdata(); // 最後に必ずクエリをリセット
+          ?>
         </div>
 
         <button class="c-slider-btn c-slider-btn--next c-slider-btn--sp js-consult-next-sp"></button>
@@ -253,83 +208,81 @@
       <!-- スライダー / PC時はグリッド -->
       <div class="p-support-case__slider js-support-slider">
         <div class="p-support-case__list js-support-slider-list">
-          <!-- カード1 -->
-          <div class="p-support-case__item js-support-slider-item">
-            <a href="#" class="c-case-card">
-              <div class="c-case-card__bg">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/case-card_03.png')); ?>"
-                  alt="業務が属人化している" />
-              </div>
 
-              <!-- 左上のバッジ -->
-              <div class="c-case-card__badge">
-                <span class="c-case-card__badge-num">CASE 01</span>
-                <span class="c-case-card__badge-cat">製造業</span>
-              </div>
+          <?php
+          // カスタム投稿タイプ 'case'（支援事例）を取得
+          $args = array(
+            'post_type'      => 'case', // CPT UIで作成するスラッグ
+            'posts_per_page' => 6,      // 表示件数
+            'order'          => 'ASC',  // 順番
+          );
+          $support_query = new WP_Query($args);
 
-              <!-- 下部のコンテンツ -->
-              <div class="c-case-card__body">
-                <span class="c-case-card__label">課題</span>
-                <h3 class="c-case-card__title">業務が属人化している</h3>
+          if ($support_query->have_posts()) :
+            while ($support_query->have_posts()) : $support_query->the_post();
 
-                <!-- 下向き矢印（CSSで描画するため空Div） -->
-                <div class="c-case-card__arrow"></div>
+              // ① CASE番号の自動生成（ループの回数を使って 01, 02, 03... と出力）
+              $case_num = sprintf('CASE %02d', $support_query->current_post + 1);
 
-                <span class="c-case-card__label">支援内容</span>
-                <p class="c-case-card__title c-case-card__title--small">
-                  システム開発・導入支援
-                </p>
-              </div>
-            </a>
-          </div>
+              // ② タクソノミー（業種）の取得
+              $industry_terms = get_the_terms(get_the_ID(), 'case_industry');
+              $industry_name  = ($industry_terms && ! is_wp_error($industry_terms)) ? $industry_terms[0]->name : '';
 
-          <!-- カード2 -->
-          <div class="p-support-case__item js-support-slider-item">
-            <a href="#" class="c-case-card">
-              <div class="c-case-card__bg">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/case-card_03.png')); ?>"
-                  alt="IT担当者がいない" />
-              </div>
-              <div class="c-case-card__badge">
-                <span class="c-case-card__badge-num">CASE 02</span>
-                <span class="c-case-card__badge-cat">小売業</span>
-              </div>
-              <div class="c-case-card__body">
-                <span class="c-case-card__label">課題</span>
-                <h3 class="c-case-card__title">IT担当者がいない</h3>
-                <div class="c-case-card__arrow"></div>
-                <span class="c-case-card__label">支援内容</span>
-                <p class="c-case-card__title c-case-card__title--small">
-                  IT導入・活用支援
-                </p>
-              </div>
-            </a>
-          </div>
+              // ③ タクソノミー（支援内容）の取得
+              $service_terms = get_the_terms(get_the_ID(), 'case_service');
+              $service_name  = ($service_terms && ! is_wp_error($service_terms)) ? $service_terms[0]->name : '';
+          ?>
 
-          <!-- カード3 -->
-          <div class="p-support-case__item js-support-slider-item">
-            <a href="#" class="c-case-card">
-              <div class="c-case-card__bg">
-                <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/case-card_03.png')); ?>"
-                  alt="何から改善すれば良いか分からない" />
+              <!-- カードアイテム -->
+              <div class="p-support-case__item js-support-slider-item">
+                <div class="c-case-card">
+
+                  <!-- 背景画像 -->
+                  <div class="c-case-card__bg">
+                    <?php
+                    if (has_post_thumbnail()) {
+                      the_post_thumbnail('full', array('alt' => get_the_title()));
+                    } else {
+                      echo '<img src="' . esc_url(get_theme_file_uri('/assets/images/case-card_03.png')) . '" alt="' . esc_attr(get_the_title()) . '" />';
+                    }
+                    ?>
+                  </div>
+
+                  <!-- 左上のバッジ -->
+                  <div class="c-case-card__badge">
+                    <span class="c-case-card__badge-num"><?php echo esc_html($case_num); ?></span>
+                    <?php if ($industry_name) : ?>
+                      <span class="c-case-card__badge-cat"><?php echo esc_html($industry_name); ?></span>
+                    <?php endif; ?>
+                  </div>
+
+                  <!-- 下部のコンテンツ -->
+                  <div class="c-case-card__body">
+                    <span class="c-case-card__label">課題</span>
+                    <h3 class="c-case-card__title">
+                      <?php the_title(); ?>
+                    </h3>
+
+                    <!-- 下向き矢印（CSSで描画するため空Div） -->
+                    <div class="c-case-card__arrow"></div>
+
+                    <span class="c-case-card__label">支援内容</span>
+                    <p class="c-case-card__title c-case-card__title--small">
+                      <?php echo esc_html($service_name); ?>
+                    </p>
+                  </div>
+
+                </div>
               </div>
-              <div class="c-case-card__badge">
-                <span class="c-case-card__badge-num">CASE 03</span>
-                <span class="c-case-card__badge-cat">サービス業</span>
-              </div>
-              <div class="c-case-card__body">
-                <span class="c-case-card__label">課題</span>
-                <h3 class="c-case-card__title">
-                  何から改善すれば<br />良いか分からない
-                </h3>
-                <div class="c-case-card__arrow"></div>
-                <span class="c-case-card__label">支援内容</span>
-                <p class="c-case-card__title c-case-card__title--small">
-                  プロジェクト推進支援
-                </p>
-              </div>
-            </a>
-          </div>
+              <!-- /カードアイテム -->
+
+          <?php
+            endwhile;
+          else :
+            echo '<p>現在、表示できる支援事例がありません。</p>';
+          endif;
+          ?>
+
         </div>
       </div>
 
@@ -337,9 +290,18 @@
       <div class="p-support-case__controls">
         <button class="c-slider-btn c-slider-btn--prev c-slider-btn--sp js-support-prev"></button>
         <div class="p-support-case__pagination js-support-pagination">
-          <span class="c-dot js-support-dot is-active"></span>
-          <span class="c-dot js-support-dot"></span>
-          <span class="c-dot js-support-dot"></span>
+          <?php
+          // スライドの枚数分だけ動的にドットを出力
+          if ($support_query->have_posts()) {
+            $dot_count = 0;
+            while ($dot_count < $support_query->post_count) {
+              $active_class = ($dot_count === 0) ? ' is-active' : '';
+              echo '<span class="c-dot js-support-dot' . $active_class . '"></span>';
+              $dot_count++;
+            }
+          }
+          wp_reset_postdata(); // クエリのリセット
+          ?>
         </div>
         <button class="c-slider-btn c-slider-btn--next c-slider-btn--sp js-support-next"></button>
       </div>
@@ -358,7 +320,7 @@
         <!-- 左側の固定エリア -->
         <div class="p-approach__bg-circle">
           <img class="p-approach__icon"
-            src="<?php echo esc_url(get_theme_file_uri('/assets/images/streamline.svg')); ?>" alt="" />
+            src="<?php echo esc_url(get_theme_file_uri('./assets/images/streamline.svg')); ?>" alt="" />
           <img class="p-approach__img-pc"
             src="<?php echo esc_url(get_theme_file_uri('/assets/images/approach-visual.png')); ?>" alt="" />
           <h3>経営課題を整理し、<br />ともに前へ進む。</h3>
@@ -451,7 +413,7 @@
           </dt>
           <dd class="p-flow-item__dd">
             <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/flow-icon_1.svg')); ?>" alt=""
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_1.svg')); ?>" alt=""
                 class="p-flow-item__icon" />
               <p class="p-flow-item__text">
                 フォームからお気軽にご連絡ください
@@ -468,7 +430,7 @@
           </dt>
           <dd class="p-flow-item__dd">
             <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/flow-icon_2.svg')); ?>" alt=""
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_2.svg')); ?>" alt=""
                 class="p-flow-item__icon" />
               <p class="p-flow-item__text">
                 現状の課題やご要望を丁寧にお伺いします
@@ -485,7 +447,7 @@
           </dt>
           <dd class="p-flow-item__dd">
             <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/flow-icon_3.svg')); ?>" alt=""
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_3.svg')); ?>" alt=""
                 class="p-flow-item__icon" />
               <p class="p-flow-item__text">
                 課題やご要望に合わせた支援内容をご提案します
@@ -502,7 +464,7 @@
           </dt>
           <dd class="p-flow-item__dd">
             <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/flow-icon_4.svg')); ?>" alt=""
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_4.svg')); ?>" alt=""
                 class="p-flow-item__icon" />
               <p class="p-flow-item__text">
                 ご提案内容に沿って必要な支援を開始します
@@ -519,7 +481,7 @@
           </dt>
           <dd class="p-flow-item__dd">
             <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/flow-icon_5.svg')); ?>" alt=""
+              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_5.svg')); ?>" alt=""
                 class="p-flow-item__icon" />
               <p class="p-flow-item__text">
                 導入後も安心のサポート体制でお支えします
@@ -548,7 +510,7 @@
       <div class="p-company__message">
         <!-- 1. 画像 -->
         <figure class="p-company__message-img">
-          <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/company_img.png')); ?>" alt="代表 山口 諒"
+          <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/company_img.png')); ?>" alt="代表 山口 諒"
             decoding="async" />
         </figure>
 

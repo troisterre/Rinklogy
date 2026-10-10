@@ -17,7 +17,7 @@
     // align-self: stretch; は引き継がれるため削除
   }
   @include pc {
-    padding: 10rem 0;
+    padding: 10rem 4rem;
     // display, flex-direction, align-items, align-self は引き継がれるため削除
   }
 

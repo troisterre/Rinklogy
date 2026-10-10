@@ -13,7 +13,7 @@
     padding: 4rem 1.6rem; // 内側の余白
     border-radius: 1.6rem;
 
-    background-image: url("/assets/images/support_bg_sp.png");
+    background-image: url("../images/support_bg_sp.png");
     background-position:
       top center,
       center -6rem;
@@ -23,7 +23,7 @@
     background-repeat: no-repeat, no-repeat;
 
     @include tab {
-      background-image: url("/assets/images/support_bg_tab.png");
+      background-image: url("../images/support_bg_tab.png");
       display: flex;
       padding: 8.4rem 0 0; // 0を省略してスッキリ
       flex-direction: column;
@@ -34,7 +34,7 @@
 
     // ★追加: PC時のGridレイアウト（3カラム）
     @include pc {
-      background-image: url("/assets/images/support_bg_pc.png");
+      background-image: url("../images/support_bg_pc.png");
       gap: 3.2rem 4rem;
       position: relative;
       aspect-ratio: 1440 / 805;

@@ -24,25 +24,25 @@
 
   <!-- MEO（ローカルSEO）対策 -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "株式会社Rinklogy",
-    "image": "<?php echo esc_url(get_theme_file_uri('/assets/images/common/logo.png')); ?>",
-    "url": "<?php echo esc_url(home_url('/')); ?>",
-    "email": "yamaguchi.makoto@rinklogy.co.jp",
-    "founder": {
-      "@type": "Person",
-      "name": "山口 諒"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "蘇原栄町1丁目20番地",
-      "addressLocality": "各務原市",
-      "addressRegion": "岐阜県",
-      "addressCountry": "JP"
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "株式会社Rinklogy",
+      "image": "<?php echo esc_url(get_theme_file_uri('/assets/images/common/logo.png')); ?>",
+      "url": "<?php echo esc_url(home_url('/')); ?>",
+      "email": "yamaguchi.makoto@rinklogy.co.jp",
+      "founder": {
+        "@type": "Person",
+        "name": "山口 諒"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "蘇原栄町1丁目20番地",
+        "addressLocality": "各務原市",
+        "addressRegion": "岐阜県",
+        "addressCountry": "JP"
+      }
     }
-  }
   </script>
 
   <?php wp_head(); ?>
@@ -52,6 +52,7 @@
   <?php wp_body_open(); ?>
 
   <header class="l-header" itemscope itemtype="http://schema.org/LocalBusiness">
+    <!-- 常に一番手前に表示されるヘッダー本体 -->
     <div class="l-header__inner">
       <!-- ロゴエリア -->
       <h1 class="l-header__logo">
@@ -86,21 +87,33 @@
       </button>
     </div>
 
-    <!-- ドロワーメニュー（スマホ・タブレット用） -->
+    <!-- 左からスライドしてくるドロワーメニュー（スマホ・タブレット用） -->
     <nav id="global-nav" class="l-drawer js-drawer" aria-hidden="true">
       <div class="l-drawer__inner">
-        <?php
-        wp_nav_menu(array(
-          'theme_location' => 'drawer',
-          'container'      => false,
-          'menu_class'     => 'c-gnav',
-          'li_class'       => 'c-gnav__item',
-          'fallback_cb'    => false,
-        ));
-        ?>
-        <div class="l-drawer__cta">
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c-btn c-btn--primary">お問い合わせ</a>
+
+        <!-- ナビゲーションエリア -->
+        <div class="l-drawer__nav">
+          <?php
+          wp_nav_menu(array(
+            'theme_location' => 'drawer',
+            'container'      => false,
+            'menu_class'     => 'c-gnav',
+            'li_class'       => 'c-gnav__item',
+            'fallback_cb'    => false,
+          ));
+          ?>
+
+          <!-- CTAボタン -->
+          <div class="l-drawer__cta">
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="c-btn c-btn--primary">
+              無料で相談してみる
+              <!-- ▼ トップページと同じ矢印画像を追加 -->
+              <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/arrow-right.svg')); ?>" alt=""
+                class="c-btn__arrow" />
+            </a>
+          </div>
         </div>
+
       </div>
     </nav>
 
