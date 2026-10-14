@@ -397,105 +397,109 @@
 
   <!-- FLOW -->
   <section class="l-section p-flow" id="flow">
-    <!-- ★修正: p-flow__containerの重複を解消し、l-innerを併記 -->
     <div class="l-inner p-flow__container">
-      <h2 class="c-section-title">
+      <h2 class="c-section-title c-section-title--left">
         <span class="c-section-title__sub">FLOW</span>
         ご相談から解決まで
       </h2>
+      <div class="p-flow__body">
+        <!-- 1. カードリスト（dlタグ） -->
+        <dl class="p-flow__list">
+          <!-- 01 -->
+          <div class="p-flow-item">
+            <dt class="p-flow-item__dt">
+              <span class="p-flow-item__num">1</span>
+              <span class="p-flow-item__title">お問い合わせ</span>
+            </dt>
+            <dd class="p-flow-item__dd">
+              <div class="p-flow-item__content-inner">
+                <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_1.svg')); ?>" alt=""
+                  class="p-flow-item__icon" />
+                <p class="p-flow-item__text">
+                  フォームからお気軽にご連絡ください
+                </p>
+              </div>
+            </dd>
+          </div>
 
-      <div class="p-flow__list">
-        <!-- 01 -->
-        <dl class="p-flow-item">
-          <dt class="p-flow-item__dt">
-            <span class="p-flow-item__num">1</span>
-            <span class="p-flow-item__title">お問い合わせ</span>
-          </dt>
-          <dd class="p-flow-item__dd">
-            <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_1.svg')); ?>" alt=""
-                class="p-flow-item__icon" />
-              <p class="p-flow-item__text">
-                フォームからお気軽にご連絡ください
-              </p>
-            </div>
-          </dd>
-        </dl>
+          <!-- 02 -->
+          <div class="p-flow-item">
+            <dt class="p-flow-item__dt">
+              <span class="p-flow-item__num">2</span>
+              <span class="p-flow-item__title">ヒアリング</span>
+            </dt>
+            <dd class="p-flow-item__dd">
+              <div class="p-flow-item__content-inner">
+                <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_2.svg')); ?>" alt=""
+                  class="p-flow-item__icon" />
+                <p class="p-flow-item__text">
+                  現状の課題やご要望を丁寧にお伺いします
+                </p>
+              </div>
+            </dd>
+          </div>
 
-        <!-- 02 -->
-        <dl class="p-flow-item">
-          <dt class="p-flow-item__dt">
-            <span class="p-flow-item__num">2</span>
-            <span class="p-flow-item__title">ヒアリング</span>
-          </dt>
-          <dd class="p-flow-item__dd">
-            <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_2.svg')); ?>" alt=""
-                class="p-flow-item__icon" />
-              <p class="p-flow-item__text">
-                現状の課題やご要望を丁寧にお伺いします
-              </p>
-            </div>
-          </dd>
-        </dl>
+          <!-- 03 -->
+          <div class="p-flow-item">
+            <dt class="p-flow-item__dt">
+              <span class="p-flow-item__num">3</span>
+              <span class="p-flow-item__title">ご提案</span>
+            </dt>
+            <dd class="p-flow-item__dd">
+              <div class="p-flow-item__content-inner">
+                <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_3.svg')); ?>" alt=""
+                  class="p-flow-item__icon" />
+                <p class="p-flow-item__text">
+                  課題やご要望に合わせた支援内容をご提案します
+                </p>
+              </div>
+            </dd>
+          </div>
 
-        <!-- 03 -->
-        <dl class="p-flow-item">
-          <dt class="p-flow-item__dt">
-            <span class="p-flow-item__num">3</span>
-            <span class="p-flow-item__title">ご提案</span>
-          </dt>
-          <dd class="p-flow-item__dd">
-            <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_3.svg')); ?>" alt=""
-                class="p-flow-item__icon" />
-              <p class="p-flow-item__text">
-                課題やご要望に合わせた支援内容をご提案します
-              </p>
-            </div>
-          </dd>
-        </dl>
+          <!-- 04 (ダークテーマ) -->
+          <div class="p-flow-item p-flow-item--dark">
+            <dt class="p-flow-item__dt">
+              <span class="p-flow-item__num">4</span>
+              <span class="p-flow-item__title">支援開始</span>
+            </dt>
+            <dd class="p-flow-item__dd">
+              <div class="p-flow-item__content-inner">
+                <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_4.svg')); ?>" alt=""
+                  class="p-flow-item__icon" />
+                <p class="p-flow-item__text">
+                  ご提案内容に沿って必要な支援を開始します
+                </p>
+              </div>
+            </dd>
+          </div>
 
-        <!-- 04 (★ ダークテーマ用クラス p-flow-item--dark を追加) -->
-        <dl class="p-flow-item p-flow-item--dark">
-          <dt class="p-flow-item__dt">
-            <span class="p-flow-item__num">4</span>
-            <span class="p-flow-item__title">支援開始</span>
-          </dt>
-          <dd class="p-flow-item__dd">
-            <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_4.svg')); ?>" alt=""
-                class="p-flow-item__icon" />
-              <p class="p-flow-item__text">
-                ご提案内容に沿って必要な支援を開始します
-              </p>
-            </div>
-          </dd>
+          <!-- 05 -->
+          <div class="p-flow-item">
+            <dt class="p-flow-item__dt">
+              <span class="p-flow-item__num">5</span>
+              <span class="p-flow-item__title">運用支援</span>
+            </dt>
+            <dd class="p-flow-item__dd">
+              <div class="p-flow-item__content-inner">
+                <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_5.svg')); ?>" alt=""
+                  class="p-flow-item__icon" />
+                <p class="p-flow-item__text">
+                  導入後も安心のサポート体制でお支えします
+                </p>
+              </div>
+            </dd>
+          </div>
         </dl>
+        <!-- /dl終わり -->
 
-        <!-- 05 -->
-        <dl class="p-flow-item">
-          <dt class="p-flow-item__dt">
-            <span class="p-flow-item__num">5</span>
-            <span class="p-flow-item__title">運用支援</span>
-          </dt>
-          <dd class="p-flow-item__dd">
-            <div class="p-flow-item__content-inner">
-              <img src="<?php echo esc_url(get_theme_file_uri('./assets/images/flow-icon_5.svg')); ?>" alt=""
-                class="p-flow-item__icon" />
-              <p class="p-flow-item__text">
-                導入後も安心のサポート体制でお支えします
-              </p>
-            </div>
-          </dd>
-        </dl>
+        <!-- 2. フッター文章（dlの外へ） -->
+        <div class="p-flow__footer">
+          <p>
+            まずはお気軽にお問い合わせください。課題整理から運用定着まで一貫してサポートします。
+          </p>
+        </div>
       </div>
-
-      <div class="p-flow__footer">
-        <p>
-          まずはお気軽にお問い合わせください。課題整理から運用定着まで一貫してサポートします。
-        </p>
-      </div>
+      <!-- /.p-flow__body -->
     </div>
   </section>
 
@@ -558,7 +562,8 @@
 
           <div class="p-company__outline-row">
             <dt>E-mail</dt>
-            <dd>yamaguchi.makoto@rinklogy.co.jp</dd>
+            <dd>info@rinklogy.co.jp
+            </dd>
           </div>
         </dl>
       </div>
@@ -568,13 +573,34 @@
   <section class="l-section p-cta" id="contact">
     <div class="l-inner">
       <div class="p-cta__inner">
-        <!-- 左側（タイトル） -->
+        <!-- Background SVG Shapes -->
+        <div class="p-cta__bg-shapes" aria-hidden="true">
+          <!-- Triangle 1 (Top Right) -->
+          <svg class="p-cta__shape p-cta__shape--1" xmlns="http://www.w3.org/2000/svg" width="322" height="335"
+            viewBox="0 0 322 335" fill="none">
+            <path d="M0 0L322 335H0V0Z" fill="#07808E" fill-opacity="0.15" />
+          </svg>
+
+          <!-- Triangle 2 (Top Left) -->
+          <svg class="p-cta__shape p-cta__shape--2" xmlns="http://www.w3.org/2000/svg" width="404" height="357"
+            viewBox="0 0 404 357" fill="none">
+            <path d="M-15.9999 -37L404 373H-16L-15.9999 -37Z" fill="#07808E" fill-opacity="0.1" />
+          </svg>
+
+          <!-- Triangle 3 (Bottom Left) -->
+          <svg class="p-cta__shape p-cta__shape--3" xmlns="http://www.w3.org/2000/svg" width="342" height="343"
+            viewBox="0 0 342 343" fill="none">
+            <path d="M-51.9999 0L342 385H-52L-51.9999 0Z" fill="#07808E" fill-opacity="0.18" />
+          </svg>
+        </div>
+
+        <!-- Left Column: Title -->
         <h2 class="p-cta__title">
           <span class="p-cta__title-en">Contact us</span>
           <span class="p-cta__title-ja">まずは、お話をお聞かせください。</span>
         </h2>
 
-        <!-- 右側（テキストとボタンを囲む箱を追加！） -->
+        <!-- Right Column: Content -->
         <div class="p-cta__content">
           <p class="p-cta__text">
             業務改善やIT活用のことはもちろん、<br />
@@ -586,10 +612,10 @@
             <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
           </a>
         </div>
-        <!-- /右側おわり -->
       </div>
     </div>
   </section>
+
 </main>
 
 <?php get_footer(); ?>

@@ -773,7 +773,7 @@ get_header(); ?>
       <p class="p-service-case__lead-text-tab-pc">
         サービス内容をご確認いただけましたら、実際のご相談からの進め方もご覧ください。
       </p>
-      <a href="<?php echo esc_url(home_url('/#flow')); ?>" class="c-btn-service"> 解決までの流れを見る </a>
+      <a href="<?php echo esc_url(home_url('/#p-page-flow')); ?>" class="c-btn-service"> 解決までの流れを見る </a>
     </div>
     <!-- /.p-service-case__lead-inner -->
   </div>
@@ -784,17 +784,41 @@ get_header(); ?>
   <section class="l-section p-cta" id="contact">
     <div class="l-inner">
       <div class="p-cta__inner">
+        <!-- Background SVG Shapes -->
+        <div class="p-cta__bg-shapes" aria-hidden="true">
+          <!-- Triangle 1 (Top Right) -->
+          <svg class="p-cta__shape p-cta__shape--1" xmlns="http://www.w3.org/2000/svg" width="322" height="335"
+            viewBox="0 0 322 335" fill="none">
+            <path d="M0 0L322 335H0V0Z" fill="#07808E" fill-opacity="0.15" />
+          </svg>
+
+          <!-- Triangle 2 (Top Left) -->
+          <svg class="p-cta__shape p-cta__shape--2" xmlns="http://www.w3.org/2000/svg" width="404" height="357"
+            viewBox="0 0 404 357" fill="none">
+            <path d="M-15.9999 -37L404 373H-16L-15.9999 -37Z" fill="#07808E" fill-opacity="0.1" />
+          </svg>
+
+          <!-- Triangle 3 (Bottom Left) -->
+          <svg class="p-cta__shape p-cta__shape--3" xmlns="http://www.w3.org/2000/svg" width="342" height="343"
+            viewBox="0 0 342 343" fill="none">
+            <path d="M-51.9999 0L342 385H-52L-51.9999 0Z" fill="#07808E" fill-opacity="0.18" />
+          </svg>
+        </div>
+
+        <!-- Left Column: Title -->
         <h2 class="p-cta__title">
           <span class="p-cta__title-en">Contact us</span>
           <span class="p-cta__title-ja">まずは、お話をお聞かせください。</span>
         </h2>
+
+        <!-- Right Column: Content -->
         <div class="p-cta__content">
           <p class="p-cta__text">
             業務改善やIT活用のことはもちろん、<br />
             「何から始めれば良いか分からない」という<br />
             段階でも、お気軽にご相談ください。
           </p>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="p-cta__btn">
+          <a href="#" class="p-cta__btn">
             無料で相談してみる
             <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
           </a>

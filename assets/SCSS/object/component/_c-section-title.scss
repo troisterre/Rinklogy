@@ -17,8 +17,10 @@
   gap: 1.2rem;
   position: relative;
   padding-bottom: 1.6rem;
-
   @include tab {
+    font-size: 3.2rem;
+  }
+  @include pc {
     font-size: 4.2rem;
   }
 

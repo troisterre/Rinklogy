@@ -26,13 +26,20 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
-    align-self: stretch;
 
     @include tab {
-      flex-wrap: wrap;
-      flex-direction: row;
+      display: grid;
+      // ★ 画面幅が縮んでもpaddingがあっても、強制的に均等な4列にする
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem; // ※デザインに合わせて隙間を調整してください
       align-items: center;
-      justify-content: center;
+      margin: 0 auto;
+    }
+    @include pc {
+      display: grid;
+      // ★ 画面幅が縮んでもpaddingがあっても、強制的に均等な4列にする
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.4rem; // ※デザインに合わせて隙間を調整してください
     }
   }
 }

@@ -69,6 +69,9 @@
       justify-content: center;
       gap: 2rem;
     }
+    @include pc {
+      gap: 8rem;
+    }
   }
 
   // 矢印より下のエリア

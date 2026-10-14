@@ -112,6 +112,16 @@
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: 0.052rem;
+    display: inline-block;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 21.6rem; // 216px
+      height: 0.1rem; // 1px
+      margin-top: 0.8rem; // テキストとのマージン（お好みで調整）
+      background: linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #030506 48.08%, #113058 100%);
+    }
   }
 
   &__copy {

@@ -9,50 +9,108 @@
   align-self: stretch;
 
   @include tab {
-    padding: 6rem 4rem;
+    padding: 4rem 2rem;
   }
   @include pc {
-    // ★修正: 左右の余白（120px）は .l-inner に任せ、上下の余白のみに変更
-    padding: 6rem 4rem 7rem;
+    padding: 4rem;
   }
 
   &__inner {
+    position: relative; // SVGの位置基準
+    overflow: hidden; // 枠からはみ出るSVGを自動でマスクカット
     background: radial-gradient(55% 70% at 15% 50%, rgba(7, 128, 142, 0.33) 0%, rgba(7, 128, 142, 0) 100%), #1b2a4a;
     border-radius: 1.6rem;
     color: #fff;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.05);
 
-    // スマホ時は縦並び
     display: flex;
     width: 100%;
-    // ★修正: max-width は .l-inner が担当するため削除
+    max-width: 1340px;
     height: auto;
-    padding: 4rem 2.4rem;
+    padding: 3.2rem 2.4rem 4rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 3.2rem;
 
     @include tab {
-      // タブレット以上で横並びに
       flex-direction: row;
       justify-content: space-between;
       padding: 4rem 3rem 5rem;
       align-items: flex-start;
       align-self: stretch;
     }
-    // ★修正: PC時の max-width: 1340px は不要になったため削除
+
+    @include pc {
+      padding: 6rem 12rem 7rem;
+    }
+  }
+
+  // ==========================================
+  // ★背景SVG描画用レイヤー（SP非表示 / タブレット以上表示）
+  // ==========================================
+  &__bg-shapes {
+    display: none; // ★ SP時は非表示
+
+    @include tab {
+      display: block; // ★ タブレット以上で表示
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; // クリック透過
+      z-index: 1;
+    }
+  }
+
+  &__shape {
+    position: absolute;
+
+    // 右上（反転三角形）
+    &--1 {
+      width: 32.2rem;
+      height: 33.5rem;
+      right: -6.3rem;
+      top: -6.8rem;
+      transform: rotate(-180deg);
+    }
+
+    // 左上三角形
+    &--2 {
+      width: 42rem;
+      height: 41rem;
+      left: -1.6rem;
+      top: -3.7rem;
+    }
+
+    // 左下三角形
+    &--3 {
+      width: 39.4rem;
+      height: 38.5rem;
+      left: -5.2rem;
+      bottom: -4.2rem;
+    }
+  }
+
+  // ==========================================
+  // コンテンツをSVGより前面へ（クリック阻害防止）
+  // ==========================================
+  &__title,
+  &__content {
+    position: relative;
+    z-index: 2;
   }
 
   &__title {
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 1.6rem;
+    gap: 1rem;
 
     @include tab {
       width: 29.7rem;
       align-items: flex-start;
-      // 重複していた display, flex-direction, gap を削除
+      gap: 1.6rem;
     }
     @include pc {
       width: 48rem;
@@ -113,10 +171,10 @@
     color: #fff;
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 1.57; // 22px / 14px
+    line-height: 1.57;
 
     @include tab {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
   }
 
@@ -124,13 +182,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.6rem;
+    gap: 3rem;
     width: 100%;
-    padding: 1.8rem 2.4rem;
-    border-radius: 99.9rem; // 999px も remに
+    padding: 2rem 2.4rem;
+    border-radius: 99.9rem;
     background: linear-gradient(90deg, #077986 0%, #68b2bc 100%);
     color: #fff;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-decoration: none;
     transition: opacity 0.3s ease;
@@ -140,6 +198,12 @@
       min-width: 28rem;
       padding: 1.8rem 3.2rem;
     }
+    @include pc {
+      min-width: none;
+      padding: 2.8rem 6rem;
+      font-size: 2.2rem;
+      gap: 4rem;
+    }
 
     &:hover {
       opacity: 0.8;
@@ -147,7 +211,10 @@
   }
 
   &__btn-arrow {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: normal;
+    @include pc {
+      width: 2.7rem;
+    }
   }
 }
