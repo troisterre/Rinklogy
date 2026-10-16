@@ -2,8 +2,8 @@
 @use "../../foundation/variables" as *;
 
 .p-flow {
+  background-color: var(--base_background, #f8fafc);
   &__container {
-    background-color: var(--base_background, #f8fafc);
     padding: 6.4rem 1.6rem;
 
     @include tab {

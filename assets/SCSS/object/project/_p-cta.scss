@@ -192,6 +192,7 @@
     font-weight: 700;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    max-width: 400px;
 
     @include tab {
       width: auto;
@@ -203,6 +204,7 @@
       padding: 2.8rem 6rem;
       font-size: 2.2rem;
       gap: 4rem;
+      letter-spacing: -0.1em;
     }
 
     &:hover {

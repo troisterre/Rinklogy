@@ -140,4 +140,63 @@ function rinklogy_custom_drawer_menu_output($item_output, $item, $depth, $args)
   }
   return $item_output;
 }
-add_filter('walker_nav_menu_start_el', 'rinklogy_custom_drawer_menu_output', 10, 4);
+add_filter('walker_nav_menu_start_el', 'rinklogy_custom_drawer_menu_output', 10, 4); // Contact Form 7 確認モーダル制御 ＆ サンクスページ遷移
+function rinklogy_cf7_modal_and_redirect()
+{
+?>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const confirmBtn = document.getElementById('js-confirm-btn');
+      const backBtn = document.getElementById('js-back-btn');
+      const modal = document.getElementById('js-confirm-modal');
+
+      if (confirmBtn && modal) {
+        confirmBtn.addEventListener('click', function() {
+          // 入力値の取得
+          const name = document.getElementById('your-name')?.value.trim() || '';
+          const company = document.getElementById('your-company')?.value.trim() || '';
+          const email = document.getElementById('your-email')?.value.trim() || '';
+          const message = document.getElementById('your-message')?.value.trim() || '（未入力）';
+
+          // チェックボックスの取得
+          const checkedSubjects = Array.from(document.querySelectorAll('input[name="your-subject[]"]:checked')).map(
+            cb => cb.value);
+          // プライバシーポリシー同意チェック
+          const acceptance = document.querySelector('input[name="acceptance"]')?.checked;
+
+          // 簡易必須チェック
+          if (!name || !company || !email || checkedSubjects.length === 0) {
+            alert('必須項目をすべてご入力ください。');
+            return;
+          }
+          if (!acceptance) {
+            alert('プライバシーポリシーへの同意が必要です。');
+            return;
+          }
+
+          // モーダルに値をセット（ご相談内容は読点「、」でつなぐ）
+          document.getElementById('confirm-name').textContent = name;
+          document.getElementById('confirm-company').textContent = company;
+          document.getElementById('confirm-email').textContent = email;
+          document.getElementById('confirm-subject').textContent = checkedSubjects.join('、 ');
+          document.getElementById('confirm-message').textContent = message;
+
+          // モーダルを表示
+          modal.classList.add('is-open');
+        });
+
+        // 「入力内容を修正する」ボタンで閉じる
+        backBtn.addEventListener('click', function() {
+          modal.classList.remove('is-open');
+        });
+      }
+    });
+
+    // 送信完了後にサンクスページへ自動遷移
+    document.addEventListener('wpcf7mailsent', function(event) {
+      location = '<?php echo esc_url(home_url('/thanks/')); ?>';
+    }, false);
+  </script>
+<?php
+}
+add_action('wp_footer', 'rinklogy_cf7_modal_and_redirect');

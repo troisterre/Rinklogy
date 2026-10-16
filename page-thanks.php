@@ -26,7 +26,6 @@ get_header(); ?>
 
       <!-- ボタンエリア -->
       <div class="p-contact-thanks__btn-wrap">
-        <!-- 共通の c-btn を使いますが、矢印が不要な場合はCSSで対応するかモディファイアを付けます -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="c-btn c-btn--no-arrow">トップページへ戻る</a>
       </div>
     </div>

@@ -1,0 +1,92 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+// ==========================================
+// サンクスページ (.p-contact-thanks)
+// ==========================================
+.p-contact-thanks {
+  // ★固定ヘッダーに隠れないよう、上にしっかり余白（padding-top）をとる
+  padding: 13.6rem 0.8rem 8rem;
+  text-align: center;
+
+  @include tab {
+    padding: 20rem 2rem 8rem;
+  }
+  @include pc {
+    padding: 22rem 0 10rem;
+  }
+
+  &__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 4.8rem;
+    @include tab {
+      gap: 1.6rem;
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 6.4rem;
+      height: 0.2rem;
+      background: var(--gra_01, linear-gradient(90deg, rgba(7, 128, 142, 0.5) 0%, #07808e 48.08%, #113058 100%));
+      margin-top: 1.6rem;
+      @include tab {
+        margin-top: 0.8rem;
+      }
+    }
+  }
+
+  &__title-en {
+    font-family: "Noto Sans JP";
+    font-size: 5.6rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: var(--Contact-gra, linear-gradient(90deg, #2b95a1 0%, #88c3ca 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include tab {
+      font-size: 6.4rem;
+    }
+  }
+
+  &__title-ja {
+    color: var(--text-black, #020d1b);
+    font-family: "Noto Sans JP";
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    @include tab {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__message {
+    margin-bottom: 4.8rem;
+  }
+
+  &__text {
+    color: var(--text-black, #020d1b);
+    text-align: center;
+    font-family: "Noto Sans JP";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%; /* 28.8px */
+    letter-spacing: -0.03em;
+  }
+
+  &__btn-wrap {
+    display: flex;
+    justify-content: center;
+  }
+}

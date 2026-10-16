@@ -1,0 +1,155 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+// ==========================================
+// 確認モーダル (.c-confirm-modal)
+// ==========================================
+.c-confirm-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 13, 27, 0.5); // 背景の暗幕
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__inner {
+    background: #fff;
+    width: 100%;
+    max-width: 68rem; // モーダルの横幅
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 1.2rem;
+    padding: 3.2rem 2.4rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+
+    @include tab {
+      padding: 4.8rem 5.6rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: var(--text-black, #020d1b);
+
+    @include tab {
+      font-size: 2.2rem;
+    }
+  }
+
+  &__lead {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 3.2rem;
+    color: var(--text-black, #020d1b);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.2rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.6rem 0;
+    border-bottom: 0.1rem solid #e2e8f0;
+
+    // 最後の項目（ご相談内容詳細）だけ下線を消す
+    &:last-child {
+      border-bottom: none;
+    }
+
+    dt {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--logo2, #07808e);
+    }
+
+    dd {
+      font-size: 1.6rem;
+      color: var(--text-black, #020d1b);
+      margin: 0;
+      line-height: 1.6;
+      white-space: pre-wrap; // 改行をそのまま反映
+      word-break: break-all;
+    }
+  }
+
+  // ボタンエリア（2つ並び）
+  &__btns {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.6rem;
+
+    @include tab {
+      flex-direction: row;
+      justify-content: center;
+      gap: 2.4rem;
+    }
+  }
+
+  // 「入力内容を修正する」ボタン
+  &__btn-back {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.2rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--logo2, #07808e);
+    background: #fff;
+    color: var(--logo2, #07808e);
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  // 「この内容で送信する」ボタン
+  &__btn-send {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.2rem;
+    border-radius: 0.8rem;
+    border: none;
+    background: var(--logo2, #07808e);
+    color: #fff;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// 送信後のデフォルトメッセージを隠す（サンクスページへ飛ぶため）
+.wpcf7 form.sent .wpcf7-response-output {
+  display: none !important;
+}

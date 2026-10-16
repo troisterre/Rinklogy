@@ -7,63 +7,73 @@
 .c-form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-  gap: 1rem;
+  align-items: center;
+  width: 100%; // ★重要：親要素の中でまず100%広がるようにする
+  max-width: 70rem; // 最大700pxに制限
+  margin: 0 auto; // 画面の中央に配置
+  gap: 2.4rem;
 
   @include pc {
-    max-width: 80rem; // PC時はフォーム幅を制限して中央寄せ
-    margin: 0 auto;
     gap: 3.2rem;
   }
 
   &__row {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    @include tab {
-      width: 70rem;
-      align-items: flex-start;
-    }
-  }
-
-  // ラベルとバッジのエリア
-  &__label-area {
-    display: flex;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%; // 親(70rem)いっぱいに広げる
     gap: 1.6rem;
-    align-self: stretch;
   }
 
-  &__label {
-    color: var(--text-black, #020d1b);
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
+  @include tab {
+    width: 100%; // ★ 70rem などの固定幅指定を解除
+    align-items: flex-start;
   }
 
-  // 必須バッジ
-  &__badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.4rem;
-    font-weight: 700;
-    font-family: "Noto Sans JP", sans-serif;
-    font-size: 1.1rem;
 
-    &--req {
-      background-color: var(--logo2, #07808e);
-      color: #fff;
-    }
+// ラベルとバッジのエリア
+&__label-area {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  align-self: stretch;
+}
+
+&__label {
+  color: var(--text-black, #020d1b);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+// 必須バッジ
+&__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  font-weight: 700;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.1rem;
+
+  &--req {
+    background-color: var(--logo2, #07808e);
+    color: #fff;
   }
-
-  &__input-area {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+}
+&__input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  p {
+    width: 100%;
+    margin: 0;
+  }
+}
+  .wpcf7-form-control-wrap {
+    display: block;
     width: 100%;
   }
 
@@ -112,49 +122,62 @@
     min-height: 12rem;
   }
 
-  // チェックボックスグループ
+  // ==========================================
+  // CF7対応: チェックボックスグループ
+  // ==========================================
   &__checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1.4rem;
-    margin-bottom: 1.2rem;
+    // CF7が出力するラッパー (.wpcf7-checkbox) を縦並びにして gap を効かせる
+    .wpcf7-checkbox {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
   }
 
-  // カスタムチェックボックス
-  &__checkbox {
-    display: inline-flex;
-    align-items: flex-start;
-    cursor: pointer;
-    position: relative;
+  // ==========================================
+  // CF7対応: チェックボックス本体 (.wpcf7-list-item)
+  // ==========================================
+  // ※「ご相談内容」と「プライバシーポリシー」の両方に自動で適用されます
+  .wpcf7-list-item {
+    display: block;
+    margin: 0; // CF7特有の余白をリセット
 
-    // デフォルトのチェックボックスを非表示にする
+    label {
+      display: block; // クリック範囲を広げる
+      cursor: pointer;
+      position: relative;
+      margin: 0;
+    }
+
+    // ①デフォルトのチェックボックスを非表示
     input[type="checkbox"] {
       position: absolute;
       opacity: 0;
       width: 0;
       height: 0;
+      pointer-events: none;
     }
 
-    // テキストとカスタム枠
-    &-text {
+    // ②ラベルテキスト部分（ここにカスタム枠をつける）
+    .wpcf7-list-item-label {
       position: relative;
-      display: flex;
-      align-items: center;
+      display: inline-block; // br や a タグの改行を正しく効かせる
+      padding-left: 3.2rem; // 左側にカスタム枠を置くスペースを確保
       font-size: 1.5rem;
       line-height: 1.5;
       color: var(--text-black, #020d1b);
 
-      // 未チェック状態の枠線
+      // 未チェック状態の四角枠
       &::before {
         content: "";
-        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 0.2rem; // テキストの高さに合わせて微調整
         width: 1.8rem;
         height: 1.8rem;
         border: 0.1rem solid var(--border, #c6dbde);
         border-radius: 0.4rem;
         background-color: #fff;
-        margin-right: 1.2rem;
-        flex-shrink: 0;
         box-sizing: border-box;
         transition:
           background-color 0.2s,
@@ -165,10 +188,10 @@
       &::after {
         content: "";
         position: absolute;
-        left: 0.7rem; // 枠の中央にくるよう調整
+        left: 0.6rem;
         top: 0.4rem;
-        width: 0.8rem;
-        height: 1.2rem;
+        width: 0.6rem;
+        height: 1rem;
         border-right: 0.2rem solid #fff;
         border-bottom: 0.2rem solid #fff;
         transform: rotate(45deg);
@@ -177,63 +200,33 @@
       }
     }
 
-    // チェックされた時のスタイル変化
-    input[type="checkbox"]:checked + &-text::before {
+    // ③チェックされた時のスタイル変化
+    input[type="checkbox"]:checked ~ .wpcf7-list-item-label::before {
       background-color: var(--logo2, #07808e);
       border-color: var(--logo2, #07808e);
     }
-    input[type="checkbox"]:checked + &-text::after {
+    input[type="checkbox"]:checked ~ .wpcf7-list-item-label::after {
       opacity: 1;
     }
   }
-
   // 区切り線
   &__divider {
     border: none;
     border-top: 0.1rem solid #e2e8f0;
     margin: 1.6rem 0;
   }
-
+  // ==========================================
+  // プライバシーポリシー特有の調整
+  // ==========================================
   &__privacy {
     display: flex;
     justify-content: center;
     margin-bottom: 1.6rem;
+    text-align: left;
 
-    .c-form__checkbox-text {
-      display: inline-block;
-      padding-left: 3rem;
-
-      &::before {
-        position: absolute;
-        left: 0;
-        top: 0.2rem;
-      }
-
-      &::after {
-        left: 0.6rem;
-        top: 0.5rem;
-      }
-
-      @include tab {
-        display: flex;
-        align-items: center;
-        padding-left: 0;
-
-        br {
-          display: none;
-        }
-
-        &::before {
-          position: relative;
-          top: 0;
-        }
-
-        &::after {
-          left: 0.6rem;
-          top: 50%;
-          transform: translateY(-50%) rotate(45deg);
-          margin-top: -0.1rem;
-        }
+    @include tab {
+      .wpcf7-list-item-label br {
+        display: none; // PC・タブレットサイズでは改行させない
       }
     }
 
@@ -247,13 +240,23 @@
     }
   }
 
+  &-link {
+    color: var(--logo2, #07808e);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   // 送信ボタンエリア
   &__submit {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    width: 100%; // ★親の左寄せ(flex-start)に負けず、エリアを横幅100%に広げる
+    margin: 2rem auto 0; // 上に少し余白をつけると綺麗です
   }
-}
+} // ← .c-form の閉じカッコ
 
 // ==========================================
 // Component: 送信ボタン (.c-btn-submit)
@@ -261,11 +264,13 @@
 .c-btn-submit {
   display: flex;
   width: 100%;
+  max-width: 40rem; // ★PC等でボタンが画面の端から端まで伸びないように最大幅を制限
   justify-content: center;
   align-items: center;
   padding: 2.4rem 4.8rem;
-  gap: 4rem;
+  gap: 2rem; // ★矢印との間隔（4remだと空きすぎる可能性があるため2remに調整。お好みで変えてください）
   border-radius: 4rem;
+  border: none; // ★buttonタグ特有のデフォルト枠線を消す
   background: var(--logo2, #07808e);
   box-shadow: 0.2rem 0.4rem 1.2rem 0 rgba(15, 23, 42, 0.08);
   color: #fff;
@@ -273,6 +278,7 @@
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.16rem;
+  margin: 0 auto;
   cursor: pointer;
   position: relative;
   transition:
@@ -298,5 +304,6 @@
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
+    flex-shrink: 0; // ★ボタンが縮んだ時に矢印が潰れないようにする
   }
 }
