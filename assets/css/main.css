@@ -426,6 +426,8 @@ body {
     max-width: 144rem;
     margin: 0 auto;
     width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
 }
 .l-header__logo {
@@ -631,7 +633,7 @@ body {
 
 .l-drawer {
   position: fixed;
-  top: 8rem;
+  top: 7.6rem;
   right: 0;
   width: 100%;
   z-index: 90;
@@ -3266,7 +3268,8 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 17rem 4rem 6rem;
+    margin-top: 120px;
+    padding: 5rem 4rem 6rem;
     gap: 2rem;
     background-image: linear-gradient(311deg, rgba(7, 128, 142, 0.06) 27.27%, rgba(248, 250, 252, 0.15) 57.16%);
     background-color: #f8fafc;
@@ -3278,7 +3281,7 @@ body {
     bottom: 0;
     width: 51.7rem;
     height: 54rem;
-    background-image: url("./images/hero-bg-img-tab.png");
+    background-image: url("../images/hero-bg-img-tab.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom right;
@@ -3289,11 +3292,12 @@ body {
 @media screen and (min-width: 960px) {
   .p-hero__container {
     max-width: 144rem;
-    margin: 0 auto;
+    margin: 120px auto 0;
     -webkit-column-gap: 6rem;
        -moz-column-gap: 6rem;
             column-gap: 6rem;
     grid-template-columns: 2fr 1fr;
+    padding: 5rem 7rem 13.1rem 8rem;
   }
   .p-hero__container::before {
     background-image: url("../images/hero-bg-img.png");
@@ -3344,7 +3348,7 @@ body {
   }
 }
 .p-hero__desc {
-  margin: 0;
+  margin: 4rem 0 0;
   color: #020d1b;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1.3rem;
@@ -7272,6 +7276,217 @@ body {
   letter-spacing: -0.03em;
 }
 .p-contact-thanks__btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.p-privacy {
+  padding: 14rem 2rem 10rem;
+}
+@media screen and (min-width: 768px) {
+  .p-privacy {
+    padding: 18rem 4rem 14rem;
+  }
+}
+.p-privacy__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+.p-privacy__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 4.8rem;
+  text-align: center;
+}
+.p-privacy__title::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--logo2, #07808e);
+  margin-top: 1.2rem;
+  border-radius: 0.2rem;
+}
+.p-privacy__title-en {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--logo2, #07808e);
+  letter-spacing: 0.1em;
+}
+.p-privacy__title-ja {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-black, #020d1b);
+}
+@media screen and (min-width: 768px) {
+  .p-privacy__title-ja {
+    font-size: 3.2rem;
+  }
+}
+.p-privacy__lead {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-black, #020d1b);
+  margin-bottom: 4rem;
+}
+@media screen and (min-width: 768px) {
+  .p-privacy__lead {
+    font-size: 1.6rem;
+  }
+}
+.p-privacy__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3.6rem;
+  margin-bottom: 6.4rem;
+}
+.p-privacy__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1.2rem;
+}
+.p-privacy__heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-black, #020d1b);
+  padding-left: 1.2rem;
+  border-left: 0.4rem solid var(--logo2, #07808e);
+  line-height: 1.4;
+}
+@media screen and (min-width: 768px) {
+  .p-privacy__heading {
+    font-size: 2rem;
+  }
+}
+.p-privacy__text {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-black, #020d1b);
+  margin: 0;
+}
+.p-privacy__list {
+  margin: 0.4rem 0 0;
+  padding-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.6rem;
+}
+.p-privacy__list li {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-black, #020d1b);
+  list-style-type: disc;
+}
+.p-privacy__link {
+  color: var(--logo2, #07808e);
+  text-decoration: underline;
+}
+.p-privacy__link:hover {
+  text-decoration: none;
+}
+.p-privacy__btn-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.p-404 {
+  padding: 16rem 2rem 10rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .p-404 {
+    padding: 20rem 4rem 14rem;
+  }
+}
+.p-404__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+.p-404__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 3.2rem;
+}
+.p-404__title::after {
+  content: "";
+  display: block;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--logo2, #07808e);
+  margin-top: 1.2rem;
+  border-radius: 0.2rem;
+}
+.p-404__title-en {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--logo2, #07808e);
+  letter-spacing: 0.1em;
+}
+.p-404__title-ja {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-black, #020d1b);
+}
+@media screen and (min-width: 768px) {
+  .p-404__title-ja {
+    font-size: 3.2rem;
+  }
+}
+.p-404__message {
+  margin-bottom: 4.8rem;
+}
+.p-404__text {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: var(--text-black, #020d1b);
+}
+@media screen and (min-width: 768px) {
+  .p-404__text {
+    font-size: 1.6rem;
+  }
+}
+.p-404__btn-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

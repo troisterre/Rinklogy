@@ -29,12 +29,14 @@
     @include tab {
       padding: 2rem 3.2rem 1rem;
     }
+
     @include pc {
-      height: $header-height-pc; // variablesで定義されている変数はそのまま活かします
-      padding: 0 4rem;
+      height: $header-height-pc;
+      padding: 0 4rem; // 上下のpaddingは0にして高さを固定
       max-width: 144rem;
       margin: 0 auto;
       width: 100%;
+      box-sizing: border-box; // ★枠線や余白を含めて高さを計算させる
     }
   }
 

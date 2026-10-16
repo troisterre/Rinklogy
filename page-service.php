@@ -773,7 +773,7 @@ get_header(); ?>
       <p class="p-service-case__lead-text-tab-pc">
         サービス内容をご確認いただけましたら、実際のご相談からの進め方もご覧ください。
       </p>
-      <a href="<?php echo esc_url(home_url('/#p-page-flow')); ?>" class="c-btn-service"> 解決までの流れを見る </a>
+      <a href="<?php echo esc_url(home_url('/flow/')); ?>" class="c-btn-service"> 解決までの流れを見る </a>
     </div>
     <!-- /.p-service-case__lead-inner -->
   </div>
@@ -818,7 +818,7 @@ get_header(); ?>
             「何から始めれば良いか分からない」という<br />
             段階でも、お気軽にご相談ください。
           </p>
-          <a href="#" class="p-cta__btn">
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="p-cta__btn">
             無料で相談してみる
             <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
           </a>

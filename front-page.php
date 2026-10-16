@@ -37,7 +37,7 @@
       </div>
       <!-- スライダーの枠（ここまで） -->
 
-      <a href="<?php echo esc_url(home_url('/#contact')); ?>" class="c-btn">無料で相談してみる</a>
+      <a href="<?php echo esc_url(home_url('/contact')); ?>" class="c-btn">無料で相談してみる</a>
     </div>
     <!-- /.p-hero__container -->
   </section>
@@ -532,7 +532,7 @@
             どんなに小さな疑問でも、まずはお気軽にご相談ください。
           </p>
           <div class="p-company__link-wrap">
-            <a href="<?php echo esc_url(home_url('/company/')); ?>" class="p-company__link">会社案内を見る <span
+            <a href="<?php echo esc_url(home_url('/about/')); ?>" class="p-company__link">会社案内を見る <span
                 aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -607,7 +607,7 @@
             「何から始めれば良いか分からない」という<br />
             段階でも、お気軽にご相談ください。
           </p>
-          <a href="#" class="p-cta__btn">
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="p-cta__btn">
             無料で相談してみる
             <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
           </a>

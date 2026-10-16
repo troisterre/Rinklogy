@@ -198,7 +198,7 @@ get_header(); ?>
             「何から始めれば良いか分からない」という<br />
             段階でも、お気軽にご相談ください。
           </p>
-          <a href="#" class="p-cta__btn">
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" s class="p-cta__btn">
             無料で相談してみる
             <span class="p-cta__btn-arrow" aria-hidden="true">→</span>
           </a>

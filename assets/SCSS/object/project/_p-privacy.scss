@@ -1,0 +1,134 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// プライバシーポリシー (.p-privacy)
+// ==========================================
+.p-privacy {
+  padding: 14rem 2rem 10rem;
+
+  @include tab {
+    padding: 18rem 4rem 14rem;
+  }
+
+  &__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  // タイトルエリア（中央寄せ＋下線）
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 4.8rem;
+    text-align: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 0.2rem;
+      background-color: var(--logo2, #07808e);
+      margin-top: 1.2rem;
+      border-radius: 0.2rem;
+    }
+  }
+
+  &__title-en {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--logo2, #07808e);
+    letter-spacing: 0.1em;
+  }
+
+  &__title-ja {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-black, #020d1b);
+
+    @include tab {
+      font-size: 3.2rem;
+    }
+  }
+
+  // リード文
+  &__lead {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-black, #020d1b);
+    margin-bottom: 4rem;
+
+    @include tab {
+      font-size: 1.6rem;
+    }
+  }
+
+  // 本文エリア
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 3.6rem;
+    margin-bottom: 6.4rem;
+  }
+
+  // 各条項のブロック
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  // 見出し（左にアクセントライン）
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-black, #020d1b);
+    padding-left: 1.2rem;
+    border-left: 0.4rem solid var(--logo2, #07808e);
+    line-height: 1.4;
+
+    @include tab {
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--text-black, #020d1b);
+    margin: 0;
+  }
+
+  // 箇条書きリスト
+  &__list {
+    margin: 0.4rem 0 0;
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    li {
+      font-size: 1.5rem;
+      line-height: 1.6;
+      color: var(--text-black, #020d1b);
+      list-style-type: disc;
+    }
+  }
+
+  &__link {
+    color: var(--logo2, #07808e);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // 下部ボタンエリア
+  &__btn-wrap {
+    display: flex;
+    justify-content: center;
+  }
+}

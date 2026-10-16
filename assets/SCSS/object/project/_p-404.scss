@@ -1,0 +1,74 @@
+@use "../../foundation/mixins" as *;
+@use "../../foundation/variables" as *;
+
+// ==========================================
+// 404ページ (.p-404)
+// ==========================================
+.p-404 {
+  padding: 16rem 2rem 10rem;
+  text-align: center;
+
+  @include tab {
+    padding: 20rem 4rem 14rem;
+  }
+
+  &__inner {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 3.2rem;
+
+    // タイトル下の短いライン
+    &::after {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 0.2rem;
+      background-color: var(--logo2, #07808e);
+      margin-top: 1.2rem;
+      border-radius: 0.2rem;
+    }
+  }
+
+  &__title-en {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--logo2, #07808e);
+    letter-spacing: 0.1em;
+  }
+
+  &__title-ja {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-black, #020d1b);
+
+    @include tab {
+      font-size: 3.2rem;
+    }
+  }
+
+  &__message {
+    margin-bottom: 4.8rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: var(--text-black, #020d1b);
+
+    @include tab {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__btn-wrap {
+    display: flex;
+    justify-content: center;
+  }
+}
