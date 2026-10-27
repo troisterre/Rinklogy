@@ -296,7 +296,7 @@
             $dot_count = 0;
             while ($dot_count < $support_query->post_count) {
               $active_class = ($dot_count === 0) ? ' is-active' : '';
-              echo '<span class="c-dot js-support-dot' . $active_class . '"></span>';
+              echo '<span class="c-dot js-consult-dot-items' . $active_class . '"></span>';
               $dot_count++;
             }
           }

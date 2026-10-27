@@ -3402,11 +3402,11 @@ body {
 @media screen and (min-width: 960px) {
   .p-hero__copy {
     font-size: 4rem;
-    letter-spacing: 0.744rem;
+    letter-spacing: 0;
   }
   .p-hero__copy span {
     font-size: 6.2rem;
-    letter-spacing: 0.62rem;
+    letter-spacing: 0em;
   }
 }
 .p-hero__image {
