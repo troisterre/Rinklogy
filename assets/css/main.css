@@ -3504,6 +3504,7 @@ body {
     width: 58rem;
     margin-top: 0;
     margin-right: 0;
+    top: 10%;
     -webkit-transform: translateY(-14rem);
             transform: translateY(-14rem);
   }
