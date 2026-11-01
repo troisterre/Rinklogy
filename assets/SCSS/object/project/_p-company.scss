@@ -25,6 +25,8 @@
     column-gap: 2rem;
 
     @include tab {
+      background-color: var(--base_background, #f8fafc);
+      border: none;
       margin-top: 5.6rem;
       padding: 4rem;
       // タブレット以上: 画像を大きくし、見出しとテキストを右側にまとめる
@@ -157,7 +159,7 @@
       gap: 4rem;
       align-self: stretch;
       border-radius: 1.6rem;
-
+      border: 1px solid var(--border, #c6dbde);
       background: #fff;
       margin-top: 4rem;
     }

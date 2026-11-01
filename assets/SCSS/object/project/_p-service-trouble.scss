@@ -6,11 +6,12 @@
 
   &__container {
     display: flex;
-    padding: 4rem 0.8rem 6.4rem; // 短縮記法に変更
+    padding: 4rem 0.8rem 6.4rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 3.2rem;
     align-self: stretch;
+    width: 100%; // ★コンテナ自体が縮まないように100%を指定
 
     @include tab {
       padding: 8rem 2rem;
@@ -19,18 +20,19 @@
     @include pc {
       padding: 14rem 4rem 10rem;
       gap: 8rem;
+      max-width: 1120px;
     }
   }
 
   &__list {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    align-content: flex-start;
+    align-items: stretch; // カードの高さを揃える
     gap: 1.6rem;
     align-self: stretch;
     flex-wrap: wrap;
     position: relative;
+    width: 100%; // ★親の align-items: flex-start で左に寄るのを防ぐ
 
     @include tab {
       gap: 2.8rem;
@@ -38,17 +40,46 @@
 
     @include pc {
       display: grid;
-      // ★修正: 高さや行の指定は削除し、中身に合わせて自動で伸びるようにします
       grid-template-columns: repeat(3, minmax(0, 1fr));
       row-gap: 3.2rem;
       column-gap: 3.5rem;
 
-      // ==========================================
-      // ★魔法のコード: 最後の1枚を真ん中（2列目）に配置
-      // （4枚目、7枚目など「3の倍数＋1」で終わる時だけ発動します）
-      // ==========================================
+      // 最後の1枚（7枚目）を真ん中（2列目）に配置
       > *:last-child:nth-child(3n + 1) {
         grid-column: 2 / 3;
+      }
+    }
+
+    // ★カード（.c-trouble-card）の幅とアイコンサイズを確実に制御
+    .c-trouble-card {
+      // タブレット（2列にして余った7枚目を中央寄せ）
+      @include tab {
+        width: calc((100% - 2.8rem) / 2);
+        max-width: none;
+        height: 180px;
+      }
+
+      // PC（Gridの3分割のマス目に100%広げる）
+      @include pc {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+
+      // ★タブレット以上でアイコンを 94px (9.4rem) に指定
+      &__icon {
+        @include tab {
+          width: 9.4rem; // 94px
+          height: 9.4rem; // 94px
+        }
+      }
+
+      &__img {
+        @include tab {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
       }
     }
   }
@@ -59,6 +90,7 @@
     font-size: 1.6rem;
     font-weight: 500;
     text-align: start;
+    width: 100%;
 
     @include tab {
       font-size: 1.8rem;

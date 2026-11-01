@@ -178,7 +178,7 @@ get_header(); ?>
         <!-- 強み01 -->
         <div class="c-strength-card">
           <div class="c-strength-card__header">
-            <span class="c-strength-card__num">Strength 01</span>
+            <span class="c-strength-card__num">Strength <span class="c-strength-card__num-val">01</span></span>
             <div class="c-strength-card__img">
               <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/strength-card_icon_01.svg')); ?>" alt=""
                 class="c-strength-card__icon" />
@@ -198,7 +198,7 @@ get_header(); ?>
         <!-- 強み02 -->
         <div class="c-strength-card">
           <div class="c-strength-card__header">
-            <span class="c-strength-card__num">Strength 02</span>
+            <span class="c-strength-card__num">Strength <span class="c-strength-card__num-val">02</span></span>
             <div class="c-strength-card__img">
               <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/strength-card_icon_02.svg')); ?>" alt=""
                 class="c-strength-card__icon" />
@@ -218,7 +218,7 @@ get_header(); ?>
         <!-- 強み03 -->
         <div class="c-strength-card">
           <div class="c-strength-card__header">
-            <span class="c-strength-card__num">Strength 03</span>
+            <span class="c-strength-card__num">Strength <span class="c-strength-card__num-val">03</span></span>
             <div class="c-strength-card__img">
               <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/strength-card_icon_03.svg')); ?>" alt=""
                 class="c-strength-card__icon" />
@@ -237,7 +237,7 @@ get_header(); ?>
         <!-- 強み04 -->
         <div class="c-strength-card">
           <div class="c-strength-card__header">
-            <span class="c-strength-card__num">Strength 04</span>
+            <span class="c-strength-card__num">Strength <span class="c-strength-card__num-val">04</span></span>
             <div class="c-strength-card__img">
               <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/strength-card_icon_04.svg')); ?>" alt=""
                 class="c-strength-card__icon" />

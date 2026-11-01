@@ -98,3 +98,11 @@
     }
   }
 }
+// ※親のクラス名は実際のセクションのクラス名に合わせてください
+.p-support-area {
+  .c-section-title--left {
+    width: 100%;
+    max-width: 112rem; // 1120px以上に広がらないように制限
+    margin-inline: auto; // 1120pxを超えた際、コンテンツ枠の中央に配置（中身のテキストは左揃えのまま）
+  }
+}

@@ -140,14 +140,20 @@
 
     @include tab {
       display: block;
+      position: absolute; // ★必須：topやrightを効かせ、親要素の干渉を防ぐ
       top: 40%;
       right: -15%;
-      transform: translateY(-50%); // 縦中央に配置
+      transform: translateY(-50%);
       background-image: url("../images/flow-pc-bg.png");
+      background-repeat: no-repeat; // ★背景の繰り返しを防止
+      background-size: contain; // ★要素の幅・高さいっぱいに画像を広げる（または 100% 100%）
+      background-position: center;
       width: 75.1rem;
       height: 28.1rem;
-      aspect-ratio: 302/113;
+      max-width: none; // ★100%制限を解除して指定サイズ通り広げる
+      aspect-ratio: 302 / 113;
       opacity: 0.8;
+      pointer-events: none; // 背面のテキストやボタンをクリックできるようにする
     }
     @include pc {
       top: 50%;

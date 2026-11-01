@@ -6,7 +6,7 @@
 // ==========================================
 .p-service-case {
   display: flex;
-  padding: 3.2rem 0.8rem 6.4rem; // 短縮記法に変更
+  padding: 3.2rem 0.8rem 6.4rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 3.2rem;
@@ -14,30 +14,28 @@
 
   @include tab {
     padding: 8rem 2rem;
-    // align-self: stretch; は引き継がれるため削除
   }
   @include pc {
     padding: 10rem 4rem;
-    // display, flex-direction, align-items, align-self は引き継がれるため削除
   }
 
   &__container {
+    width: 100%;
+
     @include tab {
       display: flex;
       flex-direction: column;
       gap: 5.6rem;
     }
-    @include pc {
-      gap: 8rem;
-    }
   }
 
   &__list {
     display: flex;
-    padding: 2.8rem 2rem 2rem; // 短縮記法に変更
+    padding: 2.8rem 2rem 2rem;
     flex-direction: column;
     align-items: center;
     gap: 3.2rem;
+    width: 100%;
 
     @include tab {
       flex-direction: row;
@@ -46,10 +44,8 @@
     }
 
     @include pc {
-      // flex-direction: row; は tab から引き継がれるため削除
       align-items: stretch;
       gap: 2.4rem;
-      margin-top: 5.6rem;
       flex-wrap: nowrap;
     }
   }
@@ -57,6 +53,7 @@
   // 下部の誘導エリア
   &__lead {
     background: #f8fafc;
+    width: 100%;
   }
 
   &__lead-inner {
@@ -70,11 +67,16 @@
       padding: 8rem 2rem;
       gap: 5.6rem;
       align-self: stretch;
-      // display, flex-direction, align-items は引き継がれるため削除
     }
     @include pc {
       padding: 10rem 0;
       gap: 6rem;
+    }
+  }
+  &__lead-inner {
+    .c-btn-service {
+      width: 100%;
+      max-width: 48.6rem;
     }
   }
 
@@ -87,11 +89,9 @@
 
     @include tab {
       align-self: stretch;
-      // padding-bottom や flex 関連の重複指定を削除
     }
     @include pc {
       gap: 1.6rem;
-      // padding-bottom の重複を削除
     }
 
     &::after {
@@ -123,12 +123,10 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
-    // font-style: normal, line-height: normal を削除
 
     @include tab {
       font-size: 3.4rem;
     }
-
     @include pc {
       font-size: 4.2rem;
     }
@@ -140,9 +138,8 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
-    line-height: 1.8; // 180% を倍率指定に変更
+    line-height: 1.8;
     margin-bottom: 0.4rem;
-    // font-style: normal を削除
 
     @include tab {
       display: none;
@@ -160,9 +157,8 @@
       font-family: "Noto Sans JP", sans-serif;
       font-size: 1.6rem;
       font-weight: 500;
-      line-height: 1.75; // 28px/16px に相当。倍率に変更
+      line-height: 1.75;
       margin-bottom: 0.4rem;
-      // font-style: normal を削除
     }
     @include pc {
       margin-bottom: 0;
