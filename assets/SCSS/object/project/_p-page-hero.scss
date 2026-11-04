@@ -202,12 +202,15 @@
       pointer-events: none;
     }
     @include pc {
-      top: 50%;
+      top: 60%;
       right: calc(50% - 80rem);
-      width: 120.9rem;
-      height: 44.4rem;
+      width: 100.5rem;
+      height: 37.7rem;
       max-width: none; // ★PC時にも max-width: none; を確実に効かせる
-      aspect-ratio: 226 / 83;
+      aspect-ratio: 997/374;
+      opacity: 0.8;
+      -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 19.11%, #000 69.17%, transparent 100%);
+      mask-image: linear-gradient(270deg, transparent 0%, #000 19.11%, #000 69.17%, transparent 100%);
     }
   }
 
