@@ -18,9 +18,8 @@ get_header(); ?>
         どのサービスが必要か決まっていなくても大丈夫です。<br>お客様の悩みや課題を伺いながら、必要な支援を一緒に考えます。
       </p>
     </div>
-    <div class="p-page-hero__deco p-page-hero__deco-service" aria-hidden="true">
-      <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/service-bg-img.png')); ?>" alt="" />
-    </div>
+    <div class="p-page-hero__deco p-page-hero__deco-service" aria-hidden="true"></div>
+    <div class="p-page-hero__deco p-page-hero__deco-service-tab-pc" aria-hidden="true"></div>
   </section>
 
   <!-- ========================================

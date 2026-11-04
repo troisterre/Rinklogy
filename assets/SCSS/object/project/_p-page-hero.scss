@@ -18,7 +18,7 @@
     z-index: 2;
     display: flex;
     height: 38rem;
-    padding: 4.8rem 0.8rem 0; // 短縮記法に変更
+    padding: 4.8rem 0.8rem 0;
     flex-direction: column;
     align-items: flex-start;
     gap: 2.8rem;
@@ -34,14 +34,12 @@
       gap: 4.8rem;
       max-width: 116rem;
       margin: 0 auto;
-      // flex-direction と align-items は引き継がれるため削除しました
     }
   }
 
   &__title-en {
     display: block;
     color: var(--color-primary);
-    line-height: 1;
     font-family: "Roboto", sans-serif;
     font-size: 6.8rem;
     font-weight: 800;
@@ -65,7 +63,6 @@
     font-family: "Noto Sans JP", sans-serif;
     font-size: 2.4rem;
     font-weight: 900;
-    // line-height: normal; を削除しました
 
     @include tab {
       font-size: 3.2rem;
@@ -98,6 +95,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+
     @include tab {
       width: 39rem;
       top: 20%;
@@ -108,10 +106,11 @@
       top: 10%;
       right: 8%;
       width: 65rem;
-      max-width: 650px;
     }
+
     img {
       width: 100%;
+      max-width: none; // ★imgタグが入っている場合でも親幅いっぱいに広がるようにする
       height: auto;
       object-fit: contain;
     }
@@ -123,12 +122,12 @@
   &__deco-flow {
     top: 54%;
     right: -14%;
-    transform: translateY(-50%); // 縦中央に配置
+    transform: translateY(-50%);
     opacity: 0.8;
     background-image: url("../images/flow-bg.png");
     width: 46.6rem;
     height: 25.8rem;
-    aspect-ratio: 233/129;
+    aspect-ratio: 233 / 129;
 
     @include tab {
       display: none;
@@ -140,70 +139,108 @@
 
     @include tab {
       display: block;
-      position: absolute; // ★必須：topやrightを効かせ、親要素の干渉を防ぐ
+      position: absolute;
       top: 40%;
       right: -15%;
       transform: translateY(-50%);
       background-image: url("../images/flow-pc-bg.png");
-      background-repeat: no-repeat; // ★背景の繰り返しを防止
-      background-size: contain; // ★要素の幅・高さいっぱいに画像を広げる（または 100% 100%）
+      background-repeat: no-repeat;
+      background-size: contain;
       background-position: center;
       width: 75.1rem;
       height: 28.1rem;
-      max-width: none; // ★100%制限を解除して指定サイズ通り広げる
+      max-width: none;
       aspect-ratio: 302 / 113;
       opacity: 0.8;
-      pointer-events: none; // 背面のテキストやボタンをクリックできるようにする
+      pointer-events: none;
     }
     @include pc {
       top: 50%;
-      right: calc(50% - 80rem); // 右端に寄りすぎないよう調整
+      right: calc(50% - 80rem);
       width: 120.9rem;
       height: 44.4rem;
-      aspect-ratio: 226/83;
+      max-width: none; // ★PC時にも max-width: none; を確実に効かせる
+      aspect-ratio: 226 / 83;
+    }
+  }
+  // ==========================================
+  // Serviceページ用（共通ベースを上書き）
+  // ==========================================
+  &__deco-service {
+    top: 54%;
+    right: -14%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    background-image: url("../images/service_hero_img.png");
+    width: 46.6rem;
+    height: 25.8rem;
+    aspect-ratio: 233 / 129;
+
+    @include tab {
+      display: none;
+    }
+  }
+
+  &__deco-service-tab-pc {
+    display: none;
+
+    @include tab {
+      display: block;
+      position: absolute;
+      top: 40%;
+      right: -15%;
+      transform: translateY(-50%);
+      background-image: url("../images/service_hero_img.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 75.1rem;
+      height: 28.1rem;
+      max-width: none;
+      aspect-ratio: 302 / 113;
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    @include pc {
+      top: 50%;
+      right: calc(50% - 80rem);
+      width: 120.9rem;
+      height: 44.4rem;
+      max-width: none; // ★PC時にも max-width: none; を確実に効かせる
+      aspect-ratio: 226 / 83;
     }
   }
 
   // ==========================================
-  // Serviceページ用
+  // Flowページ用（単独クラスとして完結）
   // ==========================================
-  &__deco-service {
-    top: 63%;
-    right: -70%;
-    transform: translateY(-50%);
-    width: 64.3rem;
-    height: 24.1rem;
-    aspect-ratio: 643/241;
-    background-image: url("../images/service-bg-img.png");
-    opacity: 0.4;
-
-    mask-image: linear-gradient(
-      90deg,
-      #f8fafc 0%,
-      rgba(248, 250, 252, 0) 19.11%,
-      rgba(248, 250, 252, 0.6) 46.35%,
-      #f8fafc 86.46%
-    );
-    -webkit-mask-image: -webkit-linear-gradient(
-      90deg,
-      #f8fafc 0%,
-      rgba(248, 250, 252, 0) 19.11%,
-      rgba(248, 250, 252, 0.6) 46.35%,
-      #f8fafc 86.46%
-    );
+  &__deco-flow-tab-pc {
+    display: none;
 
     @include tab {
-      top: 70%;
-      width: 72rem;
-      height: 27rem;
-      aspect-ratio: 8/3;
-      right: -25%;
+      display: block;
+      position: absolute;
+      z-index: 1; // ★追加
+      top: 40%;
+      right: -15%;
+      transform: translateY(-50%);
+      background-image: url("../images/flow-pc-bg.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 75.1rem;
+      height: 28.1rem;
+      aspect-ratio: 302 / 113;
       opacity: 0.8;
+      pointer-events: none;
     }
+
     @include pc {
-      width: 100.5rem;
-      height: 37.7rem;
-      right: -5%;
+      top: 50%;
+      right: calc(50% - 80rem);
+      width: 120.9rem;
+      height: 44.4rem;
+      aspect-ratio: 226 / 83;
     }
   }
 }
